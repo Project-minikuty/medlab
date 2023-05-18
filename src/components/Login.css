@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 90vh;
+  height: 50vh;
   padding-left: 200px; /* Adjust the left padding as needed */
 }
 
@@ -34,4 +34,10 @@
   background-color: white;
   color: #498589;
   border-color: #498589;
+}
+
+
+.card-shadow {
+  background-color: rgba(73, 133, 137, 0.040);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
