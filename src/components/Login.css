@@ -1,0 +1,37 @@
+.Login {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 90vh;
+  padding-left: 200px; /* Adjust the left padding as needed */
+}
+
+.Login form {
+  width: 350px; /* Increased width of the form */
+}
+
+.Login form .form-group {
+  margin-bottom: 2rem; /* Increased margin-bottom for spacing */
+  padding-bottom: 2rem;
+}
+
+.Login form .form-group:not(:last-child) {
+  margin-bottom: 3rem; /* Increased space between input fields */
+}
+
+.Login form .form-group .form-control {
+  height: 500px; /* Increased height of the input fields */
+  border-color: #498589; /* Field outline color */
+}
+
+.Login form .form-group label {
+  color: #498589; /* Field label color */
+}
+
+.Login form button[type="submit"] {
+  margin-top: 3rem;
+  margin-left: 9rem;
+  background-color: white;
+  color: #498589;
+  border-color: #498589;
+}
