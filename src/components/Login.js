@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./Login.css";
 
+
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +33,7 @@ export default function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
+            <br />
             <Form.Group size="lg" controlId="password">
               <Form.Label style={{ color: "#498589" }}>Password</Form.Label>
               <Form.Control
@@ -59,3 +62,4 @@ export default function Login() {
     </div>
   );
 }
+

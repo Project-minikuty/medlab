@@ -12,6 +12,7 @@ function App() {
   <>
 
   <BrandNav />
+
   <Heading />
   <SubHeading />
   <Login/>

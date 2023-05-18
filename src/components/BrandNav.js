@@ -15,11 +15,11 @@ function BrandNav() {
             <img
               alt=""
               src={require("../images/MedlabLogo.png")}
-              width="40"
-              height="30"
+              width="35"
+              height="25"
               className="d-inline-block align-top"
             />{' '}
-            MEDLAB
+            <span>MEDLAB</span>
           </Navbar.Brand>
         </Container>
       </Navbar>
