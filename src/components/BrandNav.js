@@ -1,5 +1,5 @@
 import { Navbar, Container } from 'react-bootstrap';
-
+import "./Brandnav.css"
 function BrandNav() {
   const navBrandStyle = {
     color: 'black',
@@ -9,9 +9,9 @@ function BrandNav() {
 
   return (
     <>
-      <Navbar bg="light" variant="dark">
+      <Navbar bg="light" variant="dark" className='Navbar'>
         <Container>
-          <Navbar.Brand href="#home" style={navBrandStyle}>
+          <Navbar.Brand href="" style={navBrandStyle}>
             <img
               alt=""
               src={require("../images/MedlabLogo.png")}

@@ -1,9 +1,9 @@
 .Login {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   height: 45vh;
-  padding-left: 200px; /* Adjust the left padding as needed */
+  /* Adjust the left padding as needed */
 }
 
 .Login form {
@@ -11,7 +11,8 @@
 }
 
 .Login form .form-group {
-  margin-bottom: 2rem; /* Increased margin-bottom for spacing */
+  margin-bottom: 2rem;
+   /* Increased margin-bottom for spacing */
   padding-bottom: 2rem;
 }
 
@@ -35,10 +36,12 @@
   color: #498589;
   border-color: #498589;
 }
-
+.mobile-logo {
+  display: none;
+}
 
 .card-shadow {
-  background-color: rgba(73, 133, 137, 0.040);
+  background-color: rgba(73, 133, 137, 0.04);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -46,7 +49,6 @@
   font-size: 13px;
   color: #6c757d;
 }
-
 
 .custom-placeholder::placeholder {
   font-size: 12px;
@@ -63,3 +65,18 @@
   width: 100px; /* Set your desired width */
 }
 
+@media only screen and (max-width: 960px) {
+  .Login {
+    margin-top: 20px;
+    justify-content: center;
+    height: 30vh;
+  }
+  .mobile-logo {
+    display: inline;
+    width: 173px;
+    /* height: 138px; */
+padding-bottom: 30px;
+margin-bottom: 30px;
+  }
+  
+}

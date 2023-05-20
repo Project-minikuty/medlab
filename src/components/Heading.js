@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Heading.css"
 const Heading = () => {
   const headingStyle = {
     marginTop: "130px", // Adjust the margin as needed
@@ -10,7 +10,7 @@ const Heading = () => {
 
   return (
     <>
-      <h2 style={headingStyle}>Welcome to MEDLAB</h2>
+      <h2 className="heading" style={headingStyle}>Welcome to MEDLAB</h2>
     </>
   );
 };

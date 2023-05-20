@@ -10,7 +10,7 @@ const SubHeading = () => {
 
   return (
     <>
-      <h6 style={headingStyle}>Please login to continue</h6>
+      <h6 className="subheading" style={headingStyle}>Please login to continue</h6>
     </>
   );
 };

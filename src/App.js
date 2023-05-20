@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BrandNav from './components/BrandNav';
-import TwoGrids from './components/TwoGrid';
+import Login from './pages/login';
 
 function App() {
   // Disable scrolling on mount
-  React.useEffect(() => {
-    document.documentElement.style.overflow = 'hidden';
-    return () => {
-      // Enable scrolling on unmount
-      document.documentElement.style.overflow = 'auto';
-    };
-  }, []);
+  
 
   return (
     <>
-      <BrandNav />
-      <TwoGrids />
+      <Login/>
     </>
   );
 }
