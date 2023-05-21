@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Heading from "./Heading";
@@ -10,21 +10,29 @@ import "./Login-form.css";
 export default function Login() {
   const [usrname, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [errMsg, setErrMsg] = useState("");
+  useEffect(() => {
+    setErrMsg("");
+  }, [usrname, password]);
   function validateForm() {
     return usrname.length > 0 && password.length > 0;
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.get(`/auth/validate?username=${usrname}&password=${password}`)
-    .then((res)=>{
-      console.log(res);
-    })
-    .catch((err)=>{
-      console.log(err);});
+    axios
+      .get(`/auth/validate?username=${usrname}&password=${password}`)
+      .then((res) => {
+        setErrMsg(res.data.message);
+        if (res.data.access) {
+          console.log("logged");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-      console.log(usrname, password);
+    console.log(usrname, password);
   }
 
   return (
@@ -57,15 +65,24 @@ export default function Login() {
               className="custom-placeholder"
             />
           </Form.Group>
-          <Button
-            block
-            size="md"
-            type="submit"
-            disabled={!validateForm()}
-            className="custom-button"
-          >
-            Login
-          </Button>
+          {errMsg ? (
+            <div className="err-msg">
+              <text>{errMsg}</text>
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="d-flex justify-content-center">
+            <Button
+              block
+              size="md"
+              type="submit"
+              disabled={!validateForm()}
+              className="custom-button"
+            >
+              Login
+            </Button>
+          </div>
         </Form>
       </div>
       <div className="d-flex justify-content-center">
