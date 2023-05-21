@@ -4,7 +4,7 @@
   height: 90vh;
 }
 .bg-container .bg-image {
-  background-image: url("../images/Design.png");
+  background-image: url("../../images/Design.png");
   min-width: 514px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,7 +29,7 @@
     border-radius: 0px 0px 25px 25px;
   }
   .bg-container .bg-image {
-    background-image: url("../images/mobile-login-bg.png");
+    background-image: url("../../images/mobile-login-bg.png");
     min-width: 181px;
     height: 166px;
     background-repeat: no-repeat;

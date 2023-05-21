@@ -70,7 +70,7 @@ export default function Login() {
       <div className="d-flex justify-content-center">
         <img
           className="mobile-logo"
-          src={require("../images/mobile-logo.png")}
+          src={require("../../images/mobile-logo.png")}
           alt="logo"
         ></img>
       </div>
