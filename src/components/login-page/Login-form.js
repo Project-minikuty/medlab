@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
-import axios from "axios";
+import axios from "../../axiosSetup";
+// import axios from "axios";
 import "./Login-form.css";
 
 export default function Login() {
@@ -16,7 +17,7 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.get(`https://medback.onrender.com//auth/validate?username=${usrname}&password=${password}`)
+    axios.get(`/auth/validate?username=${usrname}&password=${password}`)
     .then((res)=>{
       console.log(res);
     })
