@@ -1,17 +1,18 @@
 import React from 'react';
-// import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/login';
+import Parent from './pages/parent';
 
 function App() {
-  // Disable scrolling on mount
-  
-
   return (
-    <>
-      <Login/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/parent" element={<Parent />} />
+      </Routes>
+    </Router>
   );
 }
 

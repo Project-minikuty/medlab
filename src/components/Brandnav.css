@@ -2,5 +2,9 @@
   .Navbar {
     display: none;
   }
-  
 }
+
+body {
+  color: black;
+}
+
