@@ -5,19 +5,15 @@ import Bg from "../components/parent-dashboard/Parent-Bg";
 import "./dashboard.css";
 import Options from "../components/parent-dashboard/Options";
 
-
 function Parent() {
-  
   return (
-   <>
-      <BrandNav logout="true"/>
-      <div className="parentcontainer">
-      <Options />
+    <>
+      <BrandNav logout="true" />
+      <div className="parentcontainer" style={{ overflowX: "hidden" }}>
+        <Options />
         <Bg />
-        
       </div>
-   
-   </>
+    </>
   );
 }
 
