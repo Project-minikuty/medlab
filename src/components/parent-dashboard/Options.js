@@ -19,7 +19,7 @@ function ButtonGrid() {
   };
 
   return (
-    <>
+    <div >
    <Heading />
     <SubHeading />
     <div>
@@ -37,7 +37,7 @@ function ButtonGrid() {
   <div>
     <button style={buttonStyle} onClick={() => handleButtonClick(5)}>Button 1</button>
   </div>
-  </>
+  </div>
     
   );
 }
