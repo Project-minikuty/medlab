@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/login';
 import Parent from './pages/parent';
 import Doctor from './pages/doctor';
+import Admin from './pages/admin';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/parent" element={<Parent />} />
         <Route path="/doctor" element={<Doctor />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

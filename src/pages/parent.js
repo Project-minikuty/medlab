@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import Bg from "../components/parent-dashboard/Parent-Bg";
-import "./parent.css";
+import "./dashboard.css";
 import Options from "../components/parent-dashboard/Options";
 
 
