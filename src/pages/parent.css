@@ -1,0 +1,19 @@
+
+body{
+  height: 100dvh;
+  width: 100vw;
+}
+.parentcontainer{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 960px) {
+  .parentcontainer{
+      flex-direction: column-reverse;
+      overflow: scroll;
+  }
+ 
+}
