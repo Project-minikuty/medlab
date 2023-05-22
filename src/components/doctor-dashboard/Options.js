@@ -16,9 +16,9 @@ function ButtonGrid() {
     background: 'white',
     fontWeight: 'bold',
     cursor: 'pointer',
-    width: '400px',
+    width: '390px',
     marginBottom: '25px',
-    marginLeft: '8px',
+    marginLeft: '10px',
   };
 
   const desktopButtonStyle = {
