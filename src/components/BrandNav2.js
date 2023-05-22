@@ -29,9 +29,9 @@ function BrandNav2() {
     <>
       <nav className='navbar navbar-light bg-light'>
         <div className='container'>
-          <a href='' className='navbar-brand' style={navBrandStyle}>
+          <a href='#home' className='navbar-brand' style={navBrandStyle}>
             <img
-              alt=''
+              alt='logo'
               src={require("../images/MedlabLogo.png")}
               width='35'
               height='25'
