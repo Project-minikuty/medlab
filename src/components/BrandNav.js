@@ -27,7 +27,7 @@ function BrandNav2(props) {
 
   return (
     <>
-      <nav className="navbar navbar-light bg-light">
+      <nav className="navbar navbar-light bg-light Navbar">
         <div className="container">
           <a href="#home" className="navbar-brand" style={navBrandStyle}>
             <img
