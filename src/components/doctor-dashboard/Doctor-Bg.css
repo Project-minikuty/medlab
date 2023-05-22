@@ -1,0 +1,77 @@
+.parent-bg-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 90vh;
+}
+.parent-bg-container .bg-image {
+  background-image: url("../../images/DoctorBG.png");
+  min-width: 514px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parent-bg-container .bg-sub-text,
+.parent-bg-container .bg-text {
+  display: none;
+}
+@media only screen and (max-width: 960px) {
+  .parent-bg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 428px; */
+    height: 361px;
+
+    background: radial-gradient(
+      33.1% 33.1% at 50% 37.81%,
+      rgba(16, 201, 157, 0) 0%,
+      rgba(16, 201, 157, 0.85) 100%
+    );
+    border-radius: 0px 0px 25px 25px;
+  }
+  .parent-bg-container .bg-image {
+    background-image: url("../../images/DoctorBGMobile.png");
+    min-width: 181px;
+    height: 166px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 60px;
+  }
+  .parent-bg-container .bg-text {
+    display: block;
+    position: absolute;
+    width: 357px;
+    height: 74px;
+    left: 26px;
+    top: 300px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    /* identical to box height, or 54px */
+
+    letter-spacing: -0.022em;
+
+    color: #ffffff;
+  }
+  .parent-bg-container .bg-sub-text {
+    display: block;
+    position: absolute;
+    width: 250px;
+    height: 27px;
+    left: 26px;
+    top: 345px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    /* identical to box height, or 27px */
+
+    letter-spacing: -0.022em;
+
+    color: #ffffff;
+  }
+}
