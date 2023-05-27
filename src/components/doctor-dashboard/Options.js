@@ -1,6 +1,5 @@
 import React from 'react';
-import Heading from './Heading';
-import SubHeading from './SubHeading';
+import Heading from '../Heading';
 
 
 function ButtonGrid() {
@@ -32,8 +31,7 @@ function ButtonGrid() {
     <>
     
     <div>
-      <Heading />
-      <SubHeading />
+      <Heading type={2} />
       <br />
       <br />
       <br />

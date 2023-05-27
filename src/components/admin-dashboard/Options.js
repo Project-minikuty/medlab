@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Heading from './Heading';
-import SubHeading from './SubHeading';
+import Heading from '../Heading';
 
 function ButtonGrid() {
   const handleButtonClick = (buttonId) => {
@@ -50,8 +49,7 @@ function ButtonGrid() {
   return (
     <>
       <div>
-        <Heading />
-        <SubHeading />
+        <Heading type={1}/>
         <br />
         <br />
         <div>

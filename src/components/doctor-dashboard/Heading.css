@@ -1,9 +1,0 @@
-.heading,.subheading{
-    display: block;
-}
-@media only screen and (max-width: 960px) {
-  
-    .heading,.subheading{
-        display: none;
-    }
-  }
