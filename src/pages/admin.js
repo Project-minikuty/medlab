@@ -1,9 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
-import Bg from "../components/admin-dashboard/Admin-Bg";
 import "./dashboard.css";
-import Options from "../components/admin-dashboard/Options";
+import ButtonGrid from "../components/admin-dashboard/Options";
+import Bg from "../components/Bg";
 
 
 function Doctor() {
@@ -12,9 +12,10 @@ function Doctor() {
    <>
       <BrandNav logout="true"/>
       <div className="parentcontainer">
-      <Options />
-        <Bg />
-        
+
+<ButtonGrid />
+
+        <Bg bgText="Welcome Admin" bgSubText=" Manage your admin privileges here" />
       </div>
    
    </>

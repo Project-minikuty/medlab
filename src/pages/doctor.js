@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
-import Bg from "../components/doctor-dashboard/Doctor-Bg";
+import Bg from "../components/Bg";
 import "./dashboard.css";
 import Options from "../components/doctor-dashboard/Options";
 
@@ -13,7 +13,7 @@ function Doctor() {
       <BrandNav logout="true"/>
       <div className="parentcontainer">
       <Options />
-        <Bg />
+        <Bg bgText="Welcome Doctor" bgSubText="Manage your patient data here" />
         
       </div>
    

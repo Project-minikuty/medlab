@@ -1,7 +1,9 @@
 import React from "react";
-import "./Parent-Bg.css"; // Import the CSS file for styling
+import "./Bg.css"; // Import the CSS file for styling
 
-const Bg = () => {
+const Bg = (props) => {
+  const { bgText, bgSubText } = props;
+
   return (
     <div className="parent-bg-container">
       <div 
@@ -10,11 +12,11 @@ const Bg = () => {
         className="bg-image"
       />
       <div className="bg-text">
-        Welcome Parent
-        </div>
-        <div className="bg-sub-text">
-        Manage your student data here
-        </div>
+        {bgText}
+      </div>
+      <div className="bg-sub-text">
+        {bgSubText}
+      </div>
     </div>
   );
 };

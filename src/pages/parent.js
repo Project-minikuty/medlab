@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
-import Bg from "../components/parent-dashboard/Parent-Bg";
+import Bg from "../components/Bg";
 import "./dashboard.css";
 import Options from "../components/parent-dashboard/Options";
 
@@ -11,7 +11,7 @@ function Parent() {
       <BrandNav logout="true" />
       <div className="parentcontainer" style={{ overflowX: "hidden" }}>
         <Options />
-        <Bg />
+        <Bg bgText="Welcome Parent" bgSubText="Manage your student data here" />
       </div>
     </>
   );

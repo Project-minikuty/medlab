@@ -4,7 +4,7 @@
   height: 90vh;
 }
 .parent-bg-container .bg-image {
-  background-image: url("../../images/ParentBG.png");
+  background-image: url("../images/ParentBG.png");
   min-width: 514px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,7 +29,7 @@
     border-radius: 0px 0px 25px 25px;
   }
   .parent-bg-container .bg-image {
-    background-image: url("../../images/ParentBGMobile.png");
+    background-image: url("../images/ParentBGMobile.png");
     min-width: 181px;
     height: 166px;
     background-repeat: no-repeat;
@@ -42,7 +42,7 @@
     width: 357px;
     height: 74px;
     left: 26px;
-    top: 300px;
+    top: 260px;
 
     font-family: "Inter";
     font-style: normal;
@@ -58,10 +58,10 @@
   .parent-bg-container .bg-sub-text {
     display: block;
     position: absolute;
-    width: 250px;
+    width: 3000px;
     height: 27px;
     left: 26px;
-    top: 345px;
+    top: 310px;
 
     font-family: "Inter";
     font-style: normal;
