@@ -1,6 +1,9 @@
 import React from 'react';
 import EditStudentProfileForm from '../components/parent-dashboard/studentData';
 import BrandNav from '../components/BrandNav';
+import Avatar from 'react-avatar';
+import Bg from '../components/PageBg';
+
 
 function EditData() {
   const handleSubmit = (studentData) => {
@@ -11,12 +14,20 @@ function EditData() {
 
   return (
     <div>
-      <BrandNav logout="true" />
+       
+       <BrandNav logout="true" />
+       <Bg type={0} />
       <div className="parentcontainer"></div>
-      <h3 style={{ paddingLeft: '150px', marginTop: '50px', marginBottom: '50px'}}>Edit Student Profile</h3>
-      <div style={{ paddingLeft: '150px' }}>
+      <h3 style={{ paddingLeft: '100px', marginTop: '50px', marginBottom: '50px'}}>Edit Student Profile</h3>
+      <div style={{ paddingLeft: '100px' }}>
+      <Avatar name="User" size="150" round={true} />
+      <br></br>
+      <br></br>
         <EditStudentProfileForm onSubmit={handleSubmit} />
       </div>
+       <br></br>
+       <br></br>
+ 
     </div>
   );
 }

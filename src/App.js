@@ -7,16 +7,20 @@ import Parent from './pages/parent';
 import Doctor from './pages/doctor';
 import Admin from './pages/admin';
 import EditData from './pages/EditStudentData';
+import ViewAssignment from './pages/ViewAssignment';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Login Route */}
         <Route path="/" element={<Login />} />
 
         {/* Parent Routes */}
         <Route path="/parent" element={<Parent />} />
         <Route path="/parent/editData" element={<EditData />} />
+        <Route path="/parent/viewAssignment" element={<ViewAssignment/>} />
+
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />

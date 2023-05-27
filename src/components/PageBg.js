@@ -1,6 +1,6 @@
 import React from "react";
 import "./Bg.css"; // Import the CSS file for styling
-import Heading from "./Heading";
+import Heading from "./PageHeading";
 
 
 const Bg = (props) => {

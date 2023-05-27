@@ -15,7 +15,7 @@ function ButtonGrid({ buttons, isHighlighted }) {
     cursor: 'pointer',
     width: isHighlighted ? '160px' : '390px',
     marginBottom: '25px',
-    marginLeft: '10px',
+    marginLeft: '200px',
     marginRight: 'auto',
   };
 
