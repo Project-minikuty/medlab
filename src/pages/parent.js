@@ -11,7 +11,7 @@ function Parent() {
       <BrandNav logout="true" />
       <div className="parentcontainer" style={{ overflowX: "hidden" }}>
         <Options />
-        <Bg bgText="Welcome Parent" bgSubText="Manage your ward's data here" />
+        <Bg type={3}/>
       </div>
     </>
   );

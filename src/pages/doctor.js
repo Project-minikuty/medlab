@@ -13,7 +13,7 @@ function Doctor() {
       <BrandNav logout="true"/>
       <div className="parentcontainer">
       <Options />
-        <Bg bgText="Welcome Doctor" bgSubText="Manage your patients data here" />
+        <Bg type={2}/>
         
       </div>
    

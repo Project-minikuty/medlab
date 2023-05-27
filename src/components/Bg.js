@@ -1,8 +1,10 @@
 import React from "react";
 import "./Bg.css"; // Import the CSS file for styling
+import Heading from "./Heading";
 
 const Bg = (props) => {
-  const { bgText, bgSubText } = props;
+  // const { bgText, bgSubText } = props;
+  const type = props.type || 0;
 
   return (
     <div className="parent-bg-container">
@@ -11,12 +13,7 @@ const Bg = (props) => {
         alt="Description"
         className="bg-image"
       />
-      <div className="bg-text">
-        {bgText}
-      </div>
-      <div className="bg-sub-text">
-        {bgSubText}
-      </div>
+      <Heading type={type} view="mobile"/>
     </div>
   );
 };

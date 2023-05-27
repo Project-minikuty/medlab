@@ -15,7 +15,7 @@ function Doctor() {
 
 <ButtonGrid />
 
-        <Bg bgText="Welcome Admin" bgSubText=" Manage your admin privileges here" />
+        <Bg type={1}/>
       </div>
    
    </>
