@@ -18,8 +18,8 @@ function EditData() {
        <BrandNav logout="true" />
        <Bg type={0} />
       <div className="parentcontainer"></div>
-      <h3 style={{ paddingLeft: '100px', marginTop: '50px', marginBottom: '50px'}}>Edit Student Profile</h3>
-      <div style={{ paddingLeft: '100px' }}>
+      <h3 style={{ paddingLeft: '70px', marginTop: '50px', marginBottom: '50px'}}>Edit Student Profile</h3>
+      <div style={{ paddingLeft: '70px' }}>
       <Avatar name="User" size="150" round={true} />
       <br></br>
       <br></br>
