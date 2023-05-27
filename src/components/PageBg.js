@@ -1,5 +1,5 @@
 import React from "react";
-import "./Bg.css"; // Import the CSS file for styling
+import "./PageBg.css"; // Import the CSS file for styling
 import Heading from "./PageHeading";
 
 
