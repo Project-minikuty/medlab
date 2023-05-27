@@ -13,7 +13,7 @@
         font-weight: normal;
         font-size: 16px;
       }
-      .mobile .heading,.subheading {
+      .mobile .heading, .mobile .subheading {
         display: none;
       }
   
