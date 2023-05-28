@@ -10,6 +10,7 @@ import EditData from './pages/EditStudentData';
 import ViewAssignment from './pages/ViewAssignment';
 import SubmitAssignment from './pages/SubmitAssignment';
 import Submission from './pages/SubmissionPage';
+import Appoinments from './pages/Appointments';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/parent/viewAssignment" element={<ViewAssignment/>} />
         <Route path="/parent/submitAssignment" element={<SubmitAssignment/>} />
         <Route path="/parent/submitAssignment/submit" element={<Submission/>} />
+        <Route path="/parent/appointments" element={<Appoinments/>} />
 
 
         {/* Doctor Routes */}
