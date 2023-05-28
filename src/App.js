@@ -8,6 +8,8 @@ import Doctor from './pages/doctor';
 import Admin from './pages/admin';
 import EditData from './pages/EditStudentData';
 import ViewAssignment from './pages/ViewAssignment';
+import SubmitAssignment from './pages/SubmitAssignment';
+import Submission from './pages/SubmissionPage';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/parent" element={<Parent />} />
         <Route path="/parent/editData" element={<EditData />} />
         <Route path="/parent/viewAssignment" element={<ViewAssignment/>} />
+        <Route path="/parent/submitAssignment" element={<SubmitAssignment/>} />
+        <Route path="/parent/submitAssignment/submit" element={<Submission/>} />
 
 
         {/* Doctor Routes */}

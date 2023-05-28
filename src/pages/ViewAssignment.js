@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
-import styles from "./ViewAssignment.module.css";
+import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
 
 function ViewAssignment() {

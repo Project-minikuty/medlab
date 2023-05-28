@@ -18,6 +18,8 @@ const Heading = (props) => {
   const typeData ={
     0: ["User Profile","user profile"],
     1: ["Assignments","assignment data"],
+    2: ["Submissions","submission data"],
+    3: ["Submit Assignment","assignment submission"],
   };
   
   return (

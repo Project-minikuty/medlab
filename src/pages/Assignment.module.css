@@ -20,8 +20,8 @@
 
 /* Mobile View Styles */
 @media (max-width: 768px) {
-  .desktopSize {
-   
+  .heading {
+    padding: 30px 60px;
   }
 
   .rectangleBox {
