@@ -1,16 +1,9 @@
 import "./addUser.css";
 import React from "react";
-import logo from "../images/MedlabLogo.png";
-import ReactDOM from "react-dom";
 import Navbar from "../components/BrandNav";
 import Heading from "../components/Heading";
 
-const myComponent = {
-  width: "1250px",
-  height: "500px",
-  overflowX: "hidden",
-  overflowY: "scroll",
-};
+
 
 export default function App() {
   return (
