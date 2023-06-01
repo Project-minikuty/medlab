@@ -51,6 +51,17 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+
+@media only screen and (max-width: 960px) { 
+  .wrapper1 {
+    padding: 5px;
+    padding-top: 150px;
+    height: 100%;
+  }
+}
+
+
 input,
 label {
   margin-left: 20px;
@@ -113,3 +124,44 @@ input[type="reset"]{
 ::-webkit-scrollbar {
   display: none;
 }
+
+.customDropdown {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+
+  font-size: 16px;
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+/* Additional styles for the dropdown arrow */
+.customDropdown:after {
+  content: "\25BC"; /* Unicode character for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking on the dropdown */
+}
+
+@media only screen and (max-width: 960px) {
+  .customDropdown {
+    margin-bottom: 50px;
+    width: 150px;
+  }
+ }
+
+ .userRoleLabel {
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 150px;
+  font-size: 1.2em;
+  color: #000000;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+ }
