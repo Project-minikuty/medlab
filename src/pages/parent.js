@@ -17,7 +17,7 @@ function Parent() {
   return (
     <>
       <BrandNav logout="true" />
-      <Heading type={3} />
+      <Heading type={3} view="desktop"/>
       <div className="parentcontainer">
         <ButtonGrid buttons={buttons} />
         <Bg type={3}/>

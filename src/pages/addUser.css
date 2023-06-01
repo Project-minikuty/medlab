@@ -25,7 +25,6 @@
   justify-content: flex-start;
   flex-direction: row;
   width: 100%;
-  padding-left: 200px;
 }
 .d-flex {
   flex-wrap: wrap;
@@ -63,13 +62,13 @@
 
 
 input,
-label {
+label,select {
   margin-left: 20px;
   margin-top: 10px;
 
   width: 150px;
 }
-input{
+input,select{
   border-color: #ffffff;
   border-radius: 10px;
   border-width: 3px;
