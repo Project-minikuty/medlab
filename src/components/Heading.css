@@ -7,6 +7,12 @@
     color: #498589;
     font-size: 36px;
   }
+  .default .heading {
+    margin-top: 70px;
+    /* padding-left: 200px; */
+    color: #498589;
+    font-size: 36px;
+  }
 .desktop .subheading {
         padding-left: 205px;
         color: #498589;
