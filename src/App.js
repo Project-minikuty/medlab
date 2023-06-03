@@ -26,13 +26,14 @@ function App() {
         <Route path="/parent/submitAssignment" element={<SubmitAssignment/>} />
         <Route path="/parent/submitAssignment/submit" element={<Submission/>} />
         <Route path="/parent/appointments" element={<Appoinments/>} />
-        <Route path="/admin/addnewuser" element={<AddUser/>} />
+       
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />
 
         {/* Admin Routes */}
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/addnewuser" element={<AddUser/>} />
       </Routes>
     </Router>
   );

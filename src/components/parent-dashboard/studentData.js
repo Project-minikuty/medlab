@@ -1,149 +1,82 @@
-import React, { useState } from 'react';
+import React from 'react';
+import "./formStyle.css"
+import Heading from "../Heading";
+import Avatar from "react-avatar";
 
 
-function EditStudentProfileForm({ onSubmit }) {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [dob, setDob] = useState('');
-  const [bmi, setBmi] = useState('');
-  const [bloodGroup, setBloodGroup] = useState('');
-  const [guardianName, setGuardianName] = useState('');
-  const [occupation, setOccupation] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [address, setAddress] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Create a student object with the form data
-    const studentData = {
-      name,
-      age,
-      height,
-      weight,
-      dob,
-      bmi,
-      bloodGroup,
-      guardianName,
-      occupation,
-      phoneNumber,
-      address,
-    };
-
-    // Call the onSubmit callback with the student data
-    onSubmit(studentData);
-
-    // Reset the form fields
-    setName('');
-    setAge('');
-    setHeight('');
-    setWeight('');
-    setDob('');
-    setBmi('');
-    setBloodGroup('');
-    setGuardianName('');
-    setOccupation('');
-    setPhoneNumber('');
-    setAddress('');
-  };
-
+function EditStudentProfileForm() {
   return (
-    <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={{ borderRadius: '5px', width: '100%' }}
-          />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Age:
-          <input
-            type="number"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            style={{ borderRadius: '5px', width: '100%' }}
-          />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Height:
-          <input type="text" value={height} onChange={(e) => setHeight(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Weight:
-          <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Date of Birth:
-          <input type="text" value={dob} onChange={(e) => setDob(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          BMI:
-          <input type="text" value={bmi} onChange={(e) => setBmi(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Blood Group:
-          <input type="text" value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Parent Name:
-          <input type="text" value={guardianName} onChange={(e) => setGuardianName(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Occupation:
-          <input type="text" value={occupation} onChange={(e) => setOccupation(e.target.value)} style={{borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Phone No:
-          <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ color: 'black' }}>
-          Address:
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} style={{ borderRadius: '5px', width: '100%' }} />
-        </label>
-      </div>
-      <button
-        type="submit"
-        style={{
-          marginTop: '30px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          border: '2px solid #498589',
-          backgroundColor: 'white',
-          color: '#498589',
-          padding: '5px 10px',
-          borderRadius: '4px',
-          display: 'block',
-        }}
-      >
-        Submit
-      </button>
-    </form>
+    <>
+     <form>
+     <div className="title">
+          <Heading text="Edit Student Data" />
+        </div>
+        <div className="body">
+
+        
+        <div className="wrapper1">
+        <Avatar className= "avatar" name="User" size="150" round={true} />
+          
+        <div className="d-flex">
+                  <div className="d-flex justify-content-between">
+                    <label>Name:</label>
+                    <input type="text" name="name" />
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <label>Date of Birth:</label>
+                    <input type="date" name="dob" />
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <div className="d-flex justify-content-between">
+                    <label>Age:</label>
+                    <input type="number" name="age" />
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <label>Blood Group:</label>
+                    <input
+                      type="text"
+                      list="blood"
+                      name="bloodgroup"
+                      required="true"
+                    />
+                    <datalist id="blood">
+                      <option value="O+ve" />
+                      <option value="O-ve" />
+                      <option value="A+ve" />
+                    </datalist>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <div className="d-flex justify-content-between">
+                    <label>Height:</label>
+                    <input type="text" name="height" />
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <label>Weight:</label>
+                    <input type="text" name="weight" />
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <div className="d-flex justify-content-between">
+                    <label>Name of Guardian:</label>
+                    <input type="text" name="name_of_guardian" />
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <label>Address:</label>
+                    <input type="text" name="address" />
+                  </div>
+                </div>
+                <div className="d-flex justify-content-center">
+              <input type="submit" />
+              <input type="reset" />
+            </div>
+                </div>
+                
+                </div>
+            </form>
+    </>
   );
 }
 
