@@ -1,7 +1,9 @@
 import React from "react";
 import "./Brandnav.css";
+import { useNavigate } from "react-router";
 
 function BrandNav2(props) {
+  const navigate = useNavigate();
   const navBrandStyle = {
     color: "black",
     fontWeight: "bold",
@@ -11,6 +13,7 @@ function BrandNav2(props) {
   const handleLogout = () => {
     // Add your logout logic here
     console.log("Logout clicked");
+    navigate("/");
   };
 
   const buttonStyle = {
