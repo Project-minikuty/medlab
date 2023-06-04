@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Heading from "./Heading";
@@ -6,7 +7,8 @@ import SubHeading from "./SubHeading";
 import axios from "../../axiosSetup";
 import "./Login-form.css";
 
-export default function Login({ history }) {
+export default function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -30,11 +32,11 @@ export default function Login({ history }) {
           console.log("logged");
           const userType = Number(res.data.type);
           if (userType === 1) {
-            history.push("/admin");
+           navigate("/admin");
           } else if (userType === 2) {
-            history.push("/doctor");
+            navigate("/doctor");
           } else if (userType === 3) {
-            history.push("/parent");
+            navigate("/parent");
           }
         }
       })
