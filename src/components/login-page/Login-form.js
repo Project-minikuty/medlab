@@ -25,7 +25,7 @@ export default function Login() {
     event.preventDefault();
 
     axios
-      .get(`/auth/validate?username=${username}&password=${password}`)
+      .get(`https://medback.onrender.com/validate?username=${username}&password=${password}`)
       .then((res) => {
         setErrMsg(res.data.message);
         if (res.data.access) {
