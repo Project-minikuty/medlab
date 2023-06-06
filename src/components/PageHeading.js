@@ -21,6 +21,7 @@ const Heading = (props) => {
     2: ["Submissions","submission data"],
     3: ["Submit Assignment","assignment submission"],
     4: ["Schedule Appointments","appointments"],
+    5: ["View Progress","student progress"],
   };
   
   return (
