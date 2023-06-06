@@ -8,6 +8,7 @@ const Bg = (props) => {
   const type = props.type || 0;
 
   return (
+    <div className="dashboardBody">
     <div className="parent-bg-container">
       <div 
         // width="750"
@@ -15,6 +16,7 @@ const Bg = (props) => {
         className="bg-image"
       />
       <Heading type={type} view="mobile"/>
+    </div>
     </div>
   );
 };

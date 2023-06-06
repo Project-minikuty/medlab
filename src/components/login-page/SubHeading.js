@@ -6,6 +6,7 @@ const SubHeading = () => {
     color: "#498589", // Set the color to #498589
     fontWeight: "normal", 
     fontSize: "16px",// Set the font weight to normal
+   
   };
 
   return (

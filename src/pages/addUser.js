@@ -39,22 +39,23 @@ export default function App() {
               <>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Name:</label>
-                    <input type="text" name="name" />
+                    <label className=" wrapper2">Name:</label>
+                    <input className=" wrapper2" type="text" name="name" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Date of Birth:</label>
-                    <input type="date" name="dob" />
+                    <label className=" wrapper2">Date of Birth:</label>
+                    <input className=" wrapper2" type="date" name="dob" />
                   </div>
                 </div>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Age:</label>
-                    <input type="number" name="age" />
+                    <label className=" wrapper2">Age:</label>
+                    <input className=" wrapper2" type="number" name="age" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Blood Group:</label>
+                    <label className=" wrapper2">Blood Group:</label>
                     <input
+                    className=" wrapper2"
                       type="text"
                       list="blood"
                       name="bloodgroup"
@@ -69,22 +70,22 @@ export default function App() {
                 </div>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Height:</label>
-                    <input type="text" name="height" />
+                    <label className=" wrapper2">Height:</label>
+                    <input className=" wrapper2" type="text" name="height" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Weight:</label>
-                    <input type="text" name="weight" />
+                    <label className=" wrapper2">Weight:</label>
+                    <input className=" wrapper2" type="text" name="weight" />
                   </div>
                 </div>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Name of Guardian:</label>
-                    <input type="text" name="name_of_guardian" />
+                    <label className=" wrapper2">Name of Guardian:</label>
+                    <input className=" wrapper2" type="text" name="name_of_guardian" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Address:</label>
-                    <input type="text" name="address" />
+                    <label className=" wrapper2">Address:</label>
+                    <input className=" wrapper2" type="text" name="address" />
                   </div>
                 </div>
               
@@ -95,12 +96,12 @@ export default function App() {
               <>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Name:</label>
-                    <input type="text" name="name" />
+                    <label className=" wrapper2">Name:</label>
+                    <input className=" wrapper2" type="text" name="name" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Date of Birth:</label>
-                    <input type="date" name="dob" />
+                    <label className=" wrapper2">Date of Birth:</label>
+                    <input className=" wrapper2" type="date" name="dob" />
                   </div>
                 </div>
               </>
@@ -108,17 +109,17 @@ export default function App() {
 
             <div className="d-flex">
               <div className="d-flex justify-content-between">
-                <label>Username:</label>
-                <input type="text" name="username" />
+                <label className=" wrapper2">Username:</label>
+                <input className=" wrapper2" type="text" name="username" />
               </div>
               <div className="d-flex justify-content-between">
-                <label>Password:</label>
-                <input type="password" name="password" />
+                <label className=" wrapper2">Password:</label>
+                <input className=" wrapper2" type="password" name="password" />
               </div>
             </div>
             <div className="d-flex justify-content-center">
-              <input type="submit" />
-              <input type="reset" />
+              <input className=" wrapper2" type="submit" />
+              <input className=" wrapper2"type="reset" />
             </div>
           </div>
         </form>

@@ -8,9 +8,9 @@ import ButtonGrid from "../components/Options";
 
 function Doctor() {
   const buttons = [
-    { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View List of Students' },
+    { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View List of Students'},
     { img: require('../images/parentOptions/option2.png'), alt: 'option2', text: 'View List of Doctors' },
-    { img: require('../images/adminOptions/option3.png'), alt: 'option3', text: 'Add New User' },
+    { img: require('../images/adminOptions/option3.png'), alt: 'option3', text: 'Add New User', navigateTo: '/admin/addnewuser'},
     { img: require('../images/adminOptions/option4.png'), alt: 'option4', text: 'Delete User' },
   ];
 

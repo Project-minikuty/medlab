@@ -6,6 +6,8 @@ const Heading = () => {
     paddingLeft: "200px", // Adjust the padding as needed
     color: "#498589", // Set the color to #498589
     fontSize: "36px", // Set the desired font size
+    marginBottom: "0px", // Adjust the margin as needed
+    paddingBottom: "0px",
   };
 
   return (
