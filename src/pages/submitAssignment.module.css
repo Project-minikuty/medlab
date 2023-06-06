@@ -1,0 +1,47 @@
+.parentcontainer {
+  display: flex;
+}
+
+/* ViewAssignment.module.css */
+
+.heading {
+  padding: 30px 150px;
+  margin-left: 350px;
+  margin-right: 350px;
+  
+}
+
+.rectangleBox {
+  background-color: #d9d9d9;
+  width: 800px;
+  height: 400px;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* Mobile View Styles */
+@media (max-width: 768px) {
+  .heading {
+    padding: 30px 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rectangleBox {
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+     margin-right: auto;
+     margin-top: 0px;
+  }
+}
+
+
+
+

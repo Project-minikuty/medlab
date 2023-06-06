@@ -1,19 +1,25 @@
 
-body{
-  height: 100dvh;
-  width: 100vw;
-}
 .parentcontainer{
   display: flex;
   justify-content: space-between;
   padding: 0;
   margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+@media only screen and (min-width: 767px) {
+  .dashboardBody {
+  overflow: hidden;
+}
 }
 
 @media only screen and (max-width: 960px) {
   .parentcontainer{
       flex-direction: column-reverse;
-      overflow: scroll;
+      padding-left: 0px;
+      height: 100vh;
+      width: 100vw;
   }
  
 }

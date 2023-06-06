@@ -1,25 +1,32 @@
-.bg-container {
+
+
+.parent-bg-container {
   display: flex;
   justify-content: flex-end;
   height: 90vh;
+  
 }
-.bg-container .bg-image {
-  background-image: url("../../images/Design.png");
-  min-width: 514px;
+
+.parent-bg-container .bg-image {
+  background-image: url("../images/ParentBG.png");
+  min-width: 414px;
+  height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-top: 0px;
+  padding-top: 0px;
 }
-.bg-container .bg-sub-text,
-.bg-container .bg-text {
+.parent-bg-container .bg-sub-text,
+.parent-bg-container .bg-text {
   display: none;
 }
 @media only screen and (max-width: 960px) {
-  .bg-container {
+  .parent-bg-container {
     display: flex;
     justify-content: center;
     align-items: center;
     /* width: 428px; */
-    height: 341px;
+    height: 361px;
 
     background: radial-gradient(
       33.1% 33.1% at 50% 37.81%,
@@ -28,21 +35,21 @@
     );
     border-radius: 0px 0px 25px 25px;
   }
-  .bg-container .bg-image {
-    background-image: url("../../images/mobile-login-bg.png");
+  .parent-bg-container .bg-image {
+    background-image: url("../images/ParentBGMobile.png");
     min-width: 181px;
     height: 166px;
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 60px;
   }
-  .bg-container .bg-text {
+  .parent-bg-container .bg-text {
     display: block;
     position: absolute;
     width: 357px;
-    height: 54px;
+    height: 74px;
     left: 26px;
-    top: 237px;
+    top: 260px;
 
     font-family: "Inter";
     font-style: normal;
@@ -55,13 +62,13 @@
 
     color: #ffffff;
   }
-  .bg-container .bg-sub-text {
+  .parent-bg-container .bg-sub-text {
     display: block;
     position: absolute;
-    width: 199px;
+    width: 3000px;
     height: 27px;
     left: 26px;
-    top: 291px;
+    top: 310px;
 
     font-family: "Inter";
     font-style: normal;

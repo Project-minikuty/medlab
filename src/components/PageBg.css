@@ -1,14 +1,9 @@
 .parent-bg-container {
   display: flex;
   justify-content: flex-end;
-  height: 90vh;
+  height: 0vh;
 }
-.parent-bg-container .bg-image {
-  background-image: url("../../images/ParentBG.png");
-  min-width: 514px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .parent-bg-container .bg-sub-text,
 .parent-bg-container .bg-text {
   display: none;
@@ -29,7 +24,7 @@
     border-radius: 0px 0px 25px 25px;
   }
   .parent-bg-container .bg-image {
-    background-image: url("../../images/ParentBGMobile.png");
+    background-image: url("../images/ParentBGMobile.png");
     min-width: 181px;
     height: 166px;
     background-repeat: no-repeat;
@@ -39,10 +34,10 @@
   .parent-bg-container .bg-text {
     display: block;
     position: absolute;
-    width: 357px;
+    width: 300px;
     height: 74px;
     left: 26px;
-    top: 300px;
+    top: 260px;
 
     font-family: "Inter";
     font-style: normal;
@@ -58,10 +53,10 @@
   .parent-bg-container .bg-sub-text {
     display: block;
     position: absolute;
-    width: 250px;
+    width: 300px;
     height: 27px;
     left: 26px;
-    top: 345px;
+    top: 310px;
 
     font-family: "Inter";
     font-style: normal;

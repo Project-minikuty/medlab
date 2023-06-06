@@ -1,0 +1,31 @@
+.parentcontainer {
+  display: flex;
+}
+
+/* ViewAssignment.module.css */
+
+.heading {
+  padding: 30px 150px;
+  
+}
+
+.rectangleBox {
+  background-color: #d9d9d9;
+  width: 500px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+/* Mobile View Styles */
+@media (max-width: 768px) {
+  .heading {
+    padding: 30px 60px;
+  }
+
+  .rectangleBox {
+    width: 350px;
+    height: 350px;
+  }
+}
