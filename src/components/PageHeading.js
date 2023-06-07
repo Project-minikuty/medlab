@@ -22,12 +22,13 @@ const Heading = (props) => {
     3: ["Submit Assignment","assignment submission"],
     4: ["Schedule Appointments","appointments"],
     5: ["View Progress","student progress"],
+    6: ["Add New User","new user"],
   };
   
   return (
     <div className={view}>
-      <h2 className="heading" >{typeData[type][0]}</h2>
-      <h6 className="subheading2" >Manage your {typeData[type][1]} here</h6>
+      <h2 className={type===6?"p-heading":"heading"} >{typeData[type][0]}</h2>
+      <h6 className={type===6?"p-subheading":"subheading2"} >Manage your {typeData[type][1]} here</h6>
     
     </div>
   );

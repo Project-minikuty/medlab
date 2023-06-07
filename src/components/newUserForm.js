@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./newUserForm.css"
 import Navbar from "./BrandNav"
+import Heading from "./PageHeading";
 
 const NewUserForm = (props) => {
     const [userRole, setUserRole] = useState("parent");
@@ -12,10 +13,8 @@ const NewUserForm = (props) => {
    <>
     <Navbar logout="true" />
     <div className="body1">
-      <div className="title">
-        <newUserForm text="Add new user" />
-      </div>
-      <form>
+      <Heading view="desktop" type={6} />
+      <form action="" method="PUT">
         <div className="wrapper1">
           <div className="d-flex justify-content-center userRole">
             <label className="userRoleLabel">User Role:</label>

@@ -69,3 +69,8 @@
     color: #ffffff;
     }
   }
+
+  .p-heading, .p-subheading {
+    padding-right: 508px;
+    color: #498589;
+  }
