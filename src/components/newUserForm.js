@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./newUserForm.css";
 import Navbar from "./BrandNav";
 import Heading from "./PageHeading";
-import axios from "../axiosSetup"
+import axios from "../axiosSetup";
 
 const NewUserForm = (props) => {
   const [userRole, setUserRole] = useState("3");
@@ -25,29 +25,26 @@ const NewUserForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-   
-    const formData = {
-      
-        username: username,
-        password: password,
-        name: name,
-        type: userRole,
-        age: age,
-        height: height,
-        weight: weight,
-        gender: gender,
-        dob: dob,
-        bloodGroup: bloodGroup,
-        guardianName: guardianName,
-        phoneNumber: phoneNumber,
-        address: address
 
+    const formData = {
+      username: username,
+      password: password,
+      name: name,
+      type: userRole,
+      age: age,
+      height: height,
+      weight: weight,
+      gender: gender,
+      dob: dob,
+      bloodGroup: bloodGroup,
+      guardianName: guardianName,
+      phoneNumber: phoneNumber,
+      address: address,
     };
 
     console.log(formData);
-    const admin_username = localStorage.getItem("username")
-    const result = await axios.post(`/${admin_username}/create`,formData);
+    const admin_username = localStorage.getItem("username");
+    const result = await axios.post(`/${admin_username}/create`, formData);
     console.log(result);
   };
 
@@ -77,7 +74,8 @@ const NewUserForm = (props) => {
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Name:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="name"
@@ -87,7 +85,8 @@ const NewUserForm = (props) => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Date of Birth:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="date"
                       name="dob"
@@ -99,7 +98,8 @@ const NewUserForm = (props) => {
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Age:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="number"
                       name="age"
@@ -109,14 +109,14 @@ const NewUserForm = (props) => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Blood Group:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       list="blood"
                       name="bloodgroup"
                       value={bloodGroup}
                       onChange={(e) => setBloodGroup(e.target.value)}
-                     
                     />
                     <datalist id="blood">
                       <option value="O+ve" />
@@ -128,7 +128,8 @@ const NewUserForm = (props) => {
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Height:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="height"
@@ -138,7 +139,8 @@ const NewUserForm = (props) => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Weight:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="weight"
@@ -150,7 +152,8 @@ const NewUserForm = (props) => {
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Name of Guardian:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="name_of_guardian"
@@ -160,7 +163,8 @@ const NewUserForm = (props) => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Address:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="address"
@@ -172,7 +176,8 @@ const NewUserForm = (props) => {
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Gender:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="name_of_guardian"
@@ -188,7 +193,8 @@ const NewUserForm = (props) => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Phone Number:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="phone"
                       name="address"
@@ -205,7 +211,8 @@ const NewUserForm = (props) => {
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Name:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="text"
                       name="name"
@@ -215,7 +222,8 @@ const NewUserForm = (props) => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <label className=" wrapper2">Date of Birth:</label>
-                    <input required={true}
+                    <input
+                      required={true}
                       className=" wrapper2"
                       type="date"
                       name="dob"
@@ -230,7 +238,8 @@ const NewUserForm = (props) => {
             <div className="d-flex">
               <div className="d-flex justify-content-between">
                 <label className=" wrapper2">Username:</label>
-                <input required={true}
+                <input
+                  required={true}
                   className=" wrapper2"
                   type="text"
                   name="username"
@@ -240,7 +249,8 @@ const NewUserForm = (props) => {
               </div>
               <div className="d-flex justify-content-between">
                 <label className=" wrapper2">Password:</label>
-                <input required={true}
+                <input
+                  required={true}
                   className=" wrapper2"
                   type="password"
                   name="password"
