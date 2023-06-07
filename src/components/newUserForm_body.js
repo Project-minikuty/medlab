@@ -5,7 +5,7 @@ import Heading from "./PageHeading";
 import NewuserForm from "./newUserForm";
 import FormSuccess from "./formSuccess";
 
-const NewUserForm_body = (props) => {
+const NewUserFormBody = (props) => {
   const [formState, setFormState] = useState(() => {
     return {
       success: false,
@@ -27,4 +27,4 @@ const NewUserForm_body = (props) => {
   );
 };
 
-export default NewUserForm_body;
+export default NewUserFormBody;
