@@ -13,7 +13,8 @@ function BrandNav2(props) {
     // Add your logout logic here
     console.log("Logout clicked");
     localStorage.clear();
-    navigate("/"); 
+    navigate("/lo");
+
   };
 
   const buttonStyle = {

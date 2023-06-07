@@ -30,18 +30,20 @@ export default function Login() {
         setErrMsg(res.data.message);
         if (res.data.access) {
           console.log("logged");
-          const userType = Number(res.data.type);
-          
+          const userType = Number(res.data.details.type);
+          console.log(userType);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
+          localStorage.setItem("logged",true);
           
-          if (userType === 1) {
-           navigate("/admin");
-          } else if (userType === 2) {
-            navigate("/doctor");
-          } else if (userType === 3) {
-            navigate("/parent");
-          }
+          // if (userType === 1) {
+          //  navigate("/admin");
+          // } else if (userType === 2) {
+          //   navigate("/doctor");
+          // } else if (userType === 3) {
+          //   navigate("/parent");
+          // }
+          navigate("/li")
         }
       })
       .catch((err) => {
