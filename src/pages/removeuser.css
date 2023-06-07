@@ -1,9 +1,4 @@
-body {
-    position: absolute;
-    background: rgba(23, 203, 160, 0.29);
-    width: 1440px;
-    border-radius: 50px;
-  }
+
   
   .body1 {
     background: rgb(255, 255, 255); /* Make it white if you need */
