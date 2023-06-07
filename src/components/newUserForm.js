@@ -5,7 +5,7 @@ import Heading from "./PageHeading";
 import axios from "../axiosSetup"
 
 const NewUserForm = (props) => {
-  const [userRole, setUserRole] = useState("parent");
+  const [userRole, setUserRole] = useState("3");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -29,25 +29,25 @@ const NewUserForm = (props) => {
    
     const formData = {
       
-        "username": username,
-        "password": password,
-        "name": name,
-        "type": userRole,
-        "age": age,
-        "height": height,
-        "weight": weight,
-        "gender": gender,
-        "dob": dob,
-        "bloodGroup": bloodGroup,
-        "guardianName": guardianName,
-        "phoneNumber": phoneNumber,
-        "address": address
+        username: username,
+        password: password,
+        name: name,
+        type: userRole,
+        age: age,
+        height: height,
+        weight: weight,
+        gender: gender,
+        dob: dob,
+        bloodGroup: bloodGroup,
+        guardianName: guardianName,
+        phoneNumber: phoneNumber,
+        address: address
 
     };
 
-    
+    console.log(formData);
     const admin_username = localStorage.getItem("username")
-    const result = await axios.put(`/${admin_username}/create`, formData);
+    const result = await axios.post(`/${admin_username}/create`,formData);
     console.log(result);
   };
 
@@ -66,13 +66,13 @@ const NewUserForm = (props) => {
                 name="userRole"
                 className="customDropdown"
               >
-                <option value="parent">Parent</option>
-                <option value="admin">Admin</option>
-                <option value="doctor">Doctor</option>
+                <option value="3">Parent</option>
+                <option value="1">Admin</option>
+                <option value="2">Doctor</option>
               </select>
             </div>
 
-            {userRole === "parent" && (
+            {userRole === "3" && (
               <>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
@@ -194,7 +194,7 @@ const NewUserForm = (props) => {
               </>
             )}
 
-            {userRole !== "parent" && (
+            {userRole !== "3" && (
               <>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
