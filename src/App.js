@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './pages/login';
+import Home from './public_pages/Home';
 import Parent from './pages/parent';
 import Doctor from './pages/doctor';
 import Admin from './pages/admin';
@@ -14,14 +14,16 @@ import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
 
 import StudentProgress from './pages/studentProgress';
+import LogingOut from './public_pages/logginOut';
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Login Route */}
-        <Route path="/" element={<Login />} />
-
+        <Route path="/" element={<Home />} />
+        <Route path="/lo" element={<LogingOut text="Logging Out"/>} />
+        <Route path="/li" element={<LogingOut text="Logging In"/>} />
         {/* Parent Routes */}
         <Route path="/parent" element={<Parent />} />
         <Route path="/parent/editData" element={<EditData />} />
