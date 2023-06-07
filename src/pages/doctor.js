@@ -14,9 +14,9 @@ function Doctor() {
 
   ];
   return (
-   <>
+   <div className="body2">
       <BrandNav logout="true"/>
-      <Heading type={2}/>
+      <Heading type={2} view="desktop"/>
       <div className="parentcontainer">
       <ButtonGrid buttons={buttons} />
         <Bg type={2}/>
@@ -24,7 +24,7 @@ function Doctor() {
         
       </div>
    
-   </>
+   </div>
   );
 }
 
