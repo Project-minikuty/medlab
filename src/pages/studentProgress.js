@@ -1,23 +1,21 @@
-import React from 'react';
-import "./formStyle.css"
-import Heading from "../Heading";
-import Avatar from "react-avatar";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import BrandNav from "../components/BrandNav";
 
+import Heading from "../components/PageHeading";
+import "./studentProgress.css"
 
-
-function EditStudentProfileForm() {
+function StudentProgress() {
   return (
     <>
-     <form>
-     <div className="title">
-          <Heading text="Edit Student Data" />
-        </div>
-        <div className="body">
+      <BrandNav logout="true" />
+      <Heading view="desktop" type={5} />
+      <div className="parentcontainer">
+        <div className="flex-section">
+          <form className="studentProgress">
 
-        
+        <div className="body">
         <div className="wrapper1">
-        <Avatar className= "avatar" name="User" size="150" round={true} />
-          
         <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label>Name:</label>
@@ -34,50 +32,44 @@ function EditStudentProfileForm() {
                     <input type="number" name="age" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Blood Group:</label>
-                    <input
-                      type="text"
-                      list="blood"
-                      name="bloodgroup"
-                      required="true"
-                    />
-                    <datalist id="blood">
-                      <option value="O+ve" />
-                      <option value="O-ve" />
-                      <option value="A+ve" />
-                    </datalist>
+                  <label>Doctor Name:</label>
+                    <input type="text" name="height" />
                   </div>
                 </div>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Height:</label>
+                    <label>Completed Assignments:</label>
                     <input type="text" name="height" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Weight:</label>
+                    <label>Pending Assignments:</label>
                     <input type="text" name="weight" />
                   </div>
                 </div>
                 <div className="d-flex">
                   <div className="d-flex justify-content-between">
-                    <label>Name of Guardian:</label>
+                    <label>Next Checkup Date</label>
                     <input type="text" name="name_of_guardian" />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Address:</label>
+                    <label>Overall Score:</label>
                     <input type="text" name="address" />
                   </div>
                 </div>
                 <div className="d-flex justify-content-center">
-              <input type="submit" />
-              <input type="reset" />
+             
             </div>
                 </div>
                 
                 </div>
             </form>
+        </div>
+        <div className="flex-section">
+        
+          </div>
+      </div>
     </>
   );
 }
 
-export default EditStudentProfileForm;
+export default StudentProgress;
