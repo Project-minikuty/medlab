@@ -14,7 +14,7 @@ const NewUserForm = (props) => {
     <Navbar logout="true" />
     <div className="body1">
       <Heading view="desktop" type={6} />
-      <form action="" method="PUT">
+      <form>
         <div className="wrapper1">
           <div className="d-flex justify-content-center userRole">
             <label className="userRoleLabel">User Role:</label>
