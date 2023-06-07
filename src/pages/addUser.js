@@ -1,6 +1,6 @@
 
 import React from "react";
-import NewUserForm from "../components/newUserForm";
+import NewUserForm_body from "../components/newUserForm_body";
 
 
 
@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <div className="App">
-    <NewUserForm />
+    <NewUserForm_body />
     </div>
   );
 }
