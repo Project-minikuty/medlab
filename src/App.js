@@ -12,6 +12,8 @@ import SubmitAssignment from './pages/SubmitAssignment';
 import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
+import RemoveUser from './pages/removeuser'
+
 import StudentProgress from './pages/studentProgress';
 
 function App() {
@@ -28,8 +30,10 @@ function App() {
         <Route path="/parent/submitAssignment" element={<SubmitAssignment/>} />
         <Route path="/parent/submitAssignment/submit" element={<Submission/>} />
         <Route path="/parent/appointments" element={<Appoinments/>} />
+        <Route path="/admin/addnewuser" element={<AddUser/>} />
+        <Route path="/admin/removeuser" element={<RemoveUser/>} />
+      
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
-       
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />

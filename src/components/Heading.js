@@ -13,7 +13,7 @@ const Heading = (props) => {
   
   return (
     text?<div className="default">
-      <h2 className="heading"> {text} </h2>
+      <h2 className="heading2"> {text} </h2>
     </div>:
     <div className={view}>
       <h2 className="heading" >Welcome {typeData[type][0]}</h2>
