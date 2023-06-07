@@ -17,7 +17,7 @@ const Heading = (props) => {
     </div>:
     <div className={view}>
       <h2 className="heading" >Welcome {typeData[type][0]}</h2>
-      <h6 className="subheading" >Manage your {typeData[type][1]} here</h6>
+      <h6 className="subheading2" >Manage your {typeData[type][1]} here</h6>
     
     </div>
 

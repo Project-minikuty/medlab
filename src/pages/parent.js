@@ -15,7 +15,7 @@ function Parent() {
     { img: require('../images/parentOptions/option5.png'), alt: 'option4', text: 'Schedule Appoinments', navigateTo: '/parent/appointments' },
   ];
   return (
-    <>
+    <div className="body2">
     <div className="dashboardBody">
       <BrandNav logout="true" />
       <Heading type={3} view="desktop"/>
@@ -24,7 +24,7 @@ function Parent() {
         <Bg type={3}/>
       </div>
     </div>
-    </>
+    </div>
   );
 }
 

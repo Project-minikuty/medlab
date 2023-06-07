@@ -48,7 +48,7 @@ export default function Login() {
   }
 
   return (
-    <div className="d-flex flex-column">
+    <div className="formContainer">
       <Heading />
       <SubHeading />
       <div className="Login">

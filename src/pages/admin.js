@@ -31,14 +31,14 @@ function Doctor() {
   const isHighlighted = window.innerWidth > 768;
 
   return (
-    <>
+    <div className="body2">
       <BrandNav logout="true" />
       <Heading view="desktop" type={1} />
       <div className="parentcontainer">
         <ButtonGrid buttons={buttons} isHighlighted={isHighlighted} />
         <Bg type={1} />
       </div>
-    </>
+    </div>
   );
 }
 
