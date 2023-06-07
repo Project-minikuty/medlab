@@ -31,6 +31,10 @@ export default function Login() {
         if (res.data.access) {
           console.log("logged");
           const userType = Number(res.data.type);
+          
+          localStorage.setItem("user", userType);
+          localStorage.setItem("username", username);
+          
           if (userType === 1) {
            navigate("/admin");
           } else if (userType === 2) {
@@ -45,6 +49,7 @@ export default function Login() {
       });
 
     console.log(username, password);
+    
   }
 
   return (
