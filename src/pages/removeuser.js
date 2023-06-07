@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./removeuser.css"
 import logo from '../images/MedlabLogo.png';
-import ReactDOM from 'react-dom';
 
 export default function App() {
   const [myList, setMyList] = useState([]);
