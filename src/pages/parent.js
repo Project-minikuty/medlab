@@ -5,6 +5,8 @@ import Bg from "../components/Bg";
 import "./dashboard.css";
 import ButtonGrid from "../components/Options";
 import Heading from "../components/Heading";
+import Menubar from "../components/menubar";
+
 
 function Parent() {
   const buttons = [
@@ -15,10 +17,15 @@ function Parent() {
     { img: require('../images/parentOptions/option5.png'), alt: 'option4', text: 'Schedule Appoinments', navigateTo: '/parent/appointments' },
   ];
   return (
+    
     <div className="body2">
+      
     <div className="dashboardBody">
+    
       <BrandNav logout="true" />
+      <Menubar></Menubar>
       <Heading type={3} view="desktop"/>
+      
       <div className="parentcontainer">
         <ButtonGrid buttons={buttons} />
         <Bg type={3}/>
