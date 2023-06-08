@@ -5,7 +5,7 @@ import Bg from "../components/Bg";
 import "./dashboard.css";
 import ButtonGrid from "../components/Options";
 import Heading from "../components/Heading";
-import Menubar from "../components/menubar";
+
 
 
 function Parent() {
@@ -23,7 +23,7 @@ function Parent() {
     <div className="dashboardBody">
     
       <BrandNav logout="true" />
-      <Menubar></Menubar>
+     
       <Heading type={3} view="desktop"/>
       
       <div className="parentcontainer">

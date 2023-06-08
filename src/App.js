@@ -13,6 +13,7 @@ import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
 
+
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
 
@@ -41,6 +42,7 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
+       
       </Routes>
     </Router>
   );

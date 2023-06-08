@@ -23,6 +23,7 @@ const Heading = (props) => {
     4: ["Schedule Appointments","appointments"],
     5: ["View Progress","student progress"],
     6: ["Add New User","new user"],
+    7: ["View Student List","student data"],
   };
   
   return (

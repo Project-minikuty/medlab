@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
-import ListView from "../components/ListView";
+import ListView from "../components/StudentListView";
 
 function ViewAssignment() {
   return (
