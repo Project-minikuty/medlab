@@ -1,0 +1,28 @@
+.logout-box {
+    box-sizing: border-box;
+    width: 70%;
+    min-height: 300px;
+    border-radius: 50px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(254, 57, 57, 0.422);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 3, 3, 0.523);
+    text-align: justify;
+  }
+  .logout-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .logout-text{
+    color: rgb(255, 255, 255);
+    font-size: 48px;
+  }

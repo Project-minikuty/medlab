@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
+import ListView from "../components/ListView";
 
 function ViewAssignment() {
   return (
@@ -13,7 +14,9 @@ function ViewAssignment() {
         <div className="flex-section">
       
           <h2 className={styles.heading}>New Assignments</h2>
-          <div className={`${styles.rectangleBox} ${styles.desktopSize}`}></div>
+          <div className={`${styles.rectangleBox} ${styles.desktopSize}`}>
+            <ListView></ListView>
+          </div>
         </div>
         <div className="flex-section">
           <h2 className={styles.heading}>Completed Assignments</h2>
