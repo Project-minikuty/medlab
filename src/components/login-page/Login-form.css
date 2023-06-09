@@ -71,6 +71,34 @@
   padding-left: 2px;
   padding-top: 10px;
 }
+
+.l-error-box {
+  z-index: 2;
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 250px;
+  display: none;
+  box-sizing: border-box;
+  width: 20%;
+  border-radius: 50px;
+  flex-direction: column;
+  padding: 20px;
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  color: rgba(255, 2, 2, 0.795);
+  text-align: center;
+  border: 1px solid rgba(255, 2, 2, 0.795);
+  animation: fade-in 5s ;
+}
+@keyframes fade-in {
+  from {opacity: 0%;}
+  25% {opacity: 100%;}
+  to {opacity: 0%;}
+  
+}
 @media only screen and (max-width: 960px) {
   .Login {
     margin-top: 20px;

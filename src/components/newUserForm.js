@@ -60,7 +60,7 @@ const NewuserForm = (props) => {
     <>
       <div className="error-box" id="error-box"></div>
       <form onSubmit={handleSubmit}>
-        <div className="wrapper1">
+        <div className="wrapper1 ">
           <div className="d-flex justify-content-center userRole">
             <label className="userRoleLabel">User Role:</label>
             <select

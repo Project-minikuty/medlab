@@ -85,21 +85,21 @@
 }
 
 
-input,
-label,select {
+.n input,
+.n label,.n select {
   margin-left: 20px;
   margin-top: 10px;
 
   width: 150px;
 }
-input,select{
+.n input,.n select{
   border-color: #ffffff;
   border-radius: 10px;
   border-width: 3px;
 }
 
 @media only screen and (max-width: 767px) {
-  input, select, label {
+  .n input, .n select, .n label {
     margin-left: 0px;
   }
  }
