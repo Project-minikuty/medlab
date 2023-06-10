@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import axiosInstance from '../axiosSetup';
 import "./ListView.css";
 
 export default function ListView(props) {
   const [suspendedUsers, setSuspendedUsers] = useState([]);
-  const [canSuspend, setCanSuspend] = useState(true);
+  const [canSuspend] = useState(true);
 
   const handleSuspend = async (user) => {
     const admin_username = localStorage.getItem("username");
     try {
-      await axios.post(`https://medback.onrender.com/${admin_username}/suspend/${user.username}`);
+      await axiosInstance.post(`/${admin_username}/suspend/${user.username}`);
       setSuspendedUsers((prevSuspendedUsers) => [...prevSuspendedUsers, user._id]);
     } catch (error) {
       console.error("Error suspending user:", error);
