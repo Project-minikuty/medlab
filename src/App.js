@@ -12,6 +12,7 @@ import SubmitAssignment from './pages/SubmitAssignment';
 import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
+import StudentList from './pages/StudentList';
 
 
 import StudentProgress from './pages/studentProgress';
@@ -21,10 +22,12 @@ function App() {
   return (
     <Router>
       <Routes>
+        
         {/* Login Route */}
         <Route path="/" element={<Home />} />
         <Route path="/lo" element={<LogingOut text="Logging Out"/>} />
         <Route path="/li" element={<LogingOut text="Logging In"/>} />
+
         {/* Parent Routes */}
         <Route path="/parent" element={<Parent />} />
         <Route path="/parent/editData" element={<EditData />} />
@@ -33,7 +36,6 @@ function App() {
         <Route path="/parent/submitAssignment/submit" element={<Submission/>} />
         <Route path="/parent/appointments" element={<Appoinments/>} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
-      
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
 
         {/* Doctor Routes */}
@@ -42,6 +44,8 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
+        <Route path="/admin/studentlist" element={<StudentList/>} />
+
        
       </Routes>
     </Router>

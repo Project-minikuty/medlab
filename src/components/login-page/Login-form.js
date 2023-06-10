@@ -65,7 +65,6 @@ export default function Login() {
   return (
     <div className="formContainer">
 
-<div className="l-error-box" id="error-box"></div>
       
 
       <Heading />

@@ -9,13 +9,15 @@ import "./login.css";
 function Login() {
   
   return (
-    <body>
+    <div >
+<div className="l-error-box" id="error-box"></div>
+
       <BrandNav />
       <div className="logincontainer">
         <Form />
         <Bg />
       </div>
-    </body>
+    </div>
   );
 }
 

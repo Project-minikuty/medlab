@@ -15,7 +15,7 @@ function StudentProgress() {
           <form className="studentProgress">
 
         <div className="body">
-        <div className="wrapper1">
+        <div className="wrapper1 n">
         <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label>Name:</label>
