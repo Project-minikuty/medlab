@@ -48,9 +48,10 @@ const NewuserForm = (props) => {
       console.log(result.data);
       var d = document.getElementById("error-box");
       d.style.display = "flex";
+      
+      d.innerHTML=`<span>${result.data.message}</span>`
       setTimeout(function () {
         d.style.display = "none";
-        d.innerHTML=`<span>${result.data.message}</span>`
         }, 5000);
 
     }

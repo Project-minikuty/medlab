@@ -70,16 +70,17 @@ export default function ListView() {
         <div className="d-flex flex-col font-weight-bold">Status</div>
         {/* <button type="button" className="btn btn-outline-danger">Danger</button> */}
       </div>
+     
 
-      {users.username.map((username, index) => (
+      {users.map((user) => (
         <div
           className={`d-flex flex-row listBody ${
             !canSuspend ? "red-bg" : ""
           }`}
-          key={index}
+          key={user._id}
         >
-          <div className="d-flex flex-col text-center">{username}</div>
-          <div className="d-flex flex-col text-center">{users.name[index]}</div>
+          <div className="d-flex flex-col text-center">{user.username}</div>
+          <div className="d-flex flex-col text-center">{user.name}</div>
           <button
             type="button"
             className="btn btn-outline-danger"
