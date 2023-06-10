@@ -13,6 +13,7 @@ import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
 import StudentList from './pages/StudentList';
+import DoctorList from './pages/DoctortList';
 
 
 import StudentProgress from './pages/studentProgress';
@@ -45,6 +46,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/admin/studentlist" element={<StudentList/>} />
+        <Route path="/admin/doctorlist" element={<DoctorList/>} />
 
        
       </Routes>

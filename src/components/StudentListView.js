@@ -5,7 +5,6 @@ import "./ListView.css";
 export default function ListView(props) {
   const [canSuspend, setCanSuspend] = useState(true);
 
-  
 
   const handleSuspend = () => {
     // Add the logic to handle suspend action here

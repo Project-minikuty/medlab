@@ -6,11 +6,11 @@ import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import './studentList.css';
 
-function StudentList() {
+function DoctorList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://medback.onrender.com/sNames") // Change the URL to the appropriate endpoint on your server
+    fetch("https://medback.onrender.com/dNames") // Change the URL to the appropriate endpoint on your server
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
@@ -23,19 +23,20 @@ function StudentList() {
   return (
     <>
       <BrandNav logout="true" />
-      <Bg type={7} />
+      <Bg type={8} />
       <div className="parentcontainer">
         <div className="flex-section">
-          <Heading view="desktop" type={7} />
+        <Heading view="desktop" type={8} />
           <div className="List">
-            <div className="list">
-              <ListView List={users} />
+          <div className="list">
+            <ListView List={users}/>
             </div>
           </div>
+          </div>
         </div>
-      </div>
+  
     </>
   );
 }
 
-export default StudentList;
+export default DoctorList;
