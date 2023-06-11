@@ -1,54 +1,85 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import axios from "../../axiosSetup";
-// import axios from "axios";
 import "./Login-form.css";
 
 export default function Login() {
-  const [usrname, setEmail] = useState("");
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errMsg, setErrMsg] = useState("");
-  useEffect(() => {
-    setErrMsg("");
-  }, [usrname, password]);
+
+ 
+
   function validateForm() {
-    return usrname.length > 0 && password.length > 0;
+    return username.length > 0 && password.length > 0;
+  }
+
+  function errorHandling(msg) {
+    var d = document.getElementById("error-box");
+    d.style.display = "flex";
+    
+    d.innerHTML=`<span>${msg}</span>`
+    setTimeout(function () {
+      d.style.display = "none";
+      }, 5000);
+
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     axios
-      .get(`/auth/validate?username=${usrname}&password=${password}`)
+      .get(`/validate?username=${username}&password=${password}`)
       .then((res) => {
-        setErrMsg(res.data.message);
+        errorHandling(res.data.message);
         if (res.data.access) {
           console.log("logged");
+          const userType = Number(res.data.details.type);
+          console.log(userType);
+          localStorage.setItem("user", userType);
+          localStorage.setItem("username", username);
+          localStorage.setItem("logged",true);
+          
+          // if (userType === 1) {
+          //  navigate("/admin");
+          // } else if (userType === 2) {
+          //   navigate("/doctor");
+          // } else if (userType === 3) {
+          //   navigate("/parent");
+          // }
+          navigate("/li")
         }
       })
       .catch((err) => {
         console.log(err);
       });
 
-    console.log(usrname, password);
+    console.log(username, password);
+    
   }
 
   return (
-    <div className="d-flex flex-column">
+    <div className="formContainer">
+
+      
+
       <Heading />
       <SubHeading />
       <div className="Login">
         <Form onSubmit={handleSubmit}>
-          <Form.Group size="lg" controlId="usrname">
+          
+          <Form.Group size="lg" controlId="username">
             <Form.Label style={{ color: "#498589" }}>Username</Form.Label>
             <Form.Control
               style={{ borderColor: "#498589" }}
               autoFocus
               type="text"
-              value={usrname}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter your username"
               className="custom-placeholder"
             />
@@ -65,14 +96,10 @@ export default function Login() {
               className="custom-placeholder"
             />
           </Form.Group>
-          {errMsg ? (
-            <div className="err-msg">
-              <text>{errMsg}</text>
-            </div>
-          ) : (
-            <></>
-          )}
+          
+          
           <div className="d-flex justify-content-center">
+            
             <Button
               block
               size="md"
@@ -83,6 +110,8 @@ export default function Login() {
               Login
             </Button>
           </div>
+          
+        
         </Form>
       </div>
       <div className="d-flex justify-content-center">

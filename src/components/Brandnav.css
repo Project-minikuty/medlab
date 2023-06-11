@@ -8,3 +8,16 @@ body {
   color: black;
 }
 
+.about, .team, .contact {
+  display: inline;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.brandName {
+padding-top: 20px;
+}
+
+.Navbar {
+  z-index: 1;
+}

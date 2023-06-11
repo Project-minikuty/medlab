@@ -9,14 +9,15 @@ import Heading from "../components/Heading";
 
 function Doctor() {
   const buttons = [
-    { img: require('../images/parentOptions/option1.png'), alt: 'list', text: 'View List of Students' },
+    { img: require('../images/parentOptions/option1.png'), alt: 'list', text: 'View List of Students', navigateTo: '/doctor/studentList' },
     { img: require('../images/adminOptions/option4.png'), alt: 'schedule', text: 'View Appointments' },
+    { img: require('../images/parentOptions/option2.png'), alt: 'list', text: 'Add Prescriptions'},
 
   ];
   return (
-   <>
+   <div className="body2">
       <BrandNav logout="true"/>
-      <Heading type={2}/>
+      <Heading type={2} view="desktop"/>
       <div className="parentcontainer">
       <ButtonGrid buttons={buttons} />
         <Bg type={2}/>
@@ -24,7 +25,7 @@ function Doctor() {
         
       </div>
    
-   </>
+   </div>
   );
 }
 

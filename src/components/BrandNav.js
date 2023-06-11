@@ -1,59 +1,160 @@
-import React from "react";
-import "./Brandnav.css";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router";
 
-function BrandNav2(props) {
-  const navBrandStyle = {
-    color: "black",
-    fontWeight: "bold",
-    fontFamily: "Lato, sans-serif",
+const drawerWidth = 240;
+const navItems = ['Home', 'About', 'Contact'];
+
+function BrandNav(props) {
+  const navigate = useNavigate()
+
+
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
   };
-
+  
   const handleLogout = () => {
     // Add your logout logic here
     console.log("Logout clicked");
+    localStorage.clear();
+    navigate("/lo");
   };
-
   const buttonStyle = {
     borderColor: "#498589",
     color: "#498589",
     fontWeight: "bold",
+    marginLeft: '30px',
     // Remove the hovering effect
     "&:hover": {
       backgroundColor: "transparent",
       color: "#498589",
       borderColor: "#498589",
+      
     },
   };
 
-  return (
-    <>
-      <nav className="navbar navbar-light bg-light Navbar">
-        <div className="container">
-          <a href="#home" className="navbar-brand" style={navBrandStyle}>
-            <img
-              alt="logo"
-              src={require("../images/MedlabLogo.png")}
-              width="35"
-              height="25"
-              className="d-inline-block align-top"
-            />{" "}
-            <span>MEDLAB</span>
-          </a>
-          {props.logout ? (
-            <button
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center'}}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        MEDLAB
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <button
               className="btn btn-outline"
               onClick={handleLogout}
               style={buttonStyle}
             >
               Logout
             </button>
-          ) : (
-            <></>
-          )}
-        </div>
-      </nav>
-    </>
+    </Box>
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+
+  return (
+    <Box className='Navbar' sx={{ display: 'flex', zIndex: -1, mb: 0}}>
+      <CssBaseline />
+      <AppBar component="nav" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+
+        <Toolbar>
+          <IconButton
+            color="black"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 12, display: { sm: 'none' }, mb: 0 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <img
+              alt="logo"
+              src={require("../images/MedlabLogo.png")}
+              width="55"
+              height="45"
+              className="d-inline-block align-top"
+            />{"   "}
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, paddingLeft: '10px', fontWeight: 'bold', color: 'black' }}
+          >
+            MEDLAB
+          </Typography>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#498589'}}>
+            {navItems.map((item) => (
+              <Button key={item} sx={{ color: '#498589', paddingLeft: '20px', paddingRight: '20px' }}>
+                {item}
+              </Button>
+            ))}
+             <button
+              className="btn btn-outline"
+              onClick={handleLogout}
+              style={buttonStyle}
+            >
+              Logout
+            </button>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Box component="nav">
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      <Box component="main" sx={{ p: 3 }}>
+        <Toolbar />
+
+      </Box>
+    </Box>
   );
 }
 
-export default BrandNav2;
+BrandNav.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+export default BrandNav;

@@ -1,20 +1,43 @@
 
-body{
-  height: 100vh;
-  width: 100vw;
-  /* background-color: aqua; */
-}
 .parentcontainer{
   display: flex;
   justify-content: space-between;
   padding: 0;
   margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.body2{
+  height: 100vh;
+  overflow: hidden;
+}
+@media only screen and (min-width: 767px) {
+  .dashboardBody {
+  overflow: hidden;
+}
 }
 
 @media only screen and (max-width: 960px) {
   .parentcontainer{
       flex-direction: column-reverse;
-      overflow: scroll;
+      padding-left: 0px;
+      height: 100vh;
+      width: 100vw;
   }
  
+}
+
+.admin-button {
+box-sizing: border-box;
+
+position: absolute;
+width: 256.34px;
+height: 148.62px;
+left: 123px;
+top: 582.38px;
+
+background: radial-gradient(67.83% 67.83% at 50% 50%, rgba(245, 253, 251, 0) 0%, #08BA90 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+border: 2.35897px solid #50A4A9;
+filter: drop-shadow(3.93162px 3.1453px 3.1453px rgba(0, 0, 0, 0.25));
+border-radius: 18.8718px;
 }
