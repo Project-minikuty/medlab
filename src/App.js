@@ -11,7 +11,8 @@ import ViewAssignment from './pages/ViewAssignment';
 import SubmitAssignment from './pages/SubmitAssignment';
 import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
-import AddUser from './pages/addUser'
+import AddUser from './pages/addUser';
+import CreateAssignment from './pages/createAssignment'
 function App() {
   return (
     <Router>
@@ -30,6 +31,7 @@ function App() {
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />
+        <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
 
         {/* Admin Routes */}
         <Route path="/admin" element={<Admin />} />
