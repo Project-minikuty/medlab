@@ -5,7 +5,6 @@ import Bg from "../components/PageBg";
 import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
-import './studentList.css';
 
 function DoctorList() {
   const [users, setUsers] = useState([]);
@@ -30,7 +29,7 @@ function DoctorList() {
         <Heading view="desktop" type={8} />
           <div className="List">
           <div className="list">
-            <ListView List={users}/>
+            <ListView List={users} type={2}/>
             </div>
           </div>
           </div>

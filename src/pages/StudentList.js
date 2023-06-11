@@ -29,7 +29,7 @@ function StudentList() {
           <Heading view="desktop" type={7} />
           <div className="List">
             <div className="list">
-              <ListView List={users} />
+              <ListView List={users} type={3}/>
             </div>
           </div>
         </div>

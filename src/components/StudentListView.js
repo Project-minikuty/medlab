@@ -6,7 +6,7 @@ import "./ListView.css";
 export default function ListView(props) {
   // const [suspendedUsers, setSuspendedUsers] = useState([]);
   // const [reinstatedUsers,setReinstatedUsers]=useState([]);
-  const [val, setVal] = useState("");
+  const [val, setVal] = useState(true);
   const [userDetails, setUserDetails] = useState("");
   const [curU,setCurU]=useState("")
 
@@ -17,7 +17,7 @@ export default function ListView(props) {
         `/${admin_username}/suspend?username=${user.username}`
       );
       props.List[props.List.indexOf(user)]["suspended"] = true;
-      setVal("s");
+      setVal((v)=>!v);
       console.log(val);
       // setSuspendedUsers((prevSuspendedUsers) => [...prevSuspendedUsers, user._id]);
     } catch (error) {
@@ -32,7 +32,7 @@ export default function ListView(props) {
         `/${admin_username}/reinstate?username=${user.username}`
       );
       props.List[props.List.indexOf(user)]["suspended"] = false;
-      setVal("r");
+      setVal((v)=>!v);
       console.log(props.List);
     } catch (error) {
       console.error("Error suspending user:", error);
@@ -40,8 +40,18 @@ export default function ListView(props) {
   };
 
   const handleNameClick = async (user) => {
+    var url;
     try {
-      const response = await axiosInstance.get(`/sDetails?id=${user._id}`);
+      switch (props.type){
+        case 1: url=`/aDetails?id=${user._id}`;break;
+        case 2: url=`/dDetails?id=${user._id}`;break;
+        case 3: url=`/sDetails?id=${user._id}`;break;
+        default : url="";
+
+      }
+      console.log(url);
+
+      const response = await axiosInstance.get(url);
       const responseData = response.data;
       console.log(responseData);
       setCurU(user)
