@@ -37,7 +37,7 @@ return (
         <div className="content2">
         
         <label>Upload your files : </label>
-      <button class="btn3" onClick={() => openFileSelector()}>Select files</button>
+      <button className="btn3" onClick={() => openFileSelector()}>Select files</button>
     
     </div>
     

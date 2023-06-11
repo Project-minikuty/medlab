@@ -16,7 +16,7 @@ import StudentList from './pages/StudentList';
 import DoctorList from './pages/DoctortList';
 
 
-
+import CreateAssignment from './pages/createAssignment';
 
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
@@ -45,6 +45,7 @@ function App() {
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />
         <Route path="/doctor/studentList" element={<StudentList/>} />
+        <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
        
 
         {/* Admin Routes */}
