@@ -10,7 +10,7 @@ function DoctorList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://medback.onrender.com/dNames") // Change the URL to the appropriate endpoint on your server
+    fetch("https://medback.onrender.com/dNames") 
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
