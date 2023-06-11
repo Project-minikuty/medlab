@@ -7,7 +7,6 @@ import ButtonGrid from "../components/Options";
 import Heading from "../components/Heading";
 
 
-
 function Parent() {
   const buttons = [
     { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View Student Progress', navigateTo: '/parent/studentprogress'},

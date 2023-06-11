@@ -6,6 +6,7 @@ import "./ListView.css";
 export default function ListView(props) {
   const [suspendedUsers, setSuspendedUsers] = useState([]);
   const [canSuspend] = useState(true);
+  const [userDetails, setUserDetails] = useState(null);
 
   const handleSuspend = async (user) => {
     const admin_username = localStorage.getItem("username");
@@ -15,6 +16,20 @@ export default function ListView(props) {
     } catch (error) {
       console.error("Error suspending user:", error);
     }
+  };
+
+  const handleNameClick = async (userId) => {
+    try {
+      const response = await axiosInstance.get(`/sDetails?id=${userId}`);
+      const responseData = response.data; 
+      setUserDetails(responseData);
+    } catch (error) {
+      console.error("Error getting user details:", error);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setUserDetails(null);
   };
 
   return (
@@ -32,8 +47,18 @@ export default function ListView(props) {
           }`}
           key={user._id}
         >
-          <div className="d-flex flex-col text-center">{user.username}</div>
-          <div className="d-flex flex-col text-center">{user.name}</div>
+          <div
+            className="d-flex flex-col text-center"
+            onClick={() => handleNameClick(user._id)}
+          >
+            {user.username}
+          </div>
+          <div
+            className="d-flex flex-col text-center"
+            onClick={() => handleNameClick(user._id)}
+          >
+            {user.name}
+          </div>
           <button
             type="button"
             className="btn btn-outline-danger"
@@ -44,6 +69,24 @@ export default function ListView(props) {
           </button>
         </div>
       ))}
+
+      {/* User Details Modal */}
+      {userDetails && (
+        <div className="modal-overlay">
+          <div className="modal-card">
+            <button className="close-btn" onClick={handleCloseModal}>
+              X
+            </button>
+            <div className="user-details">
+              <h3>{userDetails.name}</h3>
+              <p>Username: {userDetails.username}</p>
+              <p>Age: {userDetails.age}</p>
+              <p>Height: {userDetails.height}</p>
+              {/* Add other user details here */}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
