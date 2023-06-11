@@ -15,6 +15,9 @@
   
 }
 
+
+
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -29,22 +32,27 @@
 }
 
 .modal-card {
+  display: flex;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   z-index: 10000;
+  flex-direction: column;
 }
 
 .close-btn {
-  position: absolute;
+  /* position: fixed; */
+  align-self: flex-end;
   top: 10px;
   right: 10px;
   font-size: 16px;
   background-color: transparent;
-  border: none;
+  /* border: ; */
+  border-radius: 100%;
   cursor: pointer;
+  font: menu;
 }
 
 .user-details {
-  text-align: center;
+  text-align: justify;
 }

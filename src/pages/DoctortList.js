@@ -4,16 +4,17 @@ import BrandNav from "../components/BrandNav";
 import Bg from "../components/PageBg";
 import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
+import axiosSetup from "../axiosSetup";
 import './studentList.css';
 
 function DoctorList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://medback.onrender.com/dNames") // Change the URL to the appropriate endpoint on your server
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
+    axiosSetup.get("/Names?type=2") // Change the URL to the appropriate endpoint on your server
+      
+      .then((result) => {
+        setUsers(result.data);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
