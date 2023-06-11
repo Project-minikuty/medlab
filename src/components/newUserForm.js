@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./newUserForm.css";
 import axios from "../axiosSetup";
 
+
 const NewuserForm = (props) => {
   const [userRole, setUserRole] = useState("3");
   const [username, setUsername] = useState("");
@@ -59,7 +60,9 @@ const NewuserForm = (props) => {
 
   return (
     <>
+    
       <div className="error-box" id="error-box"></div>
+      
       <form onSubmit={handleSubmit}>
         <div className="wrapper1 n">
           <div className="d-flex justify-content-center userRole">

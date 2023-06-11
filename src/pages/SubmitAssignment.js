@@ -4,6 +4,7 @@ import BrandNav from "../components/BrandNav";
 import Bg from "../components/PageBg";
 import Heading from "../components/PageHeading";
 import ButtonGrid from "../components/Options";
+import BackButton from "../components/BackButton";
 
 
 function SubmitAssignment() {
@@ -17,6 +18,7 @@ function SubmitAssignment() {
   return (
     <>
     <BrandNav logout="true" />
+    <BackButton />  
     <Heading view="desktop" type={3} />
       <Bg type={3} />
       <div className="parentcontainer">

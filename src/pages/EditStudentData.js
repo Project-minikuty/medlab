@@ -3,6 +3,7 @@ import EditStudentProfileForm from '../components/parent-dashboard/studentData';
 import BrandNav from '../components/BrandNav';
 
 import Bg from '../components/PageBg';
+import BackButton from '../components/BackButton';
 
 
 function EditData() {
@@ -16,7 +17,9 @@ function EditData() {
     <div>
        
        <BrandNav logout="true" />
+<BackButton />
        <Bg type={0} />
+
       <div className="parentcontainer"></div>
       <div>
       

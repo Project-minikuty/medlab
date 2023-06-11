@@ -6,6 +6,7 @@ import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
 import './studentList.css';
+import BackButton from "../components/BackButton";
 
 function StudentList() {
   const [users, setUsers] = useState([]);
@@ -24,6 +25,7 @@ function StudentList() {
     <>
       <BrandNav logout="true" />
       <Bg type={7} />
+      <BackButton />
       <div className="parentcontainer">
         <div className="flex-section">
           <Heading view="desktop" type={7} />

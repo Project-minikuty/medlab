@@ -4,6 +4,7 @@ import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
 import ListView from "../components/StudentListView";
+import BackButton from "../components/BackButton";
 
 function ViewAssignment() {
   const users = [
@@ -61,6 +62,7 @@ function ViewAssignment() {
     <>
       <BrandNav logout="true" />
       <Bg type={1} />
+      <BackButton />
       <div className="parentcontainer">
         <div className="flex-section">
       
