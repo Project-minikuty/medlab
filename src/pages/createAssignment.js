@@ -20,7 +20,7 @@ return (
         <div className="title">
         <Heading type={10} view="desktop"/>
         </div>
-        <div className="wrapper2">
+        <div className="wrapper3">
         <div className="content1">
           <label>Assignment Name:</label>
           <input type="text" className='input-field' />  
