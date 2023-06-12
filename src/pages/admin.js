@@ -8,10 +8,9 @@ import ButtonGrid from "../components/Options";
 
 function Doctor() {
   const buttons = [
-    { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View List of Students'},
-    { img: require('../images/parentOptions/option2.png'), alt: 'option2', text: 'View List of Doctors' },
+    { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View List of Students', navigateTo: '/admin/studentlist'},
+    { img: require('../images/parentOptions/option2.png'), alt: 'option2', text: 'View List of Doctors', navigateTo: '/admin/doctorlist' },
     { img: require('../images/adminOptions/option3.png'), alt: 'option3', text: 'Add New User', navigateTo: '/admin/addnewuser'},
-   
   ];
 
   const [forceRender, setForceRender] = useState(false);
@@ -35,7 +34,9 @@ function Doctor() {
       <BrandNav logout="true" />
       <Heading view="desktop" type={1} />
       <div className="parentcontainer">
+        <div className="adminButtons">
         <ButtonGrid buttons={buttons} isHighlighted={isHighlighted} />
+        </div>
         <Bg type={1} />
       </div>
     </div>

@@ -4,18 +4,21 @@ import BrandNav from "../components/BrandNav";
 
 import Heading from "../components/PageHeading";
 import "./studentProgress.css"
+import BackButton from "../components/BackButton";
 
 function StudentProgress() {
   return (
     <>
       <BrandNav logout="true" />
+      <BackButton />
       <Heading view="desktop" type={5} />
+     
       <div className="parentcontainer">
         <div className="flex-section">
           <form className="studentProgress">
 
         <div className="body">
-        <div className="wrapper1">
+        <div className="wrapper1 n">
         <div className="d-flex">
                   <div className="d-flex justify-content-between">
                     <label>Name:</label>

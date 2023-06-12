@@ -10,7 +10,7 @@ export default function FormSuccess(props) {
         navigate("/admin");
     }
     function oneMore() {
-        navigate("/admin/addnewuser")
+      window.location.reload();
     }
   return (
     <div className="success_container">

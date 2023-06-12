@@ -26,7 +26,8 @@
 }
 
 .Login form .form-group label {
-  color: #498589; /* Field label color */
+  color: #498589;
+  width: 10px !important; /* Field label color */
 }
 
 .Login form button[type="submit"] {
@@ -71,11 +72,51 @@
   padding-left: 2px;
   padding-top: 10px;
 }
+
+.l-error-box {
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  
+  transform: translate(-50%, 0);
+  margin-top: 50px;
+  display: none;
+  box-sizing: border-box;
+  width: 20%;
+  border-radius: 50px;
+  flex-direction: column;
+  padding: 20px;
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  color: rgba(255, 2, 2, 0.795);
+  text-align: center;
+  border: 1px solid rgba(255, 2, 2, 0.795);
+  animation: fade-in 5s ;
+}
+@media only screen and (max-width: 960px){
+  .l-error-box{
+    width: 90%;
+    margin-top: 10px;
+  }
+}
+@keyframes fade-in {
+  from {opacity: 0%;}
+  25% {opacity: 100%;}
+  to {opacity: 0%;}
+  
+}
 @media only screen and (max-width: 960px) {
   .Login {
     margin-top: 20px;
     justify-content: center;
     height: 30vh;
+  }
+  .Login form .form-group label {
+    color: #498589;
+    width: 100px !important; /* Field label color */
   }
   .mobile-logo {
     display: inline;

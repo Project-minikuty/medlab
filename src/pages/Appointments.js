@@ -5,6 +5,7 @@ import styles from "./submitAssignment.module.css";
 import Bg from "../components/PageBg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import BackButton from "../components/BackButton";
 
 function Appointments() {
   const [startDate, setStartDate] = useState(new Date());
@@ -12,6 +13,7 @@ function Appointments() {
   return (
     <>
       <BrandNav logout="true" />
+      <BackButton />
       <Bg type={3} />
       <div className="parentcontainer">
         <div className="flex-section">

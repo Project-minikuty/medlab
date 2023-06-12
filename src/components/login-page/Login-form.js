@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,14 +11,22 @@ export default function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errMsg, setErrMsg] = useState("");
 
-  useEffect(() => {
-    setErrMsg("");
-  }, [username, password]);
+ 
 
   function validateForm() {
     return username.length > 0 && password.length > 0;
+  }
+
+  function errorHandling(msg) {
+    var d = document.getElementById("error-box");
+    d.style.display = "flex";
+    
+    d.innerHTML=`<span>${msg}</span>`
+    setTimeout(function () {
+      d.style.display = "none";
+      }, 5000);
+
   }
 
   function handleSubmit(event) {
@@ -27,7 +35,7 @@ export default function Login() {
     axios
       .get(`/validate?username=${username}&password=${password}`)
       .then((res) => {
-        setErrMsg(res.data.message);
+        errorHandling(res.data.message);
         if (res.data.access) {
           console.log("logged");
           const userType = Number(res.data.details.type);
@@ -56,10 +64,14 @@ export default function Login() {
 
   return (
     <div className="formContainer">
+
+      
+
       <Heading />
       <SubHeading />
       <div className="Login">
         <Form onSubmit={handleSubmit}>
+          
           <Form.Group size="lg" controlId="username">
             <Form.Label style={{ color: "#498589" }}>Username</Form.Label>
             <Form.Control
@@ -84,12 +96,10 @@ export default function Login() {
               className="custom-placeholder"
             />
           </Form.Group>
-          {errMsg && (
-            <div className="err-msg">
-              <text>{errMsg}</text>
-            </div>
-          )}
+          
+          
           <div className="d-flex justify-content-center">
+            
             <Button
               block
               size="md"
@@ -100,6 +110,8 @@ export default function Login() {
               Login
             </Button>
           </div>
+          
+        
         </Form>
       </div>
       <div className="d-flex justify-content-center">

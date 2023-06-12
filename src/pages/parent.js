@@ -6,6 +6,7 @@ import "./dashboard.css";
 import ButtonGrid from "../components/Options";
 import Heading from "../components/Heading";
 
+
 function Parent() {
   const buttons = [
     { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View Student Progress', navigateTo: '/parent/studentprogress'},
@@ -15,10 +16,15 @@ function Parent() {
     { img: require('../images/parentOptions/option5.png'), alt: 'option4', text: 'Schedule Appoinments', navigateTo: '/parent/appointments' },
   ];
   return (
+    
     <div className="body2">
+      
     <div className="dashboardBody">
+    
       <BrandNav logout="true" />
+     
       <Heading type={3} view="desktop"/>
+      
       <div className="parentcontainer">
         <ButtonGrid buttons={buttons} />
         <Bg type={3}/>
