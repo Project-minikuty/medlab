@@ -14,7 +14,7 @@ import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
 import StudentList from './pages/StudentList';
 import DoctorList from './pages/DoctortList';
-
+import AppointmentList from './pages/appointmentList';
 
 import CreateAssignment from './pages/createAssignment';
 
@@ -45,6 +45,7 @@ function App() {
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />
         <Route path="/doctor/studentList" element={<StudentList/>} />
+        <Route path="/doctor/appointmentList" element={<AppointmentList/>} />
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
        
 
