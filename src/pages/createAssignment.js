@@ -1,20 +1,16 @@
 import "./createAssignment.css";
 import { useFilePicker } from 'use-file-picker';
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/BrandNav";
-import Heading from "../components/Heading";
-import { TextareaAutosize } from "@mui/material";
+import Heading from "../components/PageHeading";
+
 
 export default function App() {
-    const [userRole, setUserRole] = useState("doctor");
   
-    const handleRoleChange = (e) => {
-      setUserRole(e.target.value);
-
-    }
-    const [openFileSelector,{ filesContent, loading, errors, plainFiles }] = useFilePicker({
+  
+    const [openFileSelector] = useFilePicker({
       multiple: true, 
-      accept: [".jpg", ".pdf",".png",".docx"],
+      accept: [".jpg", ".pdf", ".png", ".docx", ".mp4", ".mva"],
       limitFilesConfig: { min: 2, max: 3 }
     });
 return (
@@ -22,7 +18,7 @@ return (
     <Navbar logout="true" />
       <div className="body1">
         <div className="title">
-          <Heading text="Create New Assignment" />
+        <Heading type={10} view="desktop"/>
         </div>
         <div className="wrapper2">
         <div className="content1">
