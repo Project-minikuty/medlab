@@ -43,5 +43,10 @@
 }
 
 
+.submitButton {
+  margin-top: 50px;
+}
 
-
+.dragArea {
+  margin-top: 10px;
+}
