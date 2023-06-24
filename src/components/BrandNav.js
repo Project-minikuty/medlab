@@ -80,17 +80,17 @@ function BrandNav(props) {
 
 
   return (
-    <Box className='Navbar' sx={{ display: 'flex', zIndex: -1, mb: 0}}>
+    <Box className='Navbar' sx={{ display: 'flex', zIndex: -1, mb: 0, height:0,}}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+      <AppBar component="nav" sx={{ backgroundColor: 'transparent', boxShadow: 'none', mt:0, }}>
 
         <Toolbar>
-          <IconButton
+        <IconButton
             color="black"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 12, display: { sm: 'none' }, mb: 0 }}
+            sx={{ mr: 12, display: { sm: 'none' }, mb: 0,  zIndex: 1,mt:0, }}
           >
             <MenuIcon />
           </IconButton>
@@ -99,7 +99,7 @@ function BrandNav(props) {
               src={require("../images/MedlabLogo.png")}
               width="55"
               height="45"
-              className="d-inline-block align-top"
+              className="align-top nav-logo"
             />{"   "}
           <Typography
             variant="h6"
