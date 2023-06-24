@@ -3,6 +3,7 @@ import { useFilePicker } from 'use-file-picker';
 import React from "react";
 import Navbar from "../components/BrandNav";
 import Heading from "../components/PageHeading";
+import BackButton from "../components/BackButton";
 
 
 export default function App() {
@@ -16,8 +17,13 @@ export default function App() {
 return (
     <div className="App">
     <Navbar logout="true" />
+    
       <div className="body1">
+     <div className="backButtonContainer">
+      <BackButton />
+      </div>
         <div className="title">
+        
         <Heading type={10} view="desktop"/>
         </div>
         <div className="wrapper3">
@@ -32,12 +38,12 @@ return (
          
         <div className="content2">
         
-        <label>Upload your files : </label>
+        <label className="">Upload your files : </label>
       <button className="btn3" onClick={() => openFileSelector()}>Select files</button>
     
     </div>
     
-        <button type="submit" class="btn4">Submit</button>
+        <button type="submit" class="btn4 submitButton">Submit</button>
       
         </div>
         </div>
