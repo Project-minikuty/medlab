@@ -3,60 +3,30 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
-import ListView from "../components/StudentListView";
+import ListView from "../components/AssignmentListView";
 import BackButton from "../components/BackButton";
 
 function ViewAssignment() {
-  const users = [
+  const assignments = [
     {
-      "_id": "64748db03d0678cdde0173fc",
-      "username": "tomin12",
+      "_id": "1",
+      "username": "PhysioTherapy 1",
       "name": "Tomin Joy"
     },
     {
-      "_id": "6475dab087058119aad7cb92",
-      "username": "akash",
+      "_id": "2",
+      "username": "",
       "name": "Akash Vijay"
     },
     {
-      "_id": "6475dabd87058119aad7cb93",
+      "_id": "3",
       "username": "akash2",
       "name": "Akash Vijay3"
     },
     {
-      "_id": "647cd2eb25bca0a7a45c84db",
+      "_id": "4",
       "username": "tomin12p",
       "name": "Tomin Joy"
-    },
-    {
-      "_id": "647e0f8e5d9bd88e05711659",
-      "username": "kns3",
-      "name": "string s"
-    },
-    {
-      "_id": "647e1ce400499ae18d051eb0",
-      "username": "kns",
-      "name": "string s"
-    },
-    {
-      "_id": "64806c86867b21145ade9efc",
-      "username": "admi2",
-      "name": "ksks"
-    },
-    {
-      "_id": "64808390dae9c6a75910710f",
-      "username": "1",
-      "name": "tomin"
-    },
-    {
-      "_id": "648086dfdae9c6a759107110",
-      "username": "2",
-      "name": "Tomin Joy"
-    },
-    {
-      "_id": "6481aac35ad63591426ac7aa",
-      "username": "mathews1",
-      "name": "Mathews P Mathews"
     }];
   return (
     <>
@@ -66,14 +36,10 @@ function ViewAssignment() {
       <div className="parentcontainer">
         <div className="flex-section">
       
-          <h2 className={styles.heading}>New Assignments</h2>
+          <h2 className={styles.heading}>Assignment List</h2>
           <div className={`${styles.rectangleBox} ${styles.desktopSize}`}>
-            <ListView List={users}/>
+            <ListView List={assignments}/>
           </div>
-        </div>
-        <div className="flex-section">
-          <h2 className={styles.heading}>Completed Assignments</h2>
-          <div className={`${styles.rectangleBox} ${styles.desktopSize}`}></div>
         </div>
       </div>
     </>
