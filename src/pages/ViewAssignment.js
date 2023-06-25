@@ -5,28 +5,24 @@ import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
 import ListView from "../components/AssignmentListView";
 import BackButton from "../components/BackButton";
+import Heading from "../components/PageHeading";
 
 function ViewAssignment() {
   const assignments = [
     {
       "_id": "1",
-      "username": "PhysioTherapy 1",
-      "name": "Tomin Joy"
+      "name": "PhysioTherapy 1",
+      "description": "Add video of physiotherapy exercise"
     },
     {
       "_id": "2",
-      "username": "",
-      "name": "Akash Vijay"
+      "name": "PhysioTherapy 2",
+      "description": "Add video of physiotherapy exercise"
     },
     {
       "_id": "3",
-      "username": "akash2",
-      "name": "Akash Vijay3"
-    },
-    {
-      "_id": "4",
-      "username": "tomin12p",
-      "name": "Tomin Joy"
+      "name": "PhysioTherapy 3",
+      "description": "Add video of physiotherapy exercise"
     }];
   return (
     <>
@@ -36,7 +32,7 @@ function ViewAssignment() {
       <div className="parentcontainer">
         <div className="flex-section">
       
-          <h2 className={styles.heading}>Assignment List</h2>
+          <Heading type={12} view="desktop"/>
           <div className={`${styles.rectangleBox} ${styles.desktopSize}`}>
             <ListView List={assignments}/>
           </div>

@@ -27,7 +27,8 @@ const Heading = (props) => {
     8: ["View Doctor List","doctor data"],
     9: ["View Prescriptions","prescription data"],
     10:  ["Create Assignment", "assignment data"],
-    11:  ["Appointment List", "appointment data"]
+    11:  ["Appointment List", "appointment data"],
+    12: ["View Assignments", "assignment data"],
   };
   
   return (

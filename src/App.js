@@ -17,6 +17,7 @@ import DoctorList from './pages/DoctortList';
 import AppointmentList from './pages/appointmentList';
 
 import CreateAssignment from './pages/createAssignment';
+import SubmitAssignmentPage from './pages/submitAssignmentPage';
 
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
@@ -47,6 +48,7 @@ function App() {
         <Route path="/doctor/studentList" element={<StudentList/>} />
         <Route path="/doctor/appointmentList" element={<AppointmentList/>} />
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
+        <Route path="/doctor/submitAssignment" element={<SubmitAssignmentPage/>} />
        
 
         {/* Admin Routes */}
@@ -55,7 +57,7 @@ function App() {
         <Route path="/admin/studentlist" element={<StudentList/>} />
         <Route path="/admin/doctorlist" element={<DoctorList/>} />
 
-       
+      
       </Routes>
     </Router>
   );
