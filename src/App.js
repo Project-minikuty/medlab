@@ -21,6 +21,7 @@ import SubmitAssignmentPage from './pages/submitAssignmentPage';
 
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
+import ViewAppointment from './pages/ViewAppointment';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/doctor/appointmentList" element={<AppointmentList/>} />
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
         <Route path="/doctor/submitAssignment" element={<SubmitAssignmentPage/>} />
+        <Route path="/doctor/viewAppointment" element={<ViewAppointment/>} />
        
 
         {/* Admin Routes */}
