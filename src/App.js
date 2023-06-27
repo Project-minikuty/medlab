@@ -21,6 +21,7 @@ import SubmitAssignmentPage from './pages/submitAssignmentPage';
 
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
+import VideoCallPage from './pages/videoCallPage';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/parent/appointments" element={<Appoinments/>} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
+        <Route path='/videocall' element={<VideoCallPage />} />
         
 
         {/* Doctor Routes */}
