@@ -23,9 +23,9 @@ function DoctorList() {
 
   return (
     <>
-      <BrandNav logout="true" />
+      <BrandNav logout="true" showBackButton={true}/>
       <Bg type={8} />
-      <BackButton />
+
       <div className="parentcontainer">
         <div className="flex-section">
         <Heading view="desktop" type={8} />
