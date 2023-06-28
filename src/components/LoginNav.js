@@ -47,15 +47,6 @@ function BrandNav2(props) {
             <span>MEDLAB</span>
           </a>
           <div>
-            <a href="#about" className="nav-link about">
-              About
-            </a>
-            <a href="#team" className="nav-link team">
-              Team
-            </a>
-            <a href="#contact" className="nav-link contact">
-              Contact
-            </a>
           </div>
           {props.logout ? (
             <button

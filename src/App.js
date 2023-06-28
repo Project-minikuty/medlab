@@ -26,6 +26,7 @@ import ViewAppointment from './pages/ViewAppointment';
 
 import VideoCallPage from './pages/videoCallPage';
 
+import About from '../src/pages/about'
 
 function App() {
   return (
@@ -65,7 +66,10 @@ function App() {
         <Route path="/admin/studentlist" element={<StudentList/>} />
         <Route path="/admin/doctorlist" element={<DoctorList/>} />
 
-      
+
+        {/* About Page */}
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </Router>
   );
