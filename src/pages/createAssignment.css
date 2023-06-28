@@ -13,9 +13,10 @@
     flex-direction: row;
     width: 100%;
     padding-left: 200px;
+  
   } 
   .wrapper3 {
-    height:63%;
+    height:65%;
     width: 60%;
     margin-top:-2%;
     /* max-width: 1212px;
@@ -42,6 +43,7 @@
     align-items: flex-start;
     padding-left: 3%;
     margin-top: 2%;
+    
   }
   .input-field{
     width: 70%;
@@ -91,6 +93,7 @@
     height: 90dvh;
     display: flex;
     flex-direction: column;
+    
    
     align-items: center;
     background-image: url("../images/DoctorBG.png");
@@ -105,3 +108,15 @@
     text-decoration-color: #000000;
     background-color: #ffffff;
   }
+
+  .backButtonContainer{
+    margin-right: 1000px;
+    margin-top: 150px;
+    margin-bottom: 0px;
+  }
+
+  .submitButton{
+    margin-bottom: 30px;
+    margin-top: 40px;
+  }
+

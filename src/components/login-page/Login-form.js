@@ -39,7 +39,9 @@ export default function Login() {
         if (res.data.access) {
           console.log("logged");
           const userType = Number(res.data.details.type);
+          const name = res.data.details.name;
           console.log(userType);
+          localStorage.setItem("name", name);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
           localStorage.setItem("logged",true);

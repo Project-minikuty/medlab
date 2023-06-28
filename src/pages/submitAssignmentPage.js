@@ -20,10 +20,11 @@ return (
     
       <div className="body1">
      <div className="backButtonContainer">
+      <BackButton />
       </div>
         <div className="title">
         
-        <Heading type={10} view="desktop"/>
+        <Heading type={3} view="desktop"/>
         </div>
         <div className="wrapper3">
         <div className="content1">
@@ -31,7 +32,7 @@ return (
           <input type="text" className='input-field' />  
         </div>
         <div className="content1">
-          <label>Assignment :</label>
+          <label>Assignment Description:</label>
           <textarea  className='input-field1'/>         
         </div>
          

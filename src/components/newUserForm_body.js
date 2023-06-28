@@ -16,8 +16,7 @@ const NewUserFormBody = (props) => {
 
   return (
     <>
-      <Navbar logout="true" />
-      <BackButton />
+      <Navbar logout="true"/>
       <div className="body1">
       
         <Heading view="desktop" type={6} />

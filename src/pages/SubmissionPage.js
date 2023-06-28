@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Upload, Button, message } from "antd";
+import { Upload, Button} from "antd";
 import { InboxOutlined, FileOutlined } from "@ant-design/icons";
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
@@ -11,11 +11,11 @@ const { Dragger } = Upload;
 function Submission() {
   const [fileList, setFileList] = useState([]);
 
-  const handleFileUpload = (file) => {
-    // Perform file upload logic here
-    console.log("File uploaded:", file);
-    message.success(`${file.name} uploaded successfully.`);
-  };
+  // const handleFileUpload = (file) => {
+  //   // Perform file upload logic here
+  //   console.log("File uploaded:", file);
+  //   message.success(`${file.name} uploaded successfully.`);
+  // };
 
   const handleFileRemove = (file) => {
     // Perform file removal logic here
