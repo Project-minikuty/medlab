@@ -47,6 +47,7 @@ function App() {
         <Route path="/doctor/studentList" element={<StudentList/>} />
         <Route path="/doctor/appointmentList" element={<AppointmentList/>} />
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
+        
        
 
         {/* Admin Routes */}
