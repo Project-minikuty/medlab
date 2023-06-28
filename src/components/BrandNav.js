@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router';
 import BackButton from './BackButton';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Home', 'About'];
 
 function BrandNav(props) {
   const navigate = useNavigate();
