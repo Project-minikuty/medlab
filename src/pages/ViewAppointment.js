@@ -4,7 +4,6 @@ import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
 import ListView from "../components/AppointmentListView";
-import BackButton from "../components/BackButton";
 import Heading from "../components/PageHeading";
 
 function ViewAppointment() {

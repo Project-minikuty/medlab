@@ -25,6 +25,7 @@ import LogingOut from './public_pages/logginOut';
 import ViewAppointment from './pages/ViewAppointment';
 
 import VideoCallPage from './pages/videoCallPage';
+import DMPage from './pages/DMPage';
 
 import About from '../src/pages/about'
 
@@ -49,7 +50,7 @@ function App() {
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
         <Route path='/videocall' element={<VideoCallPage />} />
-        
+        <Route path='/chat' element={<DMPage />} />
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />
