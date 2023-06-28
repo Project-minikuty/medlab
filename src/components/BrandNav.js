@@ -31,10 +31,13 @@ function BrandNav(props) {
   };
 
   const handleLogout = () => {
-    // Add your logout logic here
     console.log('Logout clicked');
     localStorage.clear();
     navigate('/lo');
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
   };
 
   const buttonStyle = {
@@ -42,7 +45,6 @@ function BrandNav(props) {
     color: '#498589',
     fontWeight: 'bold',
     marginLeft: '30px',
-    // Remove the hovering effect
     '&:hover': {
       backgroundColor: 'transparent',
       color: '#498589',
@@ -59,7 +61,7 @@ function BrandNav(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => handleNavigation(`/${item.toLowerCase()}`)}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -110,7 +112,11 @@ function BrandNav(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#498589' }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#498589', paddingLeft: '20px', paddingRight: '20px' }}>
+              <Button
+                key={item}
+                sx={{ color: '#498589', paddingLeft: '20px', paddingRight: '20px' }}
+                onClick={() => handleNavigation(`/${item.toLowerCase()}`)}
+              >
                 {item}
               </Button>
             ))}
@@ -128,7 +134,7 @@ function BrandNav(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -146,10 +152,6 @@ function BrandNav(props) {
 }
 
 BrandNav.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
   showBackButton: PropTypes.bool,
 };
@@ -157,9 +159,7 @@ BrandNav.propTypes = {
 function App() {
   return (
     <div>
-      {/* Other component JSX */}
       <BrandNav showBackButton={true} />
-      {/* Other component JSX */}
     </div>
   );
 }

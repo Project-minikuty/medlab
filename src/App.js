@@ -34,6 +34,7 @@ function App() {
         
         {/* Login Route */}
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/lo" element={<LogingOut text="Logging Out"/>} />
         <Route path="/li" element={<LogingOut text="Logging In"/>} />
 
