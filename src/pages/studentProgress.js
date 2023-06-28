@@ -23,7 +23,6 @@ function StudentProgress() {
   return (
     <>
       <BrandNav logout="true" />
-      <BackButton />
       <Heading view="desktop" type={5} />
 
       <div className="parentcontainer">
