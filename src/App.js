@@ -22,6 +22,7 @@ import SubmitAssignmentPage from './pages/submitAssignmentPage';
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
 import VideoCallPage from './pages/videoCallPage';
+import DMPage from './pages/DMPage';
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
         <Route path='/videocall' element={<VideoCallPage />} />
-        
+        <Route path='/chat' element={<DMPage />} />
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />

@@ -18,7 +18,7 @@ let myMeeting = async (element) => {
         container: element,
         sharedLinks: [
           {
-            name: 'Personal link',
+            name: 'Sharable link',
             url:
              window.location.protocol + '//' + 
              window.location.host + window.location.pathname +
