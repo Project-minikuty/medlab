@@ -3,7 +3,7 @@ import EditStudentProfileForm from '../components/parent-dashboard/studentData';
 import BrandNav from '../components/BrandNav';
 
 import Bg from '../components/PageBg';
-import BackButton from '../components/BackButton';
+
 
 
 function EditData() {

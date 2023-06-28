@@ -9,7 +9,7 @@
  
 }
 
-.body {
+.body5 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -37,7 +37,7 @@ margin-bottom: 50px;
   justify-content: space-between;
   
 }
-.wrapper1 {
+.wrapper5 {
   box-sizing: border-box;
   width: 100%;
   /* max-width: 1212px;
