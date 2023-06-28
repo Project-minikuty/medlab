@@ -17,8 +17,7 @@ function SubmitAssignment() {
   const isHighlighted = window.innerWidth > 768;
   return (
     <>
-    <BrandNav logout="true" />
-    <BackButton />  
+    <BrandNav logout="true" />  
     <Heading view="desktop" type={3} />
       <Bg type={3} />
       <div className="parentcontainer">

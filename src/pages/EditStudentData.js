@@ -17,7 +17,6 @@ function EditData() {
     <div>
        
        <BrandNav logout="true" />
-<BackButton />
        <Bg type={0} />
 
       <div className="parentcontainer"></div>

@@ -13,7 +13,6 @@ function Appointments() {
   return (
     <>
       <BrandNav logout="true" />
-      <BackButton />
       <Bg type={3} />
       <div className="parentcontainer">
         <div className="flex-section">
