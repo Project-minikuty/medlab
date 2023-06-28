@@ -19,10 +19,7 @@ return (
     <Navbar logout="true" />
     
       <div className="body1">
-     <div className="backButtonContainer">
-      </div>
         <div className="title">
-        
         <Heading type={10} view="desktop"/>
         </div>
         <div className="wrapper3">
