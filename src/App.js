@@ -21,7 +21,11 @@ import SubmitAssignmentPage from './pages/submitAssignmentPage';
 
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
+<<<<<<< HEAD
 import ViewAppointment from './pages/ViewAppointment';
+=======
+import VideoCallPage from './pages/videoCallPage';
+>>>>>>> c110750e6932a6e390ed2b72a4264b435f0a479b
 
 function App() {
   return (
@@ -42,6 +46,7 @@ function App() {
         <Route path="/parent/appointments" element={<Appoinments/>} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
+        <Route path='/videocall' element={<VideoCallPage />} />
         
 
         {/* Doctor Routes */}
