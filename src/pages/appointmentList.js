@@ -25,7 +25,7 @@ function StudentList() {
     <>
       <BrandNav logout="true" />
       <Bg type={7} />
-      <BackButton />
+      
       <div className="parentcontainer">
         <div className="flex-section">
           <Heading view="desktop" type={11} />
