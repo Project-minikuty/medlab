@@ -3,7 +3,7 @@ import { useFilePicker } from 'use-file-picker';
 import React from "react";
 import Navbar from "../components/BrandNav";
 import Heading from "../components/PageHeading";
-import BackButton from "../components/BackButton";
+
 
 
 export default function App() {
@@ -34,12 +34,12 @@ return (
          
         <div className="content2">
         
-        <label className="">Upload your files : </label>
+        <label >Upload your files : </label>
       <button className="btn3" onClick={() => openFileSelector()}>Select files</button>
     
     </div>
     
-        <button type="submit" class="btn4 submitButton">Submit</button>
+        <button type="submit" class="btn4">Submit</button>
       
         </div>
         </div>
