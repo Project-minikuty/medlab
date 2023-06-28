@@ -21,8 +21,13 @@ import SubmitAssignmentPage from './pages/submitAssignmentPage';
 
 import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
+
+import ViewAppointment from './pages/ViewAppointment';
+
 import VideoCallPage from './pages/videoCallPage';
 import DMPage from './pages/DMPage';
+
+import About from '../src/pages/about'
 
 function App() {
   return (
@@ -31,6 +36,7 @@ function App() {
         
         {/* Login Route */}
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/lo" element={<LogingOut text="Logging Out"/>} />
         <Route path="/li" element={<LogingOut text="Logging In"/>} />
 
@@ -52,6 +58,7 @@ function App() {
         <Route path="/doctor/appointmentList" element={<AppointmentList/>} />
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
         <Route path="/doctor/submitAssignment" element={<SubmitAssignmentPage/>} />
+        <Route path="/doctor/viewAppointment" element={<ViewAppointment/>} />
        
 
         {/* Admin Routes */}
@@ -60,7 +67,10 @@ function App() {
         <Route path="/admin/studentlist" element={<StudentList/>} />
         <Route path="/admin/doctorlist" element={<DoctorList/>} />
 
-      
+
+        {/* About Page */}
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </Router>
   );

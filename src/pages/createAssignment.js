@@ -20,7 +20,6 @@ return (
     
       <div className="body1">
      <div className="backButtonContainer">
-      <BackButton />
       </div>
         <div className="title">
         
