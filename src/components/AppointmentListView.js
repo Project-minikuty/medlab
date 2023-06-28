@@ -1,12 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
-import axiosInstance from "../axiosSetup";
 import "./ListView.css";
 
 export default function ListView(props) {
   const { List } = props;
-  const navigate = useNavigate();
 
   const handleButtonClick = (assignmentId) => {
    
