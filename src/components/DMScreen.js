@@ -49,7 +49,7 @@ function ChatPage() {
         async function ({ message, fromConversationID }) {
           convoList = await zim.queryConversationList({ count: 30 });
           setConvoList(convoList.conversationList);
-          setConvo({ ...convo });
+          setConvo({...convo});
         }
       );
       setConvoList(convoList.conversationList);
