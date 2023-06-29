@@ -8,13 +8,13 @@ import Doctor from './pages/doctor';
 import Admin from './pages/admin';
 import EditData from './pages/EditStudentData';
 import ViewAssignment from './pages/ViewAssignment';
-import SubmitAssignment from './pages/SubmitAssignment';
 import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
 import StudentList from './pages/StudentList';
 import DoctorList from './pages/DoctortList';
 import AppointmentList from './pages/appointmentList';
+import SubmitOption from './pages/ChooseAppointement';
 
 import CreateAssignment from './pages/createAssignment';
 import SubmitAssignmentPage from './pages/submitAssignmentPage';
@@ -23,6 +23,8 @@ import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
 
 import ViewAppointment from './pages/ViewAppointment';
+import ViewOfAppointment from './pages/ViewOfAppointment';
+
 import ViewPAppointment from './pages/ViewPAppointment';
 
 import ViewReport from './pages/viewReport';
@@ -47,7 +49,7 @@ function App() {
         <Route path="/parent" element={<Parent />} />
         <Route path="/parent/editData" element={<EditData />} />
         <Route path="/parent/viewAssignment" element={<ViewAssignment/>} />
-        <Route path="/parent/submitAssignment" element={<SubmitAssignment/>} />
+    
         <Route path="/parent/submitAssignment/submit" element={<Submission/>} />
         <Route path="/parent/appointments" element={<Appoinments/>} />
         <Route path="/admin/addnewuser" element={<AddUser/>} />
@@ -62,8 +64,10 @@ function App() {
         <Route path="/doctor/appointmentList" element={<AppointmentList/>} />
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
         <Route path="/doctor/submitAssignment" element={<SubmitAssignmentPage/>} />
-        <Route path="/doctor/viewAppointment" element={<ViewAppointment/>} />
+        <Route path="/OnlineAppointment" element={<ViewAppointment/>} />
+        <Route path="/OfflineAppointment" element={<ViewOfAppointment/>} />
         <Route path="/doctor/viewReport" element={<ViewReport/>} />
+        <Route path='/doctor/appointmentOptions' element={<SubmitOption />} />
        
 
         {/* Admin Routes */}

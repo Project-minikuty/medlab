@@ -19,7 +19,7 @@ const Heading = (props) => {
     0: ["User Profile","user profile"],
     1: ["Assignments","assignment data"],
     2: ["Submissions","submission data"],
-    3: ["Submit Assignment","assignment submission"],
+    3: ["Choose Option","appointment data"],
     4: ["Schedule Appointments","appointments"],
     5: ["View Progress","student progress"],
     6: ["Add New User","new user"],

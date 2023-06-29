@@ -3,34 +3,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
-import ListView from "../components/PAppointmentListView";
+import ListView from "../components/AppointmentListView";
 import Heading from "../components/PageHeading";
 import axios from "../axiosSetup";
 
-function ViewPAppointment() {
+function ViewOfAppointment() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    const onAppointmentsUrl = `/pappointments?username=${username}&aType=onAppointments&date_=2023-06-30`;
-    const ofAppointmentsUrl = `/pappointments?username=${username}&aType=ofAppointments&date_=2023-06-30`;
+    const url = `/dappointments?username=${username}&aType=ofAppointments&date_=2023-06-30`;
 
-    const fetchAppointments = async () => {
-      try {
-        const onAppointmentsResponse = await axios.get(onAppointmentsUrl);
-        const ofAppointmentsResponse = await axios.get(ofAppointmentsUrl);
-        const combinedAppointments = [
-          ...onAppointmentsResponse.data,
-          ...ofAppointmentsResponse.data
-        ];
-        setAppointments(combinedAppointments);
-      } catch (error) {
+    axios
+      .get(url)
+      .then(response => {
+        
+        setAppointments(response.data);
+       
+      })
+      .catch(error => {
         // Handle any errors
         console.error(error);
-      }
-    };
-
-    fetchAppointments();
+      });
   }, []);
 
   return (
@@ -49,4 +43,4 @@ function ViewPAppointment() {
   );
 }
 
-export default ViewPAppointment;
+export default ViewOfAppointment;
