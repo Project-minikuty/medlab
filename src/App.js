@@ -23,6 +23,7 @@ import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
 
 import ViewAppointment from './pages/ViewAppointment';
+import ViewReport from './pages/viewReport';
 
 import VideoCallPage from './pages/videoCallPage';
 import DMPage from './pages/DMPage';
@@ -59,6 +60,7 @@ function App() {
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
         <Route path="/doctor/submitAssignment" element={<SubmitAssignmentPage/>} />
         <Route path="/doctor/viewAppointment" element={<ViewAppointment/>} />
+        <Route path="/doctor/viewReport" element={<ViewReport/>} />
        
 
         {/* Admin Routes */}
