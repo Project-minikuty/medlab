@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Upload, Button} from "antd";
+import { Upload, Button, message } from "antd";
 import { InboxOutlined, FileOutlined } from "@ant-design/icons";
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
@@ -11,16 +11,26 @@ const { Dragger } = Upload;
 function Submission() {
   const [fileList, setFileList] = useState([]);
 
-  // const handleFileUpload = (file) => {
-  //   // Perform file upload logic here
-  //   console.log("File uploaded:", file);
-  //   message.success(`${file.name} uploaded successfully.`);
-  // };
-
   const handleFileRemove = (file) => {
-    // Perform file removal logic here
-    console.log("File removed:", file);
     setFileList((prevList) => prevList.filter((f) => f.uid !== file.uid));
+  };
+
+  const handleFileUpload = () => {
+    if (fileList.length === 0) {
+      message.error("Please select a file to upload.");
+      return;
+    }
+
+    message.success("File uploaded successfully.");
+
+    // Store the file in local storage
+    const submittedFile = {
+      name: fileList[0].name,
+      url: "", // Replace with the actual file URL or leave it empty
+    };
+    localStorage.setItem("submittedAssignment", JSON.stringify(submittedFile));
+
+    setFileList([]);
   };
 
   return (
@@ -36,10 +46,10 @@ function Submission() {
             <br />
             <label htmlFor="fileUpload">Upload Files:</label>
             <Dragger
-            className={`${styles.dragArea} drag-area`} 
+              className={`${styles.dragArea} drag-area`}
               fileList={fileList}
               beforeUpload={(file) => {
-                setFileList((prevList) => [...prevList, file]);
+                setFileList([file]);
                 return false; // Prevent file upload
               }}
               onRemove={handleFileRemove}
@@ -56,13 +66,10 @@ function Submission() {
               <p className="ant-upload-hint">Supports file types: PDF, DOC, DOCX</p>
             </Dragger>
             <Button
-              className={`${styles.submitButton} submit-button`} // Apply custom CSS classes to the submit button
+              className={`${styles.submitButton} submit-button`}
               type="primary"
               icon={<FileOutlined />}
-              onClick={() => {
-                console.log("Files submitted:", fileList);
-                setFileList([]);
-              }}
+              onClick={handleFileUpload}
             >
               Submit
             </Button>

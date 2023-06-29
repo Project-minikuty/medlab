@@ -12,7 +12,7 @@ export default function ListView(props) {
     // For example, make an API request to submit the assignment
 
     // Redirect to another page
-    navigate("/parent/submitAssignment");
+    navigate("/parent/submitAssignment/submit");
   };
 
   return (
