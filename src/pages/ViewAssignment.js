@@ -28,7 +28,7 @@ function ViewAssignment() {
     <>
       <BrandNav logout="true" />
       <Bg type={1} />
-      <BackButton />
+      
       <div className="parentcontainer">
         <div className="flex-section">
       
