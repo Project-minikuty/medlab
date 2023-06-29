@@ -1,5 +1,6 @@
 // eslint-disable-next-line
 import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import "./DMScreen.css";
 import avtr from "../images/avtr.png";
 import {
   MainContainer,
@@ -106,7 +107,7 @@ function ChatPage() {
         });
     }, []);
     return (
-      <ul className="drop-down">
+      <ul className="Sdrop-down">
         {users.map((u) => (
           <li key={u._id}>
             <Button
@@ -137,7 +138,7 @@ function ChatPage() {
       }}
     >
       <MainContainer>
-        <Sidebar position="left" scrollable={false}>
+        <Sidebar position="left" scrollable ={true}>
           <div className="d-flex">
             <Search placeholder="Search..." />
             <div>
