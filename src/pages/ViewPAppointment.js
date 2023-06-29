@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
-import Bg from "../components/PageBg";
+import Bg from "../components/Bg";
 import ListView from "../components/PAppointmentListView";
 import Heading from "../components/PageHeading";
 import axios from "../axiosSetup";
@@ -36,7 +36,7 @@ function ViewPAppointment() {
   return (
     <>
       <BrandNav logout="true" />
-      <Bg type={1} />
+      <Bg type={2} />
       <div className="parentcontainer">
         <div className="flex-section">
           <Heading type={11} view="desktop" />
