@@ -1,5 +1,5 @@
+// eslint-disable-next-line
 import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import avtr from "../images/avtr.png";
 import {
   MainContainer,
   ChatContainer,
@@ -14,15 +14,73 @@ import {
   ConversationHeader,
   VoiceCallButton,
   VideoCallButton,
-  EllipsisButton,
-  MessageSeparator,
+  AddUserButton
 } from "@chatscope/chat-ui-kit-react";
 import "@chatscope/chat-ui-kit-react";
-import { useState } from "react";
+import { chatInitialize, getZim } from "./chatLogic";
+import { useEffect, useState } from "react";
 
 function ChatPage() {
-  // Set initial message input value to an empty string
   const [messageInputValue, setMessageInputValue] = useState("");
+  const [convo, setConvo] = useState({
+    name: "",
+    username: "",
+    avtr: "",
+    conversationID: "",
+  });
+  const [convoList, setConvoList] = useState([]);
+  const [messageList, setMessageList] = useState([]);
+  useEffect(() => {
+    getConvo();
+
+    async function getConvo() {
+      await chatInitialize();
+      var zim = getZim();
+      var convoList = await zim.queryConversationList({ count: 30 });
+      console.log(convoList.conversationList);
+      zim.on(
+        "receivePeerMessage",
+        async function ( { message, fromConversationID }) {
+          convoList = await zim.queryConversationList({ count: 30 });
+          setConvoList(convoList.conversationList);
+          setConvo({...convo});
+        }
+      );
+      setConvoList(convoList.conversationList);
+    }
+  }, []);
+  useEffect(() => {
+    var zim = getZim();
+    zim.sendMessage({ type: 1, message: messageInputValue}, convo.conversationID,0,{ 
+      priority: 1,  
+  })
+    .then(function ({ message }) {
+        // c
+        sM(message);
+    })
+    .catch(function (err) {
+      console.log(err);
+        // Failed to send message.
+    });
+
+    async function sM(message) {
+      setConvo({ ...convo });
+      var convoList = await zim.queryConversationList({ count: 30 });
+      setConvoList(convoList.conversationList);
+      console.log(message);
+    }
+  }, [messageInputValue]);
+  useEffect(() => {
+    convo.selected && getMessage();
+
+    async function getMessage() {
+      var zim = getZim();
+      var mL = await zim.queryHistoryMessage(convo.conversationID, 0, {
+        count: 100,
+      });
+      setMessageList(mL.messageList);
+    }
+  }, [convo]);
   return (
     <div
       style={{
@@ -30,220 +88,118 @@ function ChatPage() {
         position: "relative",
       }}
     >
-      <MainContainer responsive>
+      <MainContainer>
         <Sidebar position="left" scrollable={false}>
-          <Search placeholder="Search..." />
+          <div className="d-flex"><Search placeholder="Search..." />
+          <AddUserButton onClick={}/></div>
           <ConversationList>
-            <Conversation
-              name="Lilly"
-              lastSenderName="Lilly"
-              info="Yes i can do it for you"
-            >
-              <Avatar src={avtr} name="Lilly" status="available" />
-            </Conversation>
-
-            <Conversation
-              name="Joe"
-              lastSenderName="Joe"
-              info="Yes i can do it for you"
-            >
-              <Avatar src={avtr} name="Joe" status="dnd" />
-            </Conversation>
-
-            <Conversation
-              name="Emily"
-              lastSenderName="Emily"
-              info="Yes i can do it for you"
-              unreadCnt={3}
-            >
-              <Avatar src={avtr} name="Emily" status="available" />
-            </Conversation>
-
-            <Conversation
-              name="Kai"
-              lastSenderName="Kai"
-              info="Yes i can do it for you"
-              unreadDot
-            >
-              <Avatar src={avtr} name="Kai" status="unavailable" />
-            </Conversation>
-
-            <Conversation
-              name="Akane"
-              lastSenderName="Akane"
-              info="Yes i can do it for you"
-            >
-              <Avatar src={avtr} name="Akane" status="eager" />
-            </Conversation>
-
-            <Conversation
-              name="Eliot"
-              lastSenderName="Eliot"
-              info="Yes i can do it for you"
-            >
-              <Avatar src={avtr} name="Eliot" status="away" />
-            </Conversation>
-
-            <Conversation
-              name="Zoe"
-              lastSenderName="Zoe"
-              info="Yes i can do it for you"
-            >
-              <Avatar src={avtr} name="Zoe" status="dnd" />
-            </Conversation>
-
-            <Conversation
-              name="Patrik"
-              lastSenderName="Patrik"
-              info="Yes i can do it for you"
-            >
-              <Avatar src={avtr} name="Patrik" status="invisible" />
-            </Conversation>
+            {convoList.map((c) => (
+              <Conversation
+                name={c.conversationName}
+                lastSenderName={
+                  c.lastMessage.direction === 0 ? "( sent )" : "( received )"
+                }
+                info={c.lastMessage.message || c.lastMessage.fileName}
+                onClick={() => {
+                  setConvo({
+                    name: c.conversationName,
+                    username: c.conversationID,
+                    avtr: c.conversationAvatarUrl,
+                    conversationID: c.conversationID,
+                    selected: true
+                  });
+                }}
+              >
+                <Avatar src={c.conversationAvatarUrl} />
+              </Conversation>
+            ))}
           </ConversationList>
+          
         </Sidebar>
 
-        <ChatContainer>
-          <ConversationHeader>
-            <ConversationHeader.Back />
-            <Avatar src={avtr} name="Zoe" />
-            <ConversationHeader.Content
-              userName="Zoe"
-              info="Active 10 mins ago"
-            />
-            <ConversationHeader.Actions>
-              <VoiceCallButton />
-              <VideoCallButton />
-            </ConversationHeader.Actions>
-          </ConversationHeader>
-          <MessageList>
-            <MessageSeparator content="Saturday, 30 November 2019" />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "single",
-              }}
-            >
-              <Avatar src={avtr} name="Zoe" />
-            </Message>
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Patrik",
-                direction: "outgoing",
-                position: "single",
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "first",
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "normal",
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "normal",
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "last",
-              }}
-            >
-              <Avatar src={avtr} name="Zoe" />
-            </Message>
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Patrik",
-                direction: "outgoing",
-                position: "first",
-              }}
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Patrik",
-                direction: "outgoing",
-                position: "normal",
-              }}
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Patrik",
-                direction: "outgoing",
-                position: "normal",
-              }}
-            />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Patrik",
-                direction: "outgoing",
-                position: "last",
-              }}
-            />
+        {convo.selected && (
+          <ChatContainer>
+            <ConversationHeader>
+              <ConversationHeader.Back onClick={()=>{setConvo({
+    name: "",
+    username: "",
+    avtr: "",
+    conversationID: "",
+  })}}/>
+              <Avatar src={convo.avtr} name="Zoe" />
+              <ConversationHeader.Content
+                userName={convo.name}
+                info="Active 10 mins ago"
+              />
+              <ConversationHeader.Actions>
+                <VoiceCallButton />
+                <VideoCallButton />
+              </ConversationHeader.Actions>
+            </ConversationHeader>
+            <MessageList>
+              {messageList.map((c) => (
+                <Message
+                  model={{
+                    message: c.message || c.fileName,
+                    sentTime: String(c.timestamp),
+                    sender: c.senderUserID,
+                    direction: c.direction === 0 ? "outgoing" : "incoming",
+                    position: "single",
+                  }}
+                ></Message>
+              ))}
 
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "first",
+              {/*<Message
+                  model={{
+                    message: "Hello my friend",
+                    sentTime: "15 mins ago",
+                    sender: "Zoe",
+                    direction: "incoming",
+                    position: "first",
+                  }}
+                  avatarSpacer
+                />
+                <Message
+                  model={{
+                    message: "Hello my friend",
+                    sentTime: "15 mins ago",
+                    sender: "Zoe",
+                    direction: "incoming",
+                    position: "normal",
+                  }}
+                  avatarSpacer
+                />
+                <Message
+                  model={{
+                    message: "Hello my friend",
+                    sentTime: "15 mins ago",
+                    sender: "Zoe",
+                    direction: "incoming",
+                    position: "normal",
+                  }}
+                  avatarSpacer
+                />
+                <Message
+                  model={{
+                    message: "Hello my friend",
+                    sentTime: "15 mins ago",
+                    sender: "Zoe",
+                    direction: "incoming",
+                    position: "last",
+                  }}
+                >
+                  <Avatar src={avtr} name="Zoe" />
+                </Message>
+                 */}
+            </MessageList>
+            <MessageInput
+              placeholder="Type message here"
+              onSend={(e) => {
+                setMessageInputValue(e);
               }}
-              avatarSpacer
             />
-            <Message
-              model={{
-                message: "Hello my friend",
-                sentTime: "15 mins ago",
-                sender: "Zoe",
-                direction: "incoming",
-                position: "last",
-              }}
-            >
-              <Avatar src={avtr} name="Zoe" />
-            </Message>
-          </MessageList>
-          <MessageInput
-            placeholder="Type message here"
-            value={messageInputValue}
-            onChange={(val) => setMessageInputValue(val)}
-          />
-        </ChatContainer>
+          </ChatContainer>
+        )}
       </MainContainer>
     </div>
   );
