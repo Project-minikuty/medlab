@@ -54,6 +54,7 @@ function ChatPage() {
       );
       setConvoList(convoList.conversationList);
     }
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     var zim = getZim();
@@ -81,6 +82,7 @@ function ChatPage() {
       setConvoList(convoList.conversationList);
       console.log(message);
     }
+    // eslint-disable-next-line
   }, [messageInputValue]);
   useEffect(() => {
     convo.selected && getMessage();
