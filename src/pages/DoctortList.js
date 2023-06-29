@@ -5,7 +5,6 @@ import Bg from "../components/PageBg";
 import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
-import BackButton from "../components/BackButton";
 
 function DoctorList() {
   const [users, setUsers] = useState([]);

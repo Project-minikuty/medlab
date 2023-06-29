@@ -1,5 +1,6 @@
 import { ZIM } from 'zego-zim-web';
 import CryptoJS from 'crypto-js';
+import { randomavtr } from './DMScreen';
 
 var appID = parseInt(process.env.REACT_APP_Zego_appId); // Note: the appID is a set of numbers, not a String. 
 // The [create] method creates a ZIM instance only on the first call. Any subsequent calls return null.
@@ -95,11 +96,12 @@ var token;
 export async function chatInitialize() {
     userInfo = { userID: localStorage.getItem('username'), userName: localStorage.getItem('name') };
     token = generateToken(localStorage.getItem('username'),300);
-    var err = await zim.login(userInfo, token);
+    var err = await zim.login(userInfo, token );
         if(err){
             console.log("login unsuccessfull");
             // Login failed.
         }else{
+            
             console.log("login successfull");
             // Login successful.
         }

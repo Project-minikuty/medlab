@@ -12,6 +12,7 @@ function Doctor() {
     { img: require('../images/parentOptions/option1.png'), alt: 'list', text: 'View List of Students', navigateTo: '/doctor/studentList' },
     { img: require('../images/adminOptions/option4.png'), alt: 'schedule', text: 'View Appointments', navigateTo: '/doctor/viewAppointment' },
     { img: require('../images/parentOptions/option3.png'), alt: 'list', text: 'Add Assignment', navigateTo: '/doctor/createAssignment' },
+    { img: require('../images/parentOptions/chat.png'), alt: 'option4', text: 'View Direct Messages', navigateTo: '/chat' },
 
   ];
   return (

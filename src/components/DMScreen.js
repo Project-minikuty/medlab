@@ -1,5 +1,6 @@
 // eslint-disable-next-line
 import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import avtr from "../images/avtr.png";
 import {
   MainContainer,
   ChatContainer,
@@ -14,13 +15,17 @@ import {
   ConversationHeader,
   VoiceCallButton,
   VideoCallButton,
-  AddUserButton
+  AddUserButton,
+  Button,
 } from "@chatscope/chat-ui-kit-react";
 import "@chatscope/chat-ui-kit-react";
 import { chatInitialize, getZim } from "./chatLogic";
 import { useEffect, useState } from "react";
+import axiosSetup from "../axiosSetup";
+
 
 function ChatPage() {
+  const [popUpMenu, setPopUpMenu] = useState(false);
   const [messageInputValue, setMessageInputValue] = useState("");
   const [convo, setConvo] = useState({
     name: "",
@@ -40,10 +45,10 @@ function ChatPage() {
       console.log(convoList.conversationList);
       zim.on(
         "receivePeerMessage",
-        async function ( { message, fromConversationID }) {
+        async function ({ message, fromConversationID }) {
           convoList = await zim.queryConversationList({ count: 30 });
           setConvoList(convoList.conversationList);
-          setConvo({...convo});
+          setConvo({ ...convo });
         }
       );
       setConvoList(convoList.conversationList);
@@ -51,17 +56,23 @@ function ChatPage() {
   }, []);
   useEffect(() => {
     var zim = getZim();
-    zim.sendMessage({ type: 1, message: messageInputValue}, convo.conversationID,0,{ 
-      priority: 1,  
-  })
-    .then(function ({ message }) {
+    zim
+      .sendMessage(
+        { type: 1, message: messageInputValue },
+        convo.conversationID,
+        0,
+        {
+          priority: 1,
+        }
+      )
+      .then(function ({ message }) {
         // c
         sM(message);
-    })
-    .catch(function (err) {
-      console.log(err);
+      })
+      .catch(function (err) {
+        console.log(err);
         // Failed to send message.
-    });
+      });
 
     async function sM(message) {
       setConvo({ ...convo });
@@ -81,6 +92,43 @@ function ChatPage() {
       setMessageList(mL.messageList);
     }
   }, [convo]);
+  function PopUpMenu() {
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+      axiosSetup
+        .get("/Names?type=0") // Change the URL to the appropriate endpoint on your server
+
+        .then((result) => {
+          setUsers(result.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+    }, []);
+    return (
+      <ul className="drop-down">
+        {users.map((u) => (
+          <li key={u._id}>
+            <Button
+              onClick={() => {
+                setPopUpMenu(!popUpMenu);
+                setConvo({
+                  name: u.name,
+                  username: u.username,
+                  avtr: avtr,
+                  conversationID: u.username,
+                  selected: true,
+                });
+              }}
+            >
+              {u.name}
+            </Button>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <div
       style={{
@@ -90,8 +138,13 @@ function ChatPage() {
     >
       <MainContainer>
         <Sidebar position="left" scrollable={false}>
-          <div className="d-flex"><Search placeholder="Search..." />
-          <AddUserButton onClick={}/></div>
+          <div className="d-flex">
+            <Search placeholder="Search..." />
+            <div>
+              <AddUserButton onClick={() => setPopUpMenu(!popUpMenu)} />
+              {popUpMenu && <PopUpMenu />}
+            </div>
+          </div>
           <ConversationList>
             {convoList.map((c) => (
               <Conversation
@@ -104,28 +157,31 @@ function ChatPage() {
                   setConvo({
                     name: c.conversationName,
                     username: c.conversationID,
-                    avtr: c.conversationAvatarUrl,
+                    avtr: avtr,
                     conversationID: c.conversationID,
-                    selected: true
+                    selected: true,
                   });
                 }}
               >
-                <Avatar src={c.conversationAvatarUrl} />
+                <Avatar src={avtr} />
               </Conversation>
             ))}
           </ConversationList>
-          
         </Sidebar>
 
         {convo.selected && (
           <ChatContainer>
             <ConversationHeader>
-              <ConversationHeader.Back onClick={()=>{setConvo({
-    name: "",
-    username: "",
-    avtr: "",
-    conversationID: "",
-  })}}/>
+              <ConversationHeader.Back
+                onClick={() => {
+                  setConvo({
+                    name: "",
+                    username: "",
+                    avtr: "",
+                    conversationID: "",
+                  });
+                }}
+              />
               <Avatar src={convo.avtr} name="Zoe" />
               <ConversationHeader.Content
                 userName={convo.name}
