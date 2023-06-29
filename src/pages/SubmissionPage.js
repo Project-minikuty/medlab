@@ -5,6 +5,7 @@ import { InboxOutlined, FileOutlined } from "@ant-design/icons";
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
 import Bg from "../components/PageBg";
+import axios from "axios";
 
 const { Dragger } = Upload;
 
@@ -15,22 +16,32 @@ function Submission() {
     setFileList((prevList) => prevList.filter((f) => f.uid !== file.uid));
   };
 
-  const handleFileUpload = () => {
+  const handleFileUpload = async () => {
     if (fileList.length === 0) {
       message.error("Please select a file to upload.");
       return;
     }
 
-    message.success("File uploaded successfully.");
+    const formData = new FormData();
+    formData.append("file", fileList[0]);
 
-    // Store the file in local storage
-    const submittedFile = {
-      name: fileList[0].name,
-      url: "", // Replace with the actual file URL or leave it empty
-    };
-    localStorage.setItem("submittedAssignment", JSON.stringify(submittedFile));
+    try {
+      const response = await axios.post("/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-    setFileList([]);
+      if (response.status === 200) {
+        message.success("File uploaded successfully.");
+        setFileList([]);
+      } else {
+        message.error("Failed to upload file.");
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      message.error("Failed to upload file. Please try again.");
+    }
   };
 
   return (

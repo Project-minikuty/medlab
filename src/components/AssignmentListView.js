@@ -10,6 +10,7 @@ export default function ListView(props) {
   const handleButtonClick = (assignmentId) => {
     // Perform any necessary submission logic here
     // For example, make an API request to submit the assignment
+    
 
     // Redirect to another page
     navigate("/parent/submitAssignment/submit");
