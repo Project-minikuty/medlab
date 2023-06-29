@@ -23,6 +23,9 @@ import StudentProgress from './pages/studentProgress';
 import LogingOut from './public_pages/logginOut';
 
 import ViewAppointment from './pages/ViewAppointment';
+import ViewPAppointment from './pages/ViewPAppointment';
+
+import ViewReport from './pages/viewReport';
 
 import VideoCallPage from './pages/videoCallPage';
 import DMPage from './pages/DMPage';
@@ -51,6 +54,7 @@ function App() {
         <Route path="/parent/studentprogress" element={<StudentProgress/>} />
         <Route path='/videocall' element={<VideoCallPage />} />
         <Route path='/chat' element={<DMPage />} />
+        <Route path="/parent/viewappointments" element={<ViewPAppointment/>} />
 
         {/* Doctor Routes */}
         <Route path="/doctor" element={<Doctor />} />
@@ -59,6 +63,7 @@ function App() {
         <Route path="/doctor/createAssignment" element={<CreateAssignment/>} />
         <Route path="/doctor/submitAssignment" element={<SubmitAssignmentPage/>} />
         <Route path="/doctor/viewAppointment" element={<ViewAppointment/>} />
+        <Route path="/doctor/viewReport" element={<ViewReport/>} />
        
 
         {/* Admin Routes */}

@@ -8,11 +8,7 @@ export default function ListView(props) {
   const navigate = useNavigate();
 
   const handleButtonClick = (assignmentId) => {
-    // Perform any necessary submission logic here
-    // For example, make an API request to submit the assignment
-    
-
-    // Redirect to another page
+   
     navigate("/parent/submitAssignment/submit");
   };
 
@@ -20,8 +16,8 @@ export default function ListView(props) {
     <>
       <div className="d-flex flex-row parent">
         <div className="d-flex flex-col font-weight-bold">SI No.</div>
-        <div className="d-flex flex-col font-weight-bold">Assignment Name</div>
-        <div className="d-flex flex-col font-weight-bold">Status</div>
+        <div className="d-flex flex-col font-weight-bold">Student Name</div>
+        <div className="d-flex flex-col font-weight-bold">Download</div>
       </div>
 
       {List.map((assignment, index) => (

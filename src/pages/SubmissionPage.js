@@ -1,26 +1,47 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Upload, Button} from "antd";
+import { Upload, Button, message } from "antd";
 import { InboxOutlined, FileOutlined } from "@ant-design/icons";
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
 import Bg from "../components/PageBg";
+import axios from "axios";
 
 const { Dragger } = Upload;
 
 function Submission() {
   const [fileList, setFileList] = useState([]);
 
-  // const handleFileUpload = (file) => {
-  //   // Perform file upload logic here
-  //   console.log("File uploaded:", file);
-  //   message.success(`${file.name} uploaded successfully.`);
-  // };
-
   const handleFileRemove = (file) => {
-    // Perform file removal logic here
-    console.log("File removed:", file);
     setFileList((prevList) => prevList.filter((f) => f.uid !== file.uid));
+  };
+
+  const handleFileUpload = async () => {
+    if (fileList.length === 0) {
+      message.error("Please select a file to upload.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileList[0]);
+
+    try {
+      const response = await axios.post("/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (response.status === 200) {
+        message.success("File uploaded successfully.");
+        setFileList([]);
+      } else {
+        message.error("Failed to upload file.");
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      message.error("Failed to upload file. Please try again.");
+    }
   };
 
   return (
@@ -36,10 +57,10 @@ function Submission() {
             <br />
             <label htmlFor="fileUpload">Upload Files:</label>
             <Dragger
-            className={`${styles.dragArea} drag-area`} 
+              className={`${styles.dragArea} drag-area`}
               fileList={fileList}
               beforeUpload={(file) => {
-                setFileList((prevList) => [...prevList, file]);
+                setFileList([file]);
                 return false; // Prevent file upload
               }}
               onRemove={handleFileRemove}
@@ -56,13 +77,10 @@ function Submission() {
               <p className="ant-upload-hint">Supports file types: PDF, DOC, DOCX</p>
             </Dragger>
             <Button
-              className={`${styles.submitButton} submit-button`} // Apply custom CSS classes to the submit button
+              className={`${styles.submitButton} submit-button`}
               type="primary"
               icon={<FileOutlined />}
-              onClick={() => {
-                console.log("Files submitted:", fileList);
-                setFileList([]);
-              }}
+              onClick={handleFileUpload}
             >
               Submit
             </Button>

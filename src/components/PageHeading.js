@@ -30,6 +30,7 @@ const Heading = (props) => {
     11:  ["Appointment List", "appointment data"],
     12: ["View Assignments", "assignment data"],
     13: ["About MEDLAB", "child data"],
+    14: ["View Reports", "report data"],
   };
   
   return (

@@ -20,7 +20,7 @@ export default function ListView(props) {
       {List.map((appointment, index) => (
         <div className="d-flex flex-row parent-body" key={index}>
           <div className="d-flex flex-col">{index + 1}</div>
-          <div className="d-flex flex-col">{appointment.pat}</div>
+          <div className="d-flex flex-col">{appointment.doc}</div>
           <div className="d-flex flex-col">
             <button
               className="btn btn-primary"
