@@ -3,16 +3,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/PageBg";
-import ListView from "../components/AppointmentListView";
+import ListView from "../components/PAppointmentListView";
 import Heading from "../components/PageHeading";
 import axios from "../axiosSetup";
 
-function ViewAppointment() {
+function ViewPAppointment() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    const url = `/dappointments?username=${username}&aType=onAppointments&date_=2023-06-30`;
+    const url = `/pappointments?username=${username}&aType=onAppointments&date_=2023-06-30`;
 
     axios
       .get(url)
@@ -43,4 +43,4 @@ function ViewAppointment() {
   );
 }
 
-export default ViewAppointment;
+export default ViewPAppointment;
