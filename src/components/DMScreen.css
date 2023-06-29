@@ -1,3 +1,13 @@
 #zegoim{
     height: 90dvh;
 }
+.Sdrop-down {
+  list-style: decimal;
+  }
+  .Sdrop-down li {
+    padding: 10px 0px;
+    border-bottom: 1px solid #cccccc;
+    width: 100%;
+    text-align: center;
+    background: #fbf6f6;
+  }

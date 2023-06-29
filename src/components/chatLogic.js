@@ -1,10 +1,12 @@
 import { ZIM } from 'zego-zim-web';
+import CryptoJS from 'crypto-js';
+import { randomavtr } from './DMScreen';
 
-var appID = process.env.REACT_APP_Zego_appId; // Note: the appID is a set of numbers, not a String. 
+var appID = parseInt(process.env.REACT_APP_Zego_appId); // Note: the appID is a set of numbers, not a String. 
 // The [create] method creates a ZIM instance only on the first call. Any subsequent calls return null.
 ZIM.create({ appID });
 // Get the instance via [getInstance] to avoid hot updates that cause you to use the [create] method multiple times to create a singleton and return null.
-var zim = ZIM.getInstance();
+export var zim = ZIM.getInstance();
 
 // Set up and listen for the callback for receiving error codes. 
 zim.on('error', function (zim, errorInfo) {
@@ -15,7 +17,7 @@ zim.on('error', function (zim, errorInfo) {
 zim.on('connectionStateChanged', function (zim, { state, event, extendedData }) {
     console.log('connectionStateChanged', state, event, extendedData);
     // When SDK logout occurred due to a long-time network disconnection, you will need to log in again. 
-    if (state == 0 && event == 3) {
+    if (state === 0 && event === 3) {
         zim.login(userInfo, token)
     }
 });
@@ -88,18 +90,23 @@ function generateToken(userID, seconds) {
     return token;
 }
 
-// To get the token for login, refer to the [Guides - Authentication] document. 
-// userID must be within 32 bytes, and can only contain letters, numbers, and the following special characters: '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '`', ';', '’', ',', '.', '<', '>', '/', '\'.
-// userName must be within 64 bytes, no special characters limited.
-var userInfo = { userID: localStorage.getItem('username'), userName: localStorage.getItem('name') };
-var token = generateToken(localStorage.getItem('username'),300);
 
-zim.login(userInfo, token)
-    .then(function () {
-        console.log("login successfull");
-        console.log(zim.queryConversationList());
-        // Login successful.
-    })
-    .catch(function (err) {
-        // Login failed.
-    });
+var userInfo;
+var token;
+export async function chatInitialize() {
+    userInfo = { userID: localStorage.getItem('username'), userName: localStorage.getItem('name') };
+    token = generateToken(localStorage.getItem('username'),300);
+    var err = await zim.login(userInfo, token );
+        if(err){
+            console.log("login unsuccessfull");
+            // Login failed.
+        }else{
+            
+            console.log("login successfull");
+            // Login successful.
+        }
+}
+
+export function getZim(){
+    return zim;
+} 

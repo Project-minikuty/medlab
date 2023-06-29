@@ -6,7 +6,6 @@ import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
 import './appointmentList.css';
-import BackButton from "../components/BackButton";
 
 function StudentList() {
   const [users, setUsers] = useState([]);

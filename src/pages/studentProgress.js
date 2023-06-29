@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import Heading from "../components/PageHeading";
 import "./studentProgress.css";
-import BackButton from "../components/BackButton";
 
 function StudentProgress() {
   // Sample JSON object with default values
