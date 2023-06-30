@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import Heading from "../components/PageHeading";
 import "./studentProgress.css";
+import axiosSetup from "../axiosSetup";
 
 function StudentProgress() {
   // Sample JSON object with default values
+
   const defaultValues = {
     name: "John Doe",
     dob: "1990-01-01",
@@ -17,7 +19,16 @@ function StudentProgress() {
     overallScore: "95%",
   };
 
-  const [formData] = useState(defaultValues);
+  const [formData,setFormData] = useState(defaultValues);
+  useEffect(() => {
+    getDetails();
+
+    async function getDetails() {
+      var result = await axiosSetup.get(`/sDetails?id=${localStorage.getItem("_id")}`);
+      setFormData(result.data)
+    }
+  }, [])
+  
 
   return (
     <>
