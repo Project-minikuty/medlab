@@ -7,9 +7,9 @@ import './component.css'
 const AddedItem = (props) => {
   return (
     <div className="component-container">
-      <li className="component-li list-item">
+      <li className="component-li list-item ms-5">
         <span></span>
-        <button type="button" className="button">
+        <button type="button" className="button ms-5">
           Delete
         </button>
       </li>

@@ -1,8 +1,8 @@
 
-.card {
+.maincard {
   margin-left: 190px;
   margin-top: 50px;
-  height: 210px;
+  height: 100%;
   width: 700px;
   border-radius: 7px;
   border: none;
