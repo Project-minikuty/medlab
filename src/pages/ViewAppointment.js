@@ -17,7 +17,6 @@ function ViewAppointment() {
     axios
       .get(url)
       .then(response => {
-        
         setAppointments(response.data);
        
       })

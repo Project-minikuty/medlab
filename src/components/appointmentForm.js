@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./apf.css";
 import axiosSetup from "../axiosSetup";
+import { useNavigate } from "react-router-dom";
 
 const AppointmentForm = () => {
   const [appointmentType, setAppointmentType] = useState("ofAppointments");
   const [appointmentDate, setAppointmentDate] = useState(getCurrentDate());
   const [doctorUserName, setDoctorUserName] = useState("");
+  const navigate = useNavigate()
   const [doctorlist, setDoctorList] = useState(null);
 
   // Function to get the current date in the format YYYY-MM-DD
@@ -50,7 +52,7 @@ const AppointmentForm = () => {
         var result = await axiosSetup.post("/coAppointment", body);
         if (result.data.success) {
           alert("appointment made");
-          event.target.reset();
+          navigate("/parent/viewappointments")
         } else {
           alert("something went wrong please contact admin");
         }
@@ -63,7 +65,7 @@ const AppointmentForm = () => {
           var result = await axiosSetup.post("/cfAppointment", body);
           if (result.data.success) {
             alert("appointment made");
-            event.target.reset();
+            navigate("/parent/viewappointments")
           } else {
             alert("something went wrong please contact admin");
           }

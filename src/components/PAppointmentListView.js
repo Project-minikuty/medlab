@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ListView.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function ListView(props) {
   const { List } = props;
   const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const navigate = useNavigate();
 
   const handleButtonClick = (appointment) => {
     setSelectedAppointment(appointment);
@@ -13,13 +15,15 @@ export default function ListView(props) {
   const handleClosePrompt = () => {
     setSelectedAppointment(null);
   };
-
+ const handleJoinMeet =() =>{
+  localStorage.setItem("roomID",selectedAppointment.room);
+  navigate("/videocall");
+ }
   return (
     <>
       <div className="d-flex flex-row parent">
         <div className="d-flex flex-col font-weight-bold">SI No.</div>
         <div className="d-flex flex-col font-weight-bold">Appointment</div>
-
       </div>
 
       {List.map((appointment, index) => (
@@ -29,8 +33,7 @@ export default function ListView(props) {
           onClick={() => handleButtonClick(appointment)}
         >
           <div className="d-flex flex-col">{index + 1}</div>
-          <div className="d-flex flex-col">{appointment.pat}</div>
-         
+          <div className="d-flex flex-col">{appointment.doc}</div>
         </div>
       ))}
 
@@ -41,7 +44,19 @@ export default function ListView(props) {
             <p>Date: {selectedAppointment.date}</p>
             <p>Doctor: {selectedAppointment.doc}</p>
             <p>Patient: {selectedAppointment.pat}</p>
-            <p>Room: {selectedAppointment.room}</p>
+            {selectedAppointment.room ? (
+              <>
+                <div className="d-flex">
+                <p>Online Appointment: </p>
+                <button className="btn btn-primary" onClick={handleJoinMeet}>
+              Join Meeting
+            </button>
+                </div>
+              </>
+            ) : (
+              <p>offline appointment</p>
+            )}
+
             <button className="btn btn-primary" onClick={handleClosePrompt}>
               Close
             </button>
