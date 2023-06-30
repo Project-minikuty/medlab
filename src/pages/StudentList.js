@@ -6,10 +6,12 @@ import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
 import './studentList.css';
-import BackButton from "../components/BackButton";
+
+
 
 function StudentList() {
   const [users, setUsers] = useState([]);
+
 
   useEffect(() => {
     axiosSetup.get("/Names?type=3") // Change the URL to the appropriate endpoint on your server
@@ -20,6 +22,9 @@ function StudentList() {
         console.error("Error fetching user data:", error);
       });
   }, []);
+
+
+
 
   return (
     <>

@@ -5,11 +5,11 @@ import "./ListView.css";
 import { useNavigate } from "react-router-dom";
 
 export default function ListView(props) {
-  const [searchInput, setSearchInput] = useState("");
-  const [sortedList, setSortedList] = useState(props.List);
   const [val, setVal] = useState(true);
   const [userDetails, setUserDetails] = useState("");
   const [curU, setCurU] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [sortedList, setSortedList] = useState([]);
   const navigate = useNavigate();
 
   const handleSuspend = async (user) => {
@@ -20,7 +20,6 @@ export default function ListView(props) {
       );
       props.List[props.List.indexOf(user)]["suspended"] = true;
       setVal((v) => !v);
-      console.log(val);
     } catch (error) {
       console.error("Error suspending user:", error);
     }
@@ -34,7 +33,6 @@ export default function ListView(props) {
       );
       props.List[props.List.indexOf(user)]["suspended"] = false;
       setVal((v) => !v);
-      console.log(props.List);
     } catch (error) {
       console.error("Error suspending user:", error);
     }
@@ -56,14 +54,11 @@ export default function ListView(props) {
         default:
           url = "";
       }
-      console.log(url);
 
       const response = await axiosInstance.get(url);
       const responseData = response.data;
-      console.log(responseData);
       setCurU(user);
       setUserDetails(responseData);
-      console.log(userDetails);
     } catch (error) {
       console.error("Error getting user details:", error);
     }
@@ -86,13 +81,13 @@ export default function ListView(props) {
 
   return (
     <>
-      <div className="search-bar">
+      <div className="search-container">
         <input
+        className="searchBar"
           type="text"
-          className="searchBar"
+          placeholder="Search by Name"
           value={searchInput}
           onChange={handleSearchInputChange}
-          placeholder="Search by Name"
         />
       </div>
 
@@ -141,7 +136,6 @@ export default function ListView(props) {
         </div>
       ))}
 
-      {/* User Details Modal */}
       {userDetails && (
         <div className="modal-overlay">
           <div className="modal-card">
@@ -151,11 +145,7 @@ export default function ListView(props) {
             <div className="user-details">
               <h3>{userDetails.name}</h3>
               <p>Username: {userDetails.username}</p>
-              <p>Age: {userDetails.age}</p>
-              <p>Height: {userDetails.height}</p>
-              <p>Weight: {userDetails.weight}</p>
-              <p>Guardian Name: {userDetails.guardianName}</p>
-              <p>Guardian Phone: {userDetails.phoneNumber}</p>
+              <p>User ID: {userDetails._id}</p>
             </div>
             {curU.suspended ? (
               <button
@@ -178,7 +168,7 @@ export default function ListView(props) {
             <button
               type="button"
               className="btn btn-outline-primary mt-3"
-              onClick={() => navigate(`/editUser?id=${userDetails._id}`)}
+              onClick={() => navigate(`/editdUser?id=${userDetails._id}`)}
             >
               Edit User Data
             </button>

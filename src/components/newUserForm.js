@@ -73,7 +73,7 @@ const NewuserForm = (props) => {
               name="userRole"
               className="customDropdown"
             >
-              <option value="3">Parent</option>
+              <option value="3">Patient</option>
               <option value="1">Admin</option>
               <option value="2">Doctor</option>
             </select>
@@ -83,7 +83,7 @@ const NewuserForm = (props) => {
             <>
               <div className="d-flex">
                 <div className="d-flex justify-content-between">
-                  <label className=" wrapper2">Name:</label>
+                  <label className=" wrapper2">Patient Name:</label>
                   <input
                     required={true}
                     className=" wrapper2"
@@ -202,7 +202,7 @@ const NewuserForm = (props) => {
                   </datalist>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <label className=" wrapper2">Phone Number:</label>
+                  <label className=" wrapper2">Guardian Phone:</label>
                   <input
                     required={true}
                     className=" wrapper2"

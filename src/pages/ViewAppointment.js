@@ -12,7 +12,7 @@ function ViewAppointment() {
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    const url = `/dappointments?username=${username}&aType=onAppointments&date_=2023-06-30`;
+    const url = `/dappointments?username=${username}&aType=onAppointments&date_=2023-07-01`;
 
     axios
       .get(url)

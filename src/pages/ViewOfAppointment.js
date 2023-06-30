@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import styles from "./Assignment.module.css";
 import Bg from "../components/Bg";
-import ListView from "../components/AppointmentListView";
+import ListView from "../components/OfAppointmentListView";
 import Heading from "../components/PageHeading";
 import axios from "../axiosSetup";
 
@@ -12,7 +12,7 @@ function ViewOfAppointment() {
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    const url = `/dappointments?username=${username}&aType=ofAppointments&date_=2023-06-30`;
+    const url = `/dappointments?username=${username}&aType=ofAppointments&date_=2023-07-01`;
 
     axios
       .get(url)
