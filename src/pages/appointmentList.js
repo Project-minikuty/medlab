@@ -6,15 +6,14 @@ import ListView from "../components/StudentListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
 import './appointmentList.css';
-import BackButton from "../components/BackButton";
 
-function StudentList() {
-  const [users, setUsers] = useState([]);
+function ApointmentList() {
+  const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     axiosSetup.get("/Names?type=3") // Change the URL to the appropriate endpoint on your server
       .then((result) => {
-        setUsers(result.data);
+        setAppointments(result.data);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -25,13 +24,13 @@ function StudentList() {
     <>
       <BrandNav logout="true" />
       <Bg type={7} />
-      <BackButton />
+      
       <div className="parentcontainer">
         <div className="flex-section">
           <Heading view="desktop" type={11} />
           <div className="List">
             <div className="list">
-              <ListView List={users} type={3}/>
+              <ListView List={appointments} type={3}/>
             </div>
           </div>
         </div>
@@ -40,4 +39,4 @@ function StudentList() {
   );
 }
 
-export default StudentList;
+export default ApointmentList;

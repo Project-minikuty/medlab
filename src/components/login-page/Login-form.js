@@ -34,15 +34,19 @@ export default function Login() {
 
     axios
       .get(`/validate?username=${username}&password=${password}`)
-      .then((res) => {
+      .then(async (res) => {
         errorHandling(res.data.message);
         if (res.data.access) {
           console.log("logged");
           const userType = Number(res.data.details.type);
+          const name = res.data.details.name;
           console.log(userType);
+          localStorage.setItem("name", name);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
           localStorage.setItem("logged",true);
+          
+
           
           // if (userType === 1) {
           //  navigate("/admin");

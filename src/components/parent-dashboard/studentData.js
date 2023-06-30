@@ -12,10 +12,10 @@ function EditStudentProfileForm() {
      <div className="title">
           <Heading text="Edit Student Data" />
         </div>
-        <div className="body">
+        <div className="body5">
 
         
-        <div className="wrapper1">
+        <div className="wrapper5">
         <Avatar className= "avatar" name="User" size="150" round={true} />
           
         <div className="d-flex">

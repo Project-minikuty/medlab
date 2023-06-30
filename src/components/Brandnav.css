@@ -2,10 +2,14 @@
   .Navbar {
     display: none;
   }
+  .nav-logo {
+    display: none;
+  }
 }
 
 body {
   color: black;
+
 }
 
 .about, .team, .contact {
@@ -19,5 +23,5 @@ padding-top: 20px;
 }
 
 .Navbar {
-  z-index: 1;
+  margin-bottom: 9dvh !important;
 }

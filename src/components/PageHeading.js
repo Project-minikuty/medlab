@@ -19,7 +19,7 @@ const Heading = (props) => {
     0: ["User Profile","user profile"],
     1: ["Assignments","assignment data"],
     2: ["Submissions","submission data"],
-    3: ["Submit Assignment","assignment submission"],
+    3: ["Choose Option","appointment data"],
     4: ["Schedule Appointments","appointments"],
     5: ["View Progress","student progress"],
     6: ["Add New User","new user"],
@@ -27,7 +27,10 @@ const Heading = (props) => {
     8: ["View Doctor List","doctor data"],
     9: ["View Prescriptions","prescription data"],
     10:  ["Create Assignment", "assignment data"],
-    11:  ["Appointment List", "appointment data"]
+    11:  ["Appointment List", "appointment data"],
+    12: ["View Assignments", "assignment data"],
+    13: ["About MEDLAB", "child data"],
+    14: ["View Reports", "report data"],
   };
   
   return (

@@ -5,7 +5,6 @@ import Navbar from "../components/BrandNav";
 import Heading from "../components/PageHeading";
 
 
-
 export default function App() {
   
   
@@ -19,27 +18,29 @@ return (
     <Navbar logout="true" />
     
       <div className="body1">
+     
         <div className="title">
-        <Heading type={10} view="desktop"/>
+        
+        <Heading type={3} view="desktop"/>
         </div>
         <div className="wrapper3">
         <div className="content1">
           <label>Assignment Name:</label>
-          <input type="text" className='input-field' />  
+          <input type="text" className='input-field3' />  
         </div>
         <div className="content1">
-          <label>Assignment :</label>
-          <textarea  className='input-field1'/>         
+          <label>Assignment Description:</label>
+          <textarea  className='input-field2'/>         
         </div>
          
         <div className="content2">
         
         <label >Upload your files : </label>
-      <button className="btn3" onClick={() => openFileSelector()}>Select files</button>
+      <button className="btn5" onClick={() => openFileSelector()}>Select files</button>
     
     </div>
     
-        <button type="submit" class="btn4">Submit</button>
+        <button type="submit" class="btn4 ">Submit</button>
       
         </div>
         </div>

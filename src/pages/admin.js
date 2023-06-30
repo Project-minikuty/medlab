@@ -11,6 +11,8 @@ function Doctor() {
     { img: require('../images/parentOptions/option1.png'), alt: 'option1', text: 'View List of Students', navigateTo: '/admin/studentlist'},
     { img: require('../images/parentOptions/option2.png'), alt: 'option2', text: 'View List of Doctors', navigateTo: '/admin/doctorlist' },
     { img: require('../images/adminOptions/option3.png'), alt: 'option3', text: 'Add New User', navigateTo: '/admin/addnewuser'},
+    { img: require('../images/parentOptions/chat.png'), alt: 'option4', text: 'View Direct Messages', navigateTo: '/chat' },
+
   ];
 
   const [forceRender, setForceRender] = useState(false);
