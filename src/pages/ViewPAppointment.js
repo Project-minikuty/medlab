@@ -12,8 +12,10 @@ function ViewPAppointment() {
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    const onAppointmentsUrl = `/pappointments?username=${username}&aType=onAppointments&date_=2023-06-30`;
-    const ofAppointmentsUrl = `/pappointments?username=${username}&aType=ofAppointments&date_=2023-06-30`;
+    const currentDate = new Date().toISOString().slice(0, 10);
+
+const onAppointmentsUrl = `/pappointments?username=${username}&aType=onAppointments&date_=2023-07-01`;
+const ofAppointmentsUrl = `/pappointments?username=${username}&aType=ofAppointments&date_=2023-07-01`;
 
     const fetchAppointments = async () => {
       try {
