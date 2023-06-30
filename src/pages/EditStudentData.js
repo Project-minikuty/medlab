@@ -59,7 +59,6 @@ const EditData = () => {
       const adminId = localStorage.getItem('_id');
 
       await axiosSetup.post(`/${adminId}/update?user_id=${userId}`, { formData });
-
       console.log('Data updated successfully');
       toast.success('Submission successful');
     } catch (error) {

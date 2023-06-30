@@ -20,6 +20,17 @@
   
 }
 
+.searchBar {
+  border-radius: 15px;
+  height: 40px;
+  padding: 10px;
+  /* border: none; */
+  width: 300px;
+  margin-bottom: 10px;
+  border-color: #10C99D;
+  
+}
+
 
 
 
