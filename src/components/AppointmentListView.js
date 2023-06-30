@@ -33,6 +33,7 @@ export default function ListView(props) {
       <div className="d-flex flex-row parent">
         <div className="d-flex flex-col font-weight-bold">SI No.</div>
         <div className="d-flex flex-col font-weight-bold">Appointment</div>
+        <div className="d-flex flex-col font-weight-bold">Time</div>
         <div className="d-flex flex-col font-weight-bold">Status</div>
       </div>
 
@@ -55,6 +56,7 @@ export default function ListView(props) {
           <div className="appointment-details-content">
             <h4>Appointment Details</h4>
             <p>Date: {selectedAppointment.date}</p>
+            <p>Time: {selectedAppointment.time}</p>
             <p>Doctor: {selectedAppointment.doc}</p>
             <p>Patient: {selectedAppointment.pat}</p>
             <p>Room: {selectedAppointment.room}</p>

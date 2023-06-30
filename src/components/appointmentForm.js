@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./apf.css";
 import axiosSetup from "../axiosSetup";
 import { useNavigate } from "react-router-dom";
+import timepicker, { TimePicker } from 'react-time-picker'; 
 
 const AppointmentForm = () => {
   const [appointmentType, setAppointmentType] = useState("ofAppointments");
   const [appointmentDate, setAppointmentDate] = useState(getCurrentDate());
+  const [appointmentTime, setAppointmentTime] = useState(getTime());
   const [doctorUserName, setDoctorUserName] = useState("");
   const navigate = useNavigate()
   const [doctorlist, setDoctorList] = useState(null);
@@ -18,6 +20,18 @@ const AppointmentForm = () => {
     const day = String(today.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   }
+  function getTime() {  
+    return (  
+      <TimePicker
+        defaultValue="10 : 00 am"
+        placeholder="hh : mm  a"
+        useTwelveHourFormat={true}
+        showClockIcon={true}
+        showCloseIcon={true}
+        allowBackdrop={true}
+      />
+    );  
+};  
   useEffect(() => {
     gdL();
 
@@ -34,10 +48,11 @@ const AppointmentForm = () => {
     // Perform form submission logic here
     console.log("Appointment Type:", appointmentType);
     console.log("Appointment Date:", appointmentDate);
+    console.log("Appointment Time:", appointmentTime);
     console.log("Doctor Name:", doctorUserName);
 
     var result = await axiosSetup.get(
-      `/dappointments?username=${doctorUserName}&date_=${appointmentDate}&aType=${appointmentType}`
+      `/dappointments?username=${doctorUserName}&date_=${appointmentDate}&time=${appointmentTime}&aType=${appointmentType}`
     );
     if (result.data.length >= 3) {
       alert("no more slot available try another date or mode");
@@ -45,6 +60,7 @@ const AppointmentForm = () => {
       if (appointmentType == "onAppointments") {
         var body = {
           date: appointmentDate,
+          time: appointmentTime,
           doc: doctorUserName,
           pat: localStorage.getItem("username"),
           room: `${doctorUserName}${localStorage.getItem("username")}`,
@@ -59,6 +75,7 @@ const AppointmentForm = () => {
       }else{
         var body = {
             date: appointmentDate,
+            time: appointmentTime,
             doc: doctorUserName,
             pat: localStorage.getItem("username")
           };
@@ -77,6 +94,7 @@ const AppointmentForm = () => {
   const handleReset = () => {
     setAppointmentType("offline");
     setAppointmentDate(getCurrentDate());
+    setAppointmentTime(getTime());
     setDoctorUserName("");
   };
 
@@ -112,6 +130,15 @@ const AppointmentForm = () => {
               min={getCurrentDate()}
               value={appointmentDate}
               onChange={(e) => setAppointmentDate(e.target.value)}
+            />
+          </div>
+          <div className="d-flex justify-content-evenly">
+            <label>Appointment Time:</label>
+            <input
+              type="time"
+              min={getTime()}
+              value={appointmentTime}
+              onChange={(e) => setAppointmentTime(e.target.value)}
             />
           </div>
           <div className="d-flex justify-content-evenly">
