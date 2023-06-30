@@ -6,7 +6,10 @@ import Home from './public_pages/Home';
 import Parent from './pages/parent';
 import Doctor from './pages/doctor';
 import Admin from './pages/admin';
+
 import EditData from './pages/EditStudentData';
+import EditdData from './pages/EditDoctorData';
+
 import ViewAssignment from './pages/ViewAssignment';
 import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
@@ -75,6 +78,8 @@ function App() {
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/admin/studentlist" element={<StudentList/>} />
         <Route path="/admin/doctorlist" element={<DoctorList/>} />
+        <Route path="editUser" element={<EditData/>} />
+        <Route path="editdUser" element={<EditdData/>} />
 
 
         {/* About Page */}

@@ -7,7 +7,7 @@ import './studentProgress.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const EditData = () => {
+const EditdData = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get('id');
@@ -36,7 +36,7 @@ const EditData = () => {
 
     async function getDetails() {
       try {
-        const result = await axiosSetup.get(`/sDetails?id=${userId}`);
+        const result = await axiosSetup.get(`/dDetails?id=${userId}`);
         setFormData(result.data);
       } catch (error) {
         toast.error('Fetching failed');
@@ -159,4 +159,4 @@ const EditData = () => {
   );
 };
 
-export default EditData;
+export default EditdData;
