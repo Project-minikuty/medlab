@@ -45,7 +45,7 @@ export default function Login() {
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
           localStorage.setItem("logged",true);
-          
+          localStorage.setItem("_id",res.data.details._id);
 
           
           // if (userType === 1) {
