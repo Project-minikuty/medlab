@@ -33,8 +33,8 @@ export default function ListView(props) {
       <div className="d-flex flex-row parent p">
    
         <div className="d-flex flex-col font-weight-bold">Appointment</div>
-        <div className="d-flex flex-col font-weight-bold">Time</div>
-        <div className="d-flex flex-col font-weight-bold pd-5"></div>
+        <div className="d-flex flex-col font-weight-bold ms-5">Time</div>
+        <div className="d-flex flex-col font-weight-bold ms-5"></div>
       </div>
 
       {List.map((appointment, index) => (
@@ -47,7 +47,7 @@ export default function ListView(props) {
           <div className="d-flex flex-col">{appointment.pat}</div>
           <div className="d-flex flex-col">{appointment.time}</div>
           <div className="d-flex flex-col">
-            <button className="btn btn-primary" onClick={()=>{handleJoinMeet(appointment.room)}}>Video Call</button>
+            {/* <button className="btn btn-primary" onClick={()=>{handleJoinMeet(appointment.room)}}>Video Call</button> */}
           </div>
         </div>
       ))}
@@ -60,7 +60,7 @@ export default function ListView(props) {
             <p>Time: {selectedAppointment.time}</p>
             <p>Doctor: {selectedAppointment.doc}</p>
             <p>Patient: {selectedAppointment.pat}</p>
-            <p>Room: {selectedAppointment.room}</p>
+  
             <button className="btn btn-primary" onClick={handleClosePrompt}>
               Close
             </button>
