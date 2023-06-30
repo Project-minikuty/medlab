@@ -126,11 +126,7 @@ export default function ListView(props) {
             <div className="user-details">
               <h3>{userDetails.name}</h3>
               <p>Username: {userDetails.username}</p>
-              <p>Age: {userDetails.age}</p>
-              <p>Height: {userDetails.height}</p>
-              <p>Weight: {userDetails.weight}</p>
-              <p>Guardian Name: {userDetails.guardianName}</p>
-              <p>Guardian Phone: {userDetails.phoneNumber}</p>
+              <p>User ID: {userDetails._id}</p>
             </div>
             {curU.suspended ? (
             <button
@@ -153,7 +149,7 @@ export default function ListView(props) {
           <button
               type="button"
               className="btn btn-outline-primary mt-3"
-              onClick={() => navigate(`/editUser?id=${userDetails._id}`)}
+              onClick={() => navigate(`/editdUser?id=${userDetails._id}`)}
             >
               Edit User Data
             </button>

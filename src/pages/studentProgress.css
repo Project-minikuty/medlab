@@ -122,3 +122,9 @@ input[type="reset"]{
   background-color: #fe3b3b;
   color: #ffffff;
 }
+
+.submitEdit {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
