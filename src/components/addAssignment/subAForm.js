@@ -8,18 +8,11 @@ const SubAForm = (props) => {
   
   const navigate = useNavigate();
   const [addedFiles, setAddedFile] = useState([]);
-  const [studentList, setStudentList] = useState();
   const [asname, setAsname] = useState();
   const [desc, setDesc] = useState();
   const [pat, setPat] = useState();
   const [asData,setAsdata] = useState(props.data);
-  useEffect(() => {
-    getStud();
-    async function getStud() {
-      var result = await axiosSetup.get("/Names?type=3");
-      setStudentList(result.data);
-    }
-  }, []);
+  
 
 
   const handleFileDownload = async (e) => {
@@ -100,16 +93,17 @@ const SubAForm = (props) => {
     async function subForm() {
       // const newArray = addedFiles.map((e) => e[1]);
       var body = {
-        name: asname,
-        desc: desc,
-        doc: localStorage.getItem("username"),
+        id_ : asData._id,
+        name: asData.name,
+        comments: desc,
+        doc: asData.doc,
         files: addedFiles,
-        pat: pat,
+        pat: localStorage.getItem('username'),
       };
-      var res = await axiosSetup.post("/cAssignment", body);
-      console.log(res);
+      var res = await axiosSetup.post("/sAss", body);
+      console.log(body);
       if (res.data.success) {
-        alert("Assignment made");
+        alert("Assignment submitted");
         navigate("/");
       }
     }
@@ -150,14 +144,7 @@ const SubAForm = (props) => {
               </div>
             </div>
             
-            <div className="row">
-              <div className="col">
-                <div className="form-group">
-                  <label className="name-label">Add File here:</label>
-                  <input type="file" className="form-control-file btn" onChange={handleAddfile} />
-                </div>
-              </div>
-            </div>
+            
             {asData.files.length && (
               <div className="container">
                 <div className="row">
@@ -186,6 +173,56 @@ const SubAForm = (props) => {
                 </div>
               </div>
             )}
+            <div className="row">
+              <div className="col">
+                <div className="form-group">
+                  <label className="name-label">Add submission file here:</label>
+                  <input type="file" className="form-control-file btn" onChange={handleAddfile} />
+                </div>
+              </div>
+            </div>
+            {addedFiles.length && (
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <ul className="list-group">
+                      {addedFiles.map((e) => (
+                        <li className="list-group-item" key={e[1]}>
+                          <span>{e[0]}</span>
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger ms-5"
+                            onClick={handleDelete}
+                            value={e[1]}
+                          >
+                            Delete
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <span className="text">Added Files</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="row">
+              <div className="col">
+                <div className="form-group mb-3">
+                  <label className="name-label">Enter Comments on assignment:</label>
+                  <textarea
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter comments Here"
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
             <div className="row">
               <div className="col">
                 <div className="form-group bt">

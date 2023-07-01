@@ -21,6 +21,7 @@ export default function ListView(props) {
         <div className="d-flex flex-col font-weight-bold">SI No.</div>
         <div className="d-flex flex-col font-weight-bold">Assignment Name</div>
         <div className="d-flex flex-col font-weight-bold">Status</div>
+        
       </div>
 
       {List.filter(e=>(e.status==false)).map((assignment, index) => (
