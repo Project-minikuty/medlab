@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./apf.css";
 import axiosSetup from "../axiosSetup";
 import { useNavigate } from "react-router-dom";
-import timepicker, { TimePicker } from 'react-time-picker'; 
+import timepicker, { TimePicker } from "react-time-picker";
 
 const AppointmentForm = () => {
   const [appointmentType, setAppointmentType] = useState("ofAppointments");
   const [appointmentDate, setAppointmentDate] = useState(getCurrentDate());
-  const [appointmentTime, setAppointmentTime] = useState(getTime());
+  const [appointmentTime, setAppointmentTime] = useState();
   const [doctorUserName, setDoctorUserName] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [doctorlist, setDoctorList] = useState(null);
 
   // Function to get the current date in the format YYYY-MM-DD
@@ -20,8 +20,8 @@ const AppointmentForm = () => {
     const day = String(today.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   }
-  function getTime() {  
-    return (  
+  function getTime() {
+    return (
       <TimePicker
         defaultValue="10 : 00 am"
         placeholder="hh : mm  a"
@@ -30,8 +30,8 @@ const AppointmentForm = () => {
         showCloseIcon={true}
         allowBackdrop={true}
       />
-    );  
-};  
+    );
+  }
   useEffect(() => {
     gdL();
 
@@ -68,24 +68,24 @@ const AppointmentForm = () => {
         var result = await axiosSetup.post("/coAppointment", body);
         if (result.data.success) {
           alert("appointment made");
-          navigate("/parent/viewappointments")
+          navigate("/parent/viewappointments");
         } else {
           alert("something went wrong please contact admin");
         }
-      }else{
+      } else {
         var body = {
-            date: appointmentDate,
-            time: appointmentTime,
-            doc: doctorUserName,
-            pat: localStorage.getItem("username")
-          };
-          var result = await axiosSetup.post("/cfAppointment", body);
-          if (result.data.success) {
-            alert("appointment made");
-            navigate("/parent/viewappointments")
-          } else {
-            alert("something went wrong please contact admin");
-          }
+          date: appointmentDate,
+          time: appointmentTime,
+          doc: doctorUserName,
+          pat: localStorage.getItem("username"),
+        };
+        var result = await axiosSetup.post("/cfAppointment", body);
+        if (result.data.success) {
+          alert("appointment made");
+          navigate("/parent/viewappointments");
+        } else {
+          alert("something went wrong please contact admin");
+        }
       }
     }
   };
@@ -136,7 +136,8 @@ const AppointmentForm = () => {
             <label>Appointment Time:</label>
             <input
               type="time"
-              min={getTime()}
+              min={appointmentType === "ofAppointments" ? "10:00" : "16:00"}
+              max={appointmentType === "ofAppointments" ? "12:00" : "18:00"}
               value={appointmentTime}
               onChange={(e) => setAppointmentTime(e.target.value)}
             />
