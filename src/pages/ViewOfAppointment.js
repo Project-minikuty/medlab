@@ -22,7 +22,7 @@ function ViewOfAppointment() {
        
       })
       .catch(error => {
-        // Handle any errors
+        
         console.error(error);
       });
   }, []);
