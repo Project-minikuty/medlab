@@ -132,13 +132,13 @@ const SubVForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group mb-3">
-                  <label className="name-label">Description of Assignment</label>
+                  <label className="name-label">Comments made by parrent</label>
                   <textarea
                     contentEditable={false}
                     type="text"
                     className="form-control"
                     placeholder="Enter Description Here"
-                    value={asData.description}
+                    value={asData.comments}
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ const SubVForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group bt">
-                  <input value={"Graded"} type="submit" className="btn btn-outline-success mt-5" />
+                  <input value={"Mark as graded"} type="submit" className="btn btn-outline-success mt-5" />
                   
                 </div>
               </div>

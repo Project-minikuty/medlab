@@ -203,9 +203,10 @@ const EditData = () => {
                     />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Contact Number:</label>
+                    <label>Contact Number:(10 digit)</label>
                     <input
-                      type="text"
+                      type="tel"
+                      pattern="[0-9]{10}"
                       name="phoneNumber"
                       value={formData.phoneNumber}
                       onChange={handleChange}
