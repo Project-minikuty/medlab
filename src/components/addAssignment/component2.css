@@ -1,0 +1,48 @@
+.component2-container {
+  display: flex;
+  position: relative;
+}
+.component2-form {
+  width: 708px;
+  height: 420px;
+  display: flex;
+  align-self: center;
+  align-items: flex-start;
+  padding-top: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.main-container{
+  display: flex;
+  justify-content: center;
+}
+.name-label{
+  font-size: x-large;
+}
+.frow{
+  display: flex;
+  width: 100%;
+}
+.frowi{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 8px;
+}
+.frowi input,textarea{
+  border-radius: 10px;
+}
+.fcol{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.frowi input[type="file"]{
+  border-radius: 0%;
+}

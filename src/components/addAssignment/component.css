@@ -1,0 +1,10 @@
+.component-container {
+  display: flex;
+  position: relative;
+
+}
+.component-li {
+  width: 124px;
+  align-self: center;
+  
+}

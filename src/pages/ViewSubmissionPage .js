@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Upload, Button, message } from "antd";
-import { InboxOutlined, FileOutlined } from "@ant-design/icons";
+
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
 import Bg from "../components/PageBg";
 import axios from "axios";
 import axiosSetup from "../axiosSetup";
-import SubAForm from "../components/addAssignment/subAForm";
+import SubVForm from "../components/addAssignment/subVForm";
+import Heading from "../components/PageHeading";
 
 const { Dragger } = Upload;
 
-function Submission() {
+function Submission1() {
   const [fileList, setFileList] = useState([]);
   const [asData, setAsdata] = useState();
 
@@ -61,10 +62,11 @@ function Submission() {
   return (
     <>
       <BrandNav logout="true" />
+      <Heading type={12} view={"desktop"}/>
       <Bg type={3} />
       <div className="parentcontainer">
         <div className="flex-section">
-          <h2 className={styles.heading}>Submit Your Assignment</h2>
+          
           {/* <div className={`${styles.rectangleBox} ${styles.desktopSize}`}>
             <label htmlFor="submissionStatus">Submission Status (DD/MM/YYYY):</label>
 
@@ -99,11 +101,11 @@ function Submission() {
               Submit
             </Button>
           </div>*/}
-          {asData && <SubAForm data={asData} />}
+          {asData && <SubVForm data={asData} />}
         </div>
       </div>
     </>
   );
 }
 
-export default Submission;
+export default Submission1;

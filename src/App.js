@@ -6,8 +6,13 @@ import Home from './public_pages/Home';
 import Parent from './pages/parent';
 import Doctor from './pages/doctor';
 import Admin from './pages/admin';
+
 import EditData from './pages/EditStudentData';
+import EditdData from './pages/EditDoctorData';
+
 import ViewAssignment from './pages/ViewAssignment';
+import Submission1 from './pages/ViewSubmissionPage ';
+
 import Submission from './pages/SubmissionPage';
 import Appoinments from './pages/Appointments';
 import AddUser from './pages/addUser'
@@ -68,6 +73,7 @@ function App() {
         <Route path="/OfflineAppointment" element={<ViewOfAppointment/>} />
         <Route path="/doctor/viewReport" element={<ViewReport/>} />
         <Route path='/doctor/appointmentOptions' element={<SubmitOption />} />
+        <Route path='/viewSubmission' element={<Submission1 />} />
        
 
         {/* Admin Routes */}
@@ -75,6 +81,8 @@ function App() {
         <Route path="/admin/addnewuser" element={<AddUser/>} />
         <Route path="/admin/studentlist" element={<StudentList/>} />
         <Route path="/admin/doctorlist" element={<DoctorList/>} />
+        <Route path="editUser" element={<EditData/>} />
+        <Route path="editdUser" element={<EditdData/>} />
 
 
         {/* About Page */}

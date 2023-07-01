@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BrandNav from "../components/BrandNav";
 import Bg from "../components/PageBg";
-import ListView from "../components/StudentListView";
+import ListView from "../components/DoctorListView";
 import Heading from "../components/PageHeading";
 import axiosSetup from "../axiosSetup";
 

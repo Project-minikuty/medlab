@@ -38,10 +38,11 @@ export default function ListView(props) {
       ))}
 
       {selectedAppointment && (
-        <div className="appointment-details-prompt">
+        <div className="appointment-details-prompt mt-5">
           <div className="appointment-details-content">
             <h4>Appointment Details</h4>
             <p>Date: {selectedAppointment.date}</p>
+            <p>Time: {selectedAppointment.time}</p>
             <p>Doctor: {selectedAppointment.doc}</p>
             <p>Patient: {selectedAppointment.pat}</p>
             {selectedAppointment.room ? (
@@ -54,7 +55,7 @@ export default function ListView(props) {
                 </div>
               </>
             ) : (
-              <p>offline appointment</p>
+              <p>Offline appointment</p>
             )}
 
             <button className="btn btn-primary" onClick={handleClosePrompt}>
