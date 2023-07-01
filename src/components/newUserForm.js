@@ -202,11 +202,12 @@ const NewuserForm = (props) => {
                   </datalist>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <label className=" wrapper2">Guardian Phone:</label>
+                  <label className=" wrapper2">Guardian Phone:(10 digits)</label>
                   <input
                     required={true}
                     className=" wrapper2"
-                    type="phone"
+                    type="tel"
+                    pattern="[0-9]{10}"
                     name="address"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
