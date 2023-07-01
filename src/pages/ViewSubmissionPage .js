@@ -20,7 +20,7 @@ function Submission1() {
     getAssD();
     async function getAssD() {
       const assQ = localStorage.getItem("assID");
-      var details = await axiosSetup.get(`/assData/${assQ}`);
+      var details = await axiosSetup.get(`/sassData/${assQ}`);
       console.log(details.data);
       setAsdata(details.data);
       
