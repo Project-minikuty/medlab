@@ -4,14 +4,15 @@ import axiosSetup from "../../axiosSetup";
 import { useNavigate } from "react-router-dom";
 import "./AddAForm.css";
 
-const AddAForm = (props) => {
+const SubAForm = (props) => {
+  
   const navigate = useNavigate();
   const [addedFiles, setAddedFile] = useState([]);
   const [studentList, setStudentList] = useState();
   const [asname, setAsname] = useState();
   const [desc, setDesc] = useState();
   const [pat, setPat] = useState();
-
+  const [asData,setAsdata] = useState(props.data);
   useEffect(() => {
     getStud();
     async function getStud() {
@@ -19,6 +20,45 @@ const AddAForm = (props) => {
       setStudentList(result.data);
     }
   }, []);
+
+
+  const handleFileDownload = async (e) => {
+    try {
+      var value=e.target.value.split(",")
+      console.log(value[1])
+      const response = await axiosSetup.get(`/file/${value[1]}`, {
+        responseType: "blob",
+      });
+  
+      if (response.status === 200) {
+        // Extract the filename from the Content-Disposition header
+        const contentDisposition = response.headers["content-disposition"];
+        const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+        const matches = filenameRegex.exec(contentDisposition);
+        // const filename = matches && matches[1] ? decodeURIComponent(matches[1].replace(/['"]/g, "")) : "file";
+        const filename = value[0]
+        console.log(filename)
+        // Create a download link
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", filename);
+  
+        // Simulate a click to trigger the download
+        document.body.appendChild(link);
+        link.click();
+  
+        // Clean up the URL object after the download
+        window.URL.revokeObjectURL(url);
+      } else {
+        alert.error("Failed to download file.");
+      }
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      alert.error("Failed to download file. Please try again.");
+    }
+  };
+  
 
   function handleAddfile(e) {
     addFile(e);
@@ -47,6 +87,7 @@ const AddAForm = (props) => {
       console.log(e.target.value);
     }
   }
+  
   function handleReset(e){
     setAsname("");
     setDesc("");
@@ -82,14 +123,14 @@ const AddAForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group mb-3">
-                  <label className="name-label">Enter Name of Assignment:</label>
+                  <label className="name-label">Name of Assignment</label>
                   <input
-                    required
+                    contentEditable={false}
+      
                     type="text"
                     className="form-control"
                     placeholder="Enter Name Here"
-                    value={asname}
-                    onChange={(e) => setAsname(e.target.value)}
+                    value={asData.name}
                   />
                 </div>
               </div>
@@ -97,40 +138,18 @@ const AddAForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group mb-3">
-                  <label className="name-label">Enter Description of Assignment:</label>
+                  <label className="name-label">Description of Assignment</label>
                   <textarea
-                    required
+                    contentEditable={false}
                     type="text"
                     className="form-control"
                     placeholder="Enter Description Here"
-                    value={desc}
-                    onChange={(e) => setDesc(e.target.value)}
+                    value={asData.description}
                   />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col">
-                <div className="form-group mb-4">
-                  <label className="name-label">Select Parent</label>
-                  <select
-                    className="form-control"
-                    value={pat}
-                    onChange={(e) => setPat(e.target.value)}
-                  >
-                    <option >
-                          Select a student
-                        </option>
-                    {studentList &&
-                      studentList.map((e) => (
-                        <option key={e.username} value={e.username}>
-                          {e.name}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-              </div>
-            </div>
+            
             <div className="row">
               <div className="col">
                 <div className="form-group">
@@ -139,21 +158,21 @@ const AddAForm = (props) => {
                 </div>
               </div>
             </div>
-            {addedFiles.length && (
+            {asData.files.length && (
               <div className="container">
                 <div className="row">
                   <div className="col">
                     <ul className="list-group">
-                      {addedFiles.map((e) => (
+                      {asData.files.map((e) => (
                         <li className="list-group-item" key={e[1]}>
                           <span>{e[0]}</span>
                           <button
                             type="button"
-                            className="btn btn-outline-danger ms-5"
-                            onClick={handleDelete}
-                            value={e[1]}
+                            className="btn btn-outline-success ms-5"
+                            onClick={handleFileDownload}
+                            value={e}
                           >
-                            Delete
+                            Download
                           </button>
                         </li>
                       ))}
@@ -162,7 +181,7 @@ const AddAForm = (props) => {
                 </div>
                 <div className="row">
                   <div className="col">
-                    <span className="text">Added Files</span>
+                    <span className="text">materials</span>
                   </div>
                 </div>
               </div>
@@ -182,7 +201,7 @@ const AddAForm = (props) => {
   );
 };
 
-AddAForm.defaultProps = {
+SubAForm.defaultProps = {
   textinput_placeholder: "placeholder",
   button: "Submit",
   button1: "Reset",
@@ -192,7 +211,7 @@ AddAForm.defaultProps = {
   text1: "Description of Assignment  : ",
 };
 
-AddAForm.propTypes = {
+SubAForm.propTypes = {
   textinput_placeholder: PropTypes.string,
   button: PropTypes.string,
   button1: PropTypes.string,
@@ -202,4 +221,4 @@ AddAForm.propTypes = {
   text1: PropTypes.string,
 };
 
-export default AddAForm;
+export default SubAForm;

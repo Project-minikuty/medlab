@@ -10,8 +10,7 @@ export default function ListView(props) {
   const handleButtonClick = (assignmentId) => {
     // Perform any necessary submission logic here
     // For example, make an API request to submit the assignment
-    
-
+    localStorage.setItem('assID',assignmentId);
     // Redirect to another page
     navigate("/parent/submitAssignment/submit");
   };
@@ -24,7 +23,7 @@ export default function ListView(props) {
         <div className="d-flex flex-col font-weight-bold">Status</div>
       </div>
 
-      {List.map((assignment, index) => (
+      {List.filter(e=>(e.status==false)).map((assignment, index) => (
         <div className="d-flex flex-row parent-body" key={assignment._id}>
           <div className="d-flex flex-col">{index + 1}</div>
           <div className="d-flex flex-col">{assignment.name}</div>

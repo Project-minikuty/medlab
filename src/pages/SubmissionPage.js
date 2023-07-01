@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Upload, Button, message } from "antd";
 import { InboxOutlined, FileOutlined } from "@ant-design/icons";
@@ -6,11 +6,25 @@ import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
 import Bg from "../components/PageBg";
 import axios from "axios";
+import axiosSetup from "../axiosSetup";
+import SubAForm from "../components/addAssignment/subAForm";
 
 const { Dragger } = Upload;
 
 function Submission() {
   const [fileList, setFileList] = useState([]);
+  const [asData, setAsdata] = useState();
+
+  useEffect(() => {
+    getAssD();
+    async function getAssD() {
+      const assQ = localStorage.getItem("assID");
+      var details = await axiosSetup.get(`/assData/${assQ}`);
+      console.log(details.data);
+      setAsdata(details.data);
+      
+    }
+  }, []);
 
   const handleFileRemove = (file) => {
     setFileList((prevList) => prevList.filter((f) => f.uid !== file.uid));
@@ -51,7 +65,7 @@ function Submission() {
       <div className="parentcontainer">
         <div className="flex-section">
           <h2 className={styles.heading}>Submit Your Assignment</h2>
-          <div className={`${styles.rectangleBox} ${styles.desktopSize}`}>
+          {/* <div className={`${styles.rectangleBox} ${styles.desktopSize}`}>
             <label htmlFor="submissionStatus">Submission Status (DD/MM/YYYY):</label>
 
             <br />
@@ -84,7 +98,8 @@ function Submission() {
             >
               Submit
             </Button>
-          </div>
+          </div>*/}
+          {asData && <SubAForm data={asData} />}
         </div>
       </div>
     </>

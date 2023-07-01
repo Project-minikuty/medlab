@@ -6,6 +6,7 @@ import Bg from "../components/PageBg";
 import ListView from "../components/AssignmentListView";
 import BackButton from "../components/BackButton";
 import Heading from "../components/PageHeading";
+import axiosSetup from "../axiosSetup";
 
 function ViewAssignment() {
   const [assignments, setAssignments] = useState([]);
@@ -16,8 +17,9 @@ function ViewAssignment() {
     const fetchAssignments = async () => {
       try {
         
-        const response = await fetch(`/assignments?username=${parentUsername}`);
-        const data = await response.json();
+        const response = await axiosSetup.get(`/pAssignments/${parentUsername}`);
+        console.log(response);
+        const data = response.data
         setAssignments(data);
       } catch (error) {
         console.log("Error fetching assignments:", error);
@@ -35,7 +37,6 @@ function ViewAssignment() {
   };
 
   const handleViewAssignment = (assignmentId) => {
-   
     console.log(`Viewing assignment with ID: ${assignmentId}`);
   };
 
