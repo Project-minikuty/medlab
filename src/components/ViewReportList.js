@@ -34,7 +34,7 @@ export default function ListView(props) {
           <div className="d-flex flex-col">{assignment.name}</div>
           <div className="d-flex flex-col">
             <button
-              className="btn btn-success"
+              className= { assignment.graded? "btn btn-success": "btn btn-danger"}
               onClick={() => handleButtonClick(assignment._id)}
             >
               { assignment.graded? "Graded": "Grade"}
