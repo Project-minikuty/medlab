@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Upload, Button, message } from "antd";
+import { InboxOutlined, FileOutlined } from "@ant-design/icons";
+import emailjs from "emailjs-com"; // Import emailjs-com
 
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
@@ -50,6 +52,26 @@ function Submission1() {
       if (response.status === 200) {
         message.success("File uploaded successfully.");
         setFileList([]);
+
+   
+        try {
+
+          const serviceId = "service_16f1chs";
+          const templateId = "template_81xpn8e";
+          const fromEmail = localStorage.getItem("username")
+          const emailParams = {
+            userEmail: fromEmail, 
+            subject: "",
+            body: "Your file has been successfully uploaded",
+          };
+
+        
+          await emailjs.send(serviceId, templateId, emailParams);
+
+          console.log("Email sent successfully.");
+        } catch (error) {
+          console.error("Error sending email:", error);
+        }
       } else {
         message.error("Failed to upload file.");
       }
@@ -104,8 +126,7 @@ function Submission1() {
           {asData && <SubVForm data={asData} />}
         </div>
       </div>
-    </>
-  );
+    </>)
 }
 
 export default Submission1;
