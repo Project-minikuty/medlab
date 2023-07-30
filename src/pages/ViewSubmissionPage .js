@@ -58,7 +58,7 @@ function Submission1() {
 
           const serviceId = "service_16f1chs";
           const templateId = "template_81xpn8e";
-          const fromEmail = localStorage.getItem("username")
+          const fromEmail = localStorage.getItem("email")
           const emailParams = {
             userEmail: fromEmail, 
             subject: "",

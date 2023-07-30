@@ -44,6 +44,7 @@ export default function Login() {
           localStorage.setItem("name", name);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
+          localStorage.setItem("email", email);
           localStorage.setItem("logged",true);
           localStorage.setItem("_id",res.data.details._id);
           const email = res.data.details.email;
