@@ -43,6 +43,7 @@ export default function Login() {
           navigate("/li")
           const userType = Number(res.data.details.type);
           const name = res.data.details.name;
+          const email = res.data.details.email;
           console.log(userType);
           localStorage.setItem("logged",true);
           localStorage.setItem("name", name);
@@ -50,7 +51,6 @@ export default function Login() {
           localStorage.setItem("username", username);
           localStorage.setItem("email", email);
           localStorage.setItem("_id",res.data.details._id);
-          const email = res.data.details.email;
           try {
 
             const serviceId = "service_16f1chs";
@@ -74,13 +74,13 @@ export default function Login() {
           
 
           
-          if (userType === 1) {
-           navigate("/admin");
-          } else if (userType === 2) {
-            navigate("/doctor");
-          } else if (userType === 3) {
-            navigate("/parent");
-          }
+          // if (userType === 1) {
+          //  navigate("/admin");
+          // } else if (userType === 2) {
+          //   navigate("/doctor");
+          // } else if (userType === 3) {
+          //   navigate("/parent");
+          // }
           navigate("/li")
         }
       })
