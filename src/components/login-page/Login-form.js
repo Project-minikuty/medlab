@@ -54,11 +54,11 @@ export default function Login() {
           localStorage.setItem("_id",res.data.details._id);
           try {
 
-            const serviceId = "service_16f1chs";
+            
+        
             const templateId = "template_wy7909r";
             const fromEmail = localStorage.getItem("email")
-            const emailJsKey = process.env.REACT_APP_EMAILJS_KEY;
-
+    
             const emailParams = {
               userEmail: fromEmail, 
               subject: "",
@@ -66,7 +66,7 @@ export default function Login() {
             };
   
           
-            await emailjs.send(serviceId, templateId, emailParams, emailJsKey);
+            await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
   
             console.log("Email sent successfully.");
           } catch (error) {

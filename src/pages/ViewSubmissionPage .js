@@ -55,21 +55,19 @@ function Submission1() {
 
    
         try {
-
-          const serviceId = "service_16f1chs";
+          const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
           const templateId = "template_81xpn8e";
-          const fromEmail = localStorage.getItem("email")
-          const emailJsKey = process.env.REACT_APP_EMAILJS_KEY;
-
+          const fromEmail = localStorage.getItem("email");
+          const emailJsKey = process.env.REACT_APP_EMAILJS_USER_ID; // Use the correct variable name
+  
           const emailParams = {
-            userEmail: fromEmail, 
+            userEmail: fromEmail,
             subject: "",
             body: "Your file has been successfully uploaded",
           };
-
-        
-          await emailjs.send(serviceId, templateId, emailParams, emailJsKey);
-
+  
+          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
+  
           console.log("Email sent successfully.");
         } catch (error) {
           console.error("Error sending email:", error);
