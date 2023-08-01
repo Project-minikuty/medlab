@@ -33,6 +33,7 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    let userType;
     axios
       .get(`/validate?username=${username}&password=${password}`)
       .then(async (res) => {
@@ -40,7 +41,7 @@ export default function Login() {
         if (res.data.access) {
           console.log("logged");
          
-          navigate("/li")
+          navigate("/li");
           const userType = Number(res.data.details.type);
           const name = res.data.details.name;
           const email = res.data.details.email;
@@ -56,6 +57,8 @@ export default function Login() {
             const serviceId = "service_16f1chs";
             const templateId = "template_wy7909r";
             const fromEmail = localStorage.getItem("email")
+            const emailJsKey = process.env.REACT_APP_EMAILJS_KEY;
+
             const emailParams = {
               userEmail: fromEmail, 
               subject: "",
@@ -63,7 +66,7 @@ export default function Login() {
             };
   
           
-            await emailjs.send(serviceId, templateId, emailParams);
+            await emailjs.send(serviceId, templateId, emailParams, emailJsKey);
   
             console.log("Email sent successfully.");
           } catch (error) {
