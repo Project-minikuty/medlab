@@ -39,14 +39,16 @@ export default function Login() {
         errorHandling(res.data.message);
         if (res.data.access) {
           console.log("logged");
+         
+          navigate("/li")
           const userType = Number(res.data.details.type);
           const name = res.data.details.name;
           console.log(userType);
+          localStorage.setItem("logged",true);
           localStorage.setItem("name", name);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
           localStorage.setItem("email", email);
-          localStorage.setItem("logged",true);
           localStorage.setItem("_id",res.data.details._id);
           const email = res.data.details.email;
           try {
@@ -67,6 +69,7 @@ export default function Login() {
           } catch (error) {
             console.error("Error sending email:", error);
           }
+      
         } else {
           
 
@@ -78,7 +81,7 @@ export default function Login() {
           // } else if (userType === 3) {
           //   navigate("/parent");
           // }
-          navigate("/li")
+         
         }
       })
       .catch((err) => {
