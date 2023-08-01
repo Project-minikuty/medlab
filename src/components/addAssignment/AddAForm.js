@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
 import PropTypes from "prop-types";
 import axiosSetup from "../../axiosSetup";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +7,7 @@ import "./AddAForm.css";
 
 const AddAForm = (props) => {
   const navigate = useNavigate();
+  const [fileType, setFileType] = useState(0);
   const [addedFiles, setAddedFile] = useState([]);
   const [studentList, setStudentList] = useState();
   const [asname, setAsname] = useState();
@@ -33,7 +35,10 @@ const AddAForm = (props) => {
       },
     });
 
-    setAddedFile((ei) => [...ei, [e.target.files[0].name, response.data.file_id]]);
+    setAddedFile((ei) => [
+      ...ei,
+      [e.target.files[0].name, response.data.file_id, fileType],
+    ]);
     console.log(addedFiles);
   }
 
@@ -42,16 +47,21 @@ const AddAForm = (props) => {
 
     async function delFile() {
       axiosSetup.delete(`/file/${e.target.value}`);
-      const newArray = addedFiles.filter((element) => element[1] !== e.target.value);
+      const newArray = addedFiles.filter(
+        (element) => element[1] !== e.target.value
+      );
       setAddedFile(newArray);
       console.log(e.target.value);
     }
   }
-  function handleReset(e){
+  function handleReset(e) {
     setAsname("");
     setDesc("");
     setPat("");
   }
+  const handleFileChange = (e) => {
+    setFileType(Number(e.target.value));
+  };
   function handleSubmit(e) {
     e.preventDefault();
     subForm();
@@ -78,11 +88,17 @@ const AddAForm = (props) => {
     <div className="container">
       <div className="card">
         <div className="card-body">
-          <form className="component2-form" onSubmit={handleSubmit} onReset={handleReset}>
+          <form
+            className="component2-form"
+            onSubmit={handleSubmit}
+            onReset={handleReset}
+          >
             <div className="row">
               <div className="col">
                 <div className="form-group mb-3">
-                  <label className="name-label">Enter Name of Assignment:</label>
+                  <label className="name-label">
+                    Enter Name of Assignment:
+                  </label>
                   <input
                     required
                     type="text"
@@ -97,7 +113,9 @@ const AddAForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group mb-3">
-                  <label className="name-label">Enter Description of Assignment:</label>
+                  <label className="name-label">
+                    Enter Description of Assignment:
+                  </label>
                   <textarea
                     required
                     type="text"
@@ -118,9 +136,7 @@ const AddAForm = (props) => {
                     value={pat}
                     onChange={(e) => setPat(e.target.value)}
                   >
-                    <option >
-                          Select a student
-                        </option>
+                    <option>Select a student</option>
                     {studentList &&
                       studentList.map((e) => (
                         <option key={e.username} value={e.username}>
@@ -134,9 +150,27 @@ const AddAForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group">
-                <div><label className="name-label">Add File here:</label>
-                <input type="select"></input>
-                  <input type="file" className="form-control-file btn" onChange={handleAddfile} /></div>
+                  <div>
+                    <label className="name-label">Add File here:</label>
+                    <select
+                      value={fileType}
+                      onChange={handleFileChange}
+                      name="userRole"
+                      className="customDropdown"
+                    >
+                      <option value={0}>choose file type</option>
+                      <option value={1}>video</option>
+                      <option value={2}>image</option>
+                      <option value={3}>document</option>
+                    </select>
+                    {fileType && (
+                      <input
+                        type="file"
+                        className="form-control-file btn"
+                        onChange={handleAddfile}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,7 +181,22 @@ const AddAForm = (props) => {
                     <ul className="list-group">
                       {addedFiles.map((e) => (
                         <li className="list-group-item" key={e[1]}>
-                          <span>{e[0]}</span>
+                          {(e[2] == 0 || e[2] == 3) && <span>{e[0]}</span>}
+                          {e[2] == 1 && (
+                            <ReactPlayer
+                              url={`https://medback.up.railway.app/video/${e[1]}`}
+                              controls // Display video controls
+                              width="50%"
+                              height="auto"
+                            />
+                          )}
+                          {
+                            e[2]==2 &&(
+                              <img src={`https://medback.up.railway.app/image/${e[1]}`} alt="Image"
+                              width="50%"
+                              height="auto" />
+                            )
+                          }
                           <button
                             type="button"
                             className="btn btn-outline-danger ms-5"
@@ -171,8 +220,16 @@ const AddAForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group bt">
-                  <input value={"Submit"} type="submit" className="btn btn-outline-success mt-3" />
-                  <input value={"Reset"} type="reset" className="btn btn-outline-danger ms-3 mt-3" />
+                  <input
+                    value={"Submit"}
+                    type="submit"
+                    className="btn btn-outline-success mt-3"
+                  />
+                  <input
+                    value={"Reset"}
+                    type="reset"
+                    className="btn btn-outline-danger ms-3 mt-3"
+                  />
                 </div>
               </div>
             </div>
