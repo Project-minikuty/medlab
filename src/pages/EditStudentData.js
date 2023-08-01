@@ -16,6 +16,7 @@ const EditData = () => {
     username: "john_doe",
     password: "",
     name: "John Doe",
+
     type: 0,
     email: "",
     height: "",
@@ -60,7 +61,8 @@ const EditData = () => {
       var body = {
         "username":formData.username,
         "name":formData.name,
-        "age": Number(formData.age),
+        "age": formData.age.toString(),
+        "email": formData.email,
         "height": formData.height,
         "weight": formData.weight,
         "gender": formData.gender,
