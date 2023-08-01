@@ -41,7 +41,7 @@ export default function Login() {
         if (res.data.access) {
           console.log("logged");
          
-          navigate("/li");
+          
           const userType = Number(res.data.details.type);
           const name = res.data.details.name;
           const email = res.data.details.email;
@@ -71,17 +71,7 @@ export default function Login() {
             console.error("Error sending email:", error);
           }
       
-        } else {
-          
-
-          
-          if (userType === 1) {
-           navigate("/admin");
-          } else if (userType === 2) {
-            navigate("/doctor");
-          } else if (userType === 3) {
-            navigate("/parent");
-          }
+        
           navigate("/li")
         }
       })

@@ -16,6 +16,7 @@ const AddAForm = (props) => {
   const [pat, setPat] = useState();
   const [users, setUsers] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState(null);
+  const [patEmail, setPatEmail] = useState("");
 
 
   useEffect(() => {
@@ -46,8 +47,13 @@ const AddAForm = (props) => {
     }
   };
 
-  // State to store the email of the patient (patE)
-  const [patEmail, setPatEmail] = useState("");
+  useEffect(() => {
+    getUserIdByUsername(pat)
+  
+    
+  }, [pat])
+  
+  
 
   function handleAddfile(e) {
     addFile(e);
@@ -110,8 +116,9 @@ const AddAForm = (props) => {
       var res = await axiosSetup.post("/cAssignment", body);
       console.log(res);
       if (res.data.success) {
-        alert("Assignment made");
+        
         console.log(body.patE);
+        alert("Assignment made");
         navigate("/");
 
         try {
@@ -128,7 +135,7 @@ const AddAForm = (props) => {
           console.log(emailParams.patE);
           console.log(emailParams.docE);
         
-          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID2, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID2);
+          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
 
           console.log("Email sent successfully.");
         } catch (error) {
