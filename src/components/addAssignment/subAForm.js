@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import axiosSetup from "../../axiosSetup";
 import { useNavigate } from "react-router-dom";
 import "./AddAForm.css";
+import emailjs from "emailjs-com";
 
 const SubAForm = (props) => {
   
@@ -103,12 +104,28 @@ const SubAForm = (props) => {
         doc: asData.doc,
         files: addedFiles,
         pat: localStorage.getItem('username'),
+        patE: localStorage.getItem('email'),
+        docE: asData.docE,
       };
-      var res = await axiosSetup.post("/sAss", body);
       console.log(body);
+      var res = await axiosSetup.post("/sAss", body);
+      
       if (res.data.success) {
         alert("Assignment submitted");
         navigate("/");
+        try {
+          const templateId = "template_81xpn8e";
+          const emailParams = {
+            docE: asData.docE,
+          };
+  
+          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
+  
+          console.log("Email sent successfully.");
+        } catch (error) {
+          console.error("Error sending email:", error);
+        }
+
       }
     }
   }

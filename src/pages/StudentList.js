@@ -12,9 +12,9 @@ import './studentList.css';
 function StudentList() {
   const [users, setUsers] = useState([]);
 
-
+  let doctorName = localStorage.getItem("username");
   useEffect(() => {
-    axiosSetup.get("/Names?type=3") 
+    axiosSetup.get("/patients?username=" + doctorName) 
       .then((result) => {
         setUsers(result.data);
       })

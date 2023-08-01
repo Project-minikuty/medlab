@@ -52,25 +52,6 @@ function Submission1() {
       if (response.status === 200) {
         message.success("File uploaded successfully.");
         setFileList([]);
-
-   
-        try {
-          const templateId = "template_81xpn8e";
-          const fromEmail = localStorage.getItem("email");
-        
-  
-          const emailParams = {
-            userEmail: fromEmail,
-            subject: "",
-            body: "Your file has been successfully uploaded",
-          };
-  
-          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
-  
-          console.log("Email sent successfully.");
-        } catch (error) {
-          console.error("Error sending email:", error);
-        }
       } else {
         message.error("Failed to upload file.");
       }

@@ -135,7 +135,7 @@ const AddAForm = (props) => {
           console.log(emailParams.patE);
           console.log(emailParams.docE);
         
-          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
+          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID2, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID2);
 
           console.log("Email sent successfully.");
         } catch (error) {
