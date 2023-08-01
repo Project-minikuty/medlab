@@ -55,10 +55,9 @@ function Submission1() {
 
    
         try {
-          const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
           const templateId = "template_81xpn8e";
           const fromEmail = localStorage.getItem("email");
-          const emailJsKey = process.env.REACT_APP_EMAILJS_USER_ID; // Use the correct variable name
+        
   
           const emailParams = {
             userEmail: fromEmail,
