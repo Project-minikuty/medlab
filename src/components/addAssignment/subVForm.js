@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import axiosSetup from "../../axiosSetup";
 import { useNavigate } from "react-router-dom";
 import "./AddAForm.css";
+import ReactPlayer from "react-player";
 
 const SubVForm = (props) => {
   
@@ -161,7 +162,22 @@ const SubVForm = (props) => {
                     <ul className="list-group">
                       {asData.files.map((e) => (
                         <li className="list-group-item" key={e[1]}>
-                          <span>{e[0]}</span>
+                         {(e[2] == 0 || e[2] == 3) && <span>{e[0]}</span>}
+                          {e[2] == 1 && (
+                            <ReactPlayer
+                              url={`https://medback.up.railway.app/video/${e[1]}`}
+                              controls // Display video controls
+                              width="50%"
+                              height="auto"
+                            />
+                          )}
+                          {
+                            e[2]==2 &&(
+                              <img src={`https://medback.up.railway.app/image/${e[1]}`} alt="Image"
+                              width="50%"
+                              height="auto" />
+                            )
+                          }
                           <button
                             type="button"
                             className="btn btn-outline-success ms-5"

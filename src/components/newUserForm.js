@@ -8,7 +8,8 @@ const NewuserForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState("");
+  const [email, setEmail] = useState(0);
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [gender, setGender] = useState("");
@@ -31,6 +32,7 @@ const NewuserForm = (props) => {
       name: name,
       type: userRole,
       age: age,
+      email: email,
       height: height,
       weight: weight,
       gender: gender,
@@ -107,14 +109,14 @@ const NewuserForm = (props) => {
               </div>
               <div className="d-flex">
                 <div className="d-flex justify-content-between">
-                  <label className=" wrapper2">Age:</label>
+                  <label className=" wrapper2">Email:</label>
                   <input
                     required={true}
                     className=" wrapper2"
-                    type="number"
-                    name="age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="d-flex justify-content-between">
@@ -232,14 +234,14 @@ const NewuserForm = (props) => {
                   />
                 </div>
                 <div className="d-flex justify-content-between">
-                  <label className=" wrapper2">Date of Birth:</label>
+                  <label className=" wrapper2">Email:</label>
                   <input
                     required={true}
                     className=" wrapper2"
-                    type="date"
-                    name="dob"
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>

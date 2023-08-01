@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Upload, Button, message } from "antd";
+import { InboxOutlined, FileOutlined } from "@ant-design/icons";
+import emailjs from "emailjs-com"; // Import emailjs-com
 
 import BrandNav from "../components/BrandNav";
 import styles from "./submitAssignment.module.css";
@@ -104,8 +106,7 @@ function Submission1() {
           {asData && <SubVForm data={asData} />}
         </div>
       </div>
-    </>
-  );
+    </>)
 }
 
 export default Submission1;

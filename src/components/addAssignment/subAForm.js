@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
 import PropTypes from "prop-types";
 import axiosSetup from "../../axiosSetup";
 import { useNavigate } from "react-router-dom";
 import "./AddAForm.css";
+import emailjs from "emailjs-com";
 
 const SubAForm = (props) => {
   
   const navigate = useNavigate();
+  const [fileType, setFileType] = useState(0);
   const [addedFiles, setAddedFile] = useState([]);
   const [asname, setAsname] = useState();
   const [desc, setDesc] = useState();
   const [pat, setPat] = useState();
   const [asData,setAsdata] = useState(props.data);
   
-
+  const handleFileChange = (e) => {
+    setFileType(Number(e.target.value));
+  };
 
   const handleFileDownload = async (e) => {
     try {
@@ -66,7 +71,7 @@ const SubAForm = (props) => {
       },
     });
 
-    setAddedFile((ei) => [...ei, [e.target.files[0].name, response.data.file_id]]);
+    setAddedFile((ei) => [...ei, [e.target.files[0].name, response.data.file_id,fileType]]);
     console.log(addedFiles);
   }
 
@@ -99,12 +104,28 @@ const SubAForm = (props) => {
         doc: asData.doc,
         files: addedFiles,
         pat: localStorage.getItem('username'),
+        patE: localStorage.getItem('email'),
+        docE: asData.docE,
       };
-      var res = await axiosSetup.post("/sAss", body);
       console.log(body);
+      var res = await axiosSetup.post("/sAss", body);
+      
       if (res.data.success) {
         alert("Assignment submitted");
         navigate("/");
+        try {
+          const templateId = "template_81xpn8e";
+          const emailParams = {
+            docE: asData.docE,
+          };
+  
+          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
+  
+          console.log("Email sent successfully.");
+        } catch (error) {
+          console.error("Error sending email:", error);
+        }
+
       }
     }
   }
@@ -152,7 +173,22 @@ const SubAForm = (props) => {
                     <ul className="list-group">
                       {asData.files.map((e) => (
                         <li className="list-group-item" key={e[1]}>
-                          <span>{e[0]}</span>
+                          {(e[2] == 0 || e[2] == 3) && <span>{e[0]}</span>}
+                          {e[2] == 1 && (
+                            <ReactPlayer
+                              url={`https://medback.up.railway.app/video/${e[1]}`}
+                              controls // Display video controls
+                              width="50%"
+                              height="auto"
+                            />
+                          )}
+                          {
+                            e[2]==2 &&(
+                              <img src={`https://medback.up.railway.app/image/${e[1]}`} alt="Image"
+                              width="50%"
+                              height="auto" />
+                            )
+                          }
                           <button
                             type="button"
                             className="btn btn-outline-success ms-5"
@@ -177,7 +213,24 @@ const SubAForm = (props) => {
               <div className="col">
                 <div className="form-group">
                   <label className="name-label">Add submission file here:</label>
-                  <input type="file" className="form-control-file btn" onChange={handleAddfile} />
+                  <select
+                      value={fileType}
+                      onChange={handleFileChange}
+                      name="userRole"
+                      className="customDropdown"
+                    >
+                      <option value={0}>choose file type</option>
+                      <option value={1}>video</option>
+                      <option value={2}>image</option>
+                      <option value={3}>document</option>
+                    </select>
+                    {fileType && (
+                      <input
+                        type="file"
+                        className="form-control-file btn"
+                        onChange={handleAddfile}
+                      />
+                    )}
                 </div>
               </div>
             </div>
@@ -188,7 +241,22 @@ const SubAForm = (props) => {
                     <ul className="list-group">
                       {addedFiles.map((e) => (
                         <li className="list-group-item" key={e[1]}>
-                          <span>{e[0]}</span>
+                          {(e[2] == 0 || e[2] == 3) && <span>{e[0]}</span>}
+                          {e[2] == 1 && (
+                            <ReactPlayer
+                              url={`https://medback.up.railway.app/video/${e[1]}`}
+                              controls // Display video controls
+                              width="50%"
+                              height="auto"
+                            />
+                          )}
+                          {
+                            e[2]==2 &&(
+                              <img src={`https://medback.up.railway.app/image/${e[1]}`} alt="Image"
+                              width="50%"
+                              height="auto" />
+                            )
+                          }
                           <button
                             type="button"
                             className="btn btn-outline-danger ms-5"

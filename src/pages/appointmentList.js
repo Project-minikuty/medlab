@@ -11,7 +11,7 @@ function ApointmentList() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    axiosSetup.get("/Names?type=3") // Change the URL to the appropriate endpoint on your server
+    axiosSetup.get("/Names?type=3") 
       .then((result) => {
         setAppointments(result.data);
       })

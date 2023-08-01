@@ -16,8 +16,9 @@ const EditData = () => {
     username: "john_doe",
     password: "",
     name: "John Doe",
+
     type: 0,
-    age: 30,
+    email: "",
     height: "",
     weight: "",
     gender: "",
@@ -60,7 +61,8 @@ const EditData = () => {
       var body = {
         "username":formData.username,
         "name":formData.name,
-        "age": Number(formData.age),
+        "age": formData.age.toString(),
+        "email": formData.email,
         "height": formData.height,
         "weight": formData.weight,
         "gender": formData.gender,
@@ -123,11 +125,11 @@ const EditData = () => {
                     />
                   </div>
                   <div className="d-flex justify-content-between">
-                    <label>Age:</label>
+                    <label>Email:</label>
                     <input
-                      type="number"
-                      name="age"
-                      value={formData.age}
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleChange}
                     />
                   </div>

@@ -6,6 +6,7 @@ import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import axios from "../../axiosSetup";
 import "./Login-form.css";
+import emailjs from "emailjs-com";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -32,29 +33,45 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    let userType;
     axios
       .get(`/validate?username=${username}&password=${password}`)
       .then(async (res) => {
         errorHandling(res.data.message);
         if (res.data.access) {
           console.log("logged");
+         
+          
           const userType = Number(res.data.details.type);
           const name = res.data.details.name;
+          const email = res.data.details.email;
           console.log(userType);
+          localStorage.setItem("logged",true);
           localStorage.setItem("name", name);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
-          localStorage.setItem("logged",true);
+          localStorage.setItem("email", email);
           localStorage.setItem("_id",res.data.details._id);
+          try {
 
+            
+        
+            const templateId = "template_wy7909r";
+            const fromEmail = localStorage.getItem("email")
+            console.log(fromEmail);
+            const emailParams = {
+              userEmail: fromEmail, 
+            };
+  
           
-          // if (userType === 1) {
-          //  navigate("/admin");
-          // } else if (userType === 2) {
-          //   navigate("/doctor");
-          // } else if (userType === 3) {
-          //   navigate("/parent");
-          // }
+            await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID);
+  
+            console.log("Email sent successfully.");
+          } catch (error) {
+            console.error("Error sending email:", error);
+          }
+      
+        
           navigate("/li")
         }
       })

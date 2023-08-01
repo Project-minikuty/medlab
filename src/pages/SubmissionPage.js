@@ -9,6 +9,7 @@ import axios from "axios";
 import axiosSetup from "../axiosSetup";
 import SubAForm from "../components/addAssignment/subAForm";
 
+
 const { Dragger } = Upload;
 
 function Submission() {
@@ -25,6 +26,7 @@ function Submission() {
       
     }
   }, []);
+
 
   const handleFileRemove = (file) => {
     setFileList((prevList) => prevList.filter((f) => f.uid !== file.uid));
@@ -49,6 +51,9 @@ function Submission() {
       if (response.status === 200) {
         message.success("File uploaded successfully.");
         setFileList([]);
+        
+        
+
       } else {
         message.error("Failed to upload file.");
       }
