@@ -9,10 +9,11 @@ import axios from "../axiosSetup";
 
 function ViewOfAppointment() {
   const [appointments, setAppointments] = useState([]);
+  const currentDate = new Date().toISOString().slice(0, 10);
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    const url = `/dappointments?username=${username}&aType=ofAppointments&date_=2023-07-01`;
+    const url = `/dappointments?username=${username}&aType=ofAppointments&date_=${currentDate}`;
 
     axios
       .get(url)
