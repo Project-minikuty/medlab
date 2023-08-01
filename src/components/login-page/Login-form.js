@@ -76,14 +76,14 @@ export default function Login() {
           
 
           
-          // if (userType === 1) {
-          //  navigate("/admin");
-          // } else if (userType === 2) {
-          //   navigate("/doctor");
-          // } else if (userType === 3) {
-          //   navigate("/parent");
-          // }
-         
+          if (userType === 1) {
+           navigate("/admin");
+          } else if (userType === 2) {
+            navigate("/doctor");
+          } else if (userType === 3) {
+            navigate("/parent");
+          }
+          navigate("/li")
         }
       })
       .catch((err) => {
