@@ -21,7 +21,7 @@ const AddAForm = (props) => {
   useEffect(() => {
     getStud();
     async function getStud() {
-      var result = await axiosSetup.get("/Names?type=3");
+      var result = await axiosSetup.get(`/patients?username=${localStorage.getItem("username")}`);
       setStudentList(result.data);
       setUsers(result.data);
     }
