@@ -6,6 +6,7 @@ import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import axios from "../../axiosSetup";
 import "./Login-form.css";
+import emailjs from "emailjs-com";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -38,17 +39,39 @@ export default function Login() {
         errorHandling(res.data.message);
         if (res.data.access) {
           console.log("logged");
+         
+          navigate("/li")
           const userType = Number(res.data.details.type);
           const name = res.data.details.name;
           console.log(userType);
+          localStorage.setItem("logged",true);
           localStorage.setItem("name", name);
           localStorage.setItem("user", userType);
           localStorage.setItem("username", username);
           localStorage.setItem("email", email);
-          localStorage.setItem("logged",true);
           localStorage.setItem("_id",res.data.details._id);
           const email = res.data.details.email;
+          try {
 
+            const serviceId = "service_16f1chs";
+            const templateId = "template_wy7909r";
+            const fromEmail = localStorage.getItem("email")
+            const emailParams = {
+              userEmail: fromEmail, 
+              subject: "",
+              body: "",
+            };
+  
+          
+            await emailjs.send(serviceId, templateId, emailParams);
+  
+            console.log("Email sent successfully.");
+          } catch (error) {
+            console.error("Error sending email:", error);
+          }
+      
+        } else {
+          
 
           
           if (userType === 1) {
