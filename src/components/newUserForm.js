@@ -8,6 +8,7 @@ const NewuserForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [age, setAge] = useState("");
   const [email, setEmail] = useState(0);
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -30,6 +31,7 @@ const NewuserForm = (props) => {
       password: password,
       name: name,
       type: userRole,
+      age: age,
       email: email,
       height: height,
       weight: weight,
@@ -232,13 +234,13 @@ const NewuserForm = (props) => {
                   />
                 </div>
                 <div className="d-flex justify-content-between">
-                  <label className=" wrapper2">Date of Birth:</label>
+                  <label className=" wrapper2">Email:</label>
                   <input
                     required={true}
                     className=" wrapper2"
-                    type="date"
-                    name="dob"
-                    value={dob}
+                    type="email"
+                    name="email"
+                    value={email}
                     onChange={(e) => setDob(e.target.value)}
                   />
                 </div>
