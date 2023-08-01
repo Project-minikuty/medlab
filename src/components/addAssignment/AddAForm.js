@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import axiosSetup from "../../axiosSetup";
 import { useNavigate } from "react-router-dom";
 import "./AddAForm.css";
+import emailjs from "emailjs-com";
 
 const AddAForm = (props) => {
   const navigate = useNavigate();
@@ -13,14 +14,40 @@ const AddAForm = (props) => {
   const [asname, setAsname] = useState();
   const [desc, setDesc] = useState();
   const [pat, setPat] = useState();
+  const [users, setUsers] = useState([]);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+
 
   useEffect(() => {
     getStud();
     async function getStud() {
       var result = await axiosSetup.get("/Names?type=3");
       setStudentList(result.data);
+      setUsers(result.data);
     }
   }, []);
+
+  const getUserIdByUsername = (username) => {
+    const user = users.find((user) => user.username === username);
+    if (user) {
+      setSelectedUserId(user._id);
+      // Make a second API request to get user details using the obtained user ID
+      axiosSetup.get(`/sDetails?id=${user._id}`)
+        .then((result) => {
+          const email = result.data.email; // Assuming the API response contains the email field
+          setPatEmail(email); // Set the obtained email in the state
+        })
+        .catch((error) => {
+          console.error("Error fetching user details:", error);
+        });
+    } else {
+      setSelectedUserId(null);
+      setPatEmail(""); // Set the email to empty if the user is not found
+    }
+  };
+
+  // State to store the email of the patient (patE)
+  const [patEmail, setPatEmail] = useState("");
 
   function handleAddfile(e) {
     addFile(e);
@@ -66,20 +93,49 @@ const AddAForm = (props) => {
     e.preventDefault();
     subForm();
 
+
+
     async function subForm() {
       // const newArray = addedFiles.map((e) => e[1]);
+
       var body = {
         name: asname,
         desc: desc,
         doc: localStorage.getItem("username"),
         files: addedFiles,
         pat: pat,
+        docE: localStorage.getItem("email"),
+        patE: patEmail,
       };
       var res = await axiosSetup.post("/cAssignment", body);
       console.log(res);
       if (res.data.success) {
         alert("Assignment made");
+        console.log(body.patE);
         navigate("/");
+
+        try {
+
+            
+        
+          const templateId = "template_wuw1kki";
+  
+          const emailParams = {
+            patE: patEmail,
+            docE: localStorage.getItem("email"),
+          };
+
+          console.log(emailParams.patE);
+          console.log(emailParams.docE);
+        
+          await emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID2, templateId, emailParams, process.env.REACT_APP_EMAILJS_USER_ID2);
+
+          console.log("Email sent successfully.");
+        } catch (error) {
+          console.error("Error sending email:", error);
+          
+        }
+
       }
     }
   }

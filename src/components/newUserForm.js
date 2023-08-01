@@ -241,7 +241,7 @@ const NewuserForm = (props) => {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={(e) => setDob(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>

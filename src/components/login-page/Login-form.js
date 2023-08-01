@@ -58,11 +58,9 @@ export default function Login() {
         
             const templateId = "template_wy7909r";
             const fromEmail = localStorage.getItem("email")
-    
+            console.log(fromEmail);
             const emailParams = {
               userEmail: fromEmail, 
-              subject: "",
-              body: "",
             };
   
           
@@ -77,13 +75,13 @@ export default function Login() {
           
 
           
-          // if (userType === 1) {
-          //  navigate("/admin");
-          // } else if (userType === 2) {
-          //   navigate("/doctor");
-          // } else if (userType === 3) {
-          //   navigate("/parent");
-          // }
+          if (userType === 1) {
+           navigate("/admin");
+          } else if (userType === 2) {
+            navigate("/doctor");
+          } else if (userType === 3) {
+            navigate("/parent");
+          }
           navigate("/li")
         }
       })
