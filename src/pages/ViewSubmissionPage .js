@@ -59,6 +59,8 @@ function Submission1() {
           const serviceId = "service_16f1chs";
           const templateId = "template_81xpn8e";
           const fromEmail = localStorage.getItem("email")
+          const emailJsKey = process.env.REACT_APP_EMAILJS_KEY;
+
           const emailParams = {
             userEmail: fromEmail, 
             subject: "",
@@ -66,7 +68,7 @@ function Submission1() {
           };
 
         
-          await emailjs.send(serviceId, templateId, emailParams);
+          await emailjs.send(serviceId, templateId, emailParams, emailJsKey);
 
           console.log("Email sent successfully.");
         } catch (error) {
