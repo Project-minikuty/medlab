@@ -134,8 +134,9 @@ const AddAForm = (props) => {
             <div className="row">
               <div className="col">
                 <div className="form-group">
-                  <label className="name-label">Add File here:</label>
-                  <input type="file" className="form-control-file btn" onChange={handleAddfile} />
+                <div><label className="name-label">Add File here:</label>
+                <input type="select"></input>
+                  <input type="file" className="form-control-file btn" onChange={handleAddfile} /></div>
                 </div>
               </div>
             </div>
