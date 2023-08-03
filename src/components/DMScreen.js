@@ -34,8 +34,9 @@ function ChatPage() {
     avtr: "",
     conversationID: "",
   });
-  const [convoList, setConvoList] = useState([]);
+  const [convoList, setConvoList] = useState();
   const [messageList, setMessageList] = useState([]);
+  const [v,setV] = useState(false);
   useEffect(() => {
     getConvo();
 
@@ -49,10 +50,12 @@ function ChatPage() {
         async function ({ message, fromConversationID }) {
           convoList = await zim.queryConversationList({ count: 30 });
           setConvoList(convoList.conversationList);
-          setConvo({ ...convo, selected: true });
+          // setV(true);
+          setConvo({...convo});
         }
       );
       setConvoList(convoList.conversationList);
+      // setV(true);
     }
     // eslint-disable-next-line
   }, []);
@@ -152,10 +155,10 @@ function ChatPage() {
             {convoList.map((c) => (
               <Conversation
                 name={c.conversationName}
-                lastSenderName={
-                  c.lastMessage.direction === 0 ? "( sent )" : "( received )"
-                }
-                info={c.lastMessage.message || c.lastMessage.fileName}
+                // lastSenderName={c.lastMessage.direction && 
+                //   c.lastMessage.direction === 0 ? "( sent )" : "( received )"
+                // }
+                // info={c.lastMessage.message || c.lastMessage.fileName}
                 onClick={() => {
                   setConvo({
                     name: c.conversationName,
