@@ -13,7 +13,7 @@ import axios from "axios";
 // });
 
 export default axios.create({
-    baseURL: "https://medback.up.railway.app",
+    baseURL: "https://medback.onrender.com",
   
 });
 
