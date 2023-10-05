@@ -34,7 +34,7 @@ function ChatPage() {
     avtr: "",
     conversationID: "",
   });
-  const [convoList, setConvoList] = useState();
+  const [convoList, setConvoList] = useState([]);
   const [messageList, setMessageList] = useState([]);
   const [v,setV] = useState(false);
   useEffect(() => {
